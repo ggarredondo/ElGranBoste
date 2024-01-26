@@ -1,7 +1,6 @@
 using UnityEngine;
-using UnityEngine.InputSystem.XR;
 
-public class Player : MonoBehaviour
+public class PlayerStateMachine : MonoBehaviour
 {
     private Transform camTransform;
     private CharacterController characterController;
@@ -27,6 +26,7 @@ public class Player : MonoBehaviour
         ChangeState(runningState);
     }
     private void Start() {}
+    private void Update() => currentState.Update();
 
     private void ChangeState(in PlayerState newState)
     {
@@ -36,9 +36,8 @@ public class Player : MonoBehaviour
         currentState.Enter();
     }
 
-    private void Update() => currentState.Update();
-
     // API
+    public void Enable(bool enabled) => this.enabled = enabled;
     public void Move(float movementSpeed)
     {
         Vector3 forward = Vector3.Cross(camTransform.right, Vector3.up).normalized;

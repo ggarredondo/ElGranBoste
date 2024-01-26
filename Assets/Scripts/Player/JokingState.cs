@@ -1,14 +1,14 @@
 using UnityEngine;
 
 [System.Serializable]
-public class RunningState : PlayerState
+public class JokingState : PlayerState
 {
     [SerializeField] private float movementSpeed = 1f;
-    public void Initialize(in Player player) => base.Initialize("MOVEMENT", player);
+    public void Initialize(in PlayerStateMachine player) => base.Initialize("JOKING", player);
 
     public override void Enter()
     {
-        player.InputController.OnPressJoke += player.TransitionToJoking;
+        player.InputController.OnReleaseJoke += player.TransitionToRunning;
         base.Enter();
     }
     public override void Update()
@@ -18,7 +18,7 @@ public class RunningState : PlayerState
     }
     public override void Exit()
     {
-        player.InputController.OnPressJoke -= player.TransitionToJoking;
+        player.InputController.OnReleaseJoke -= player.TransitionToRunning;
         base.Exit();
     }
 }

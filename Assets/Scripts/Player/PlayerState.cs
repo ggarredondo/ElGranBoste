@@ -3,10 +3,10 @@ using System;
 public abstract class PlayerState
 {
     protected string stateName;
-    [NonSerialized] protected Player player;
+    [NonSerialized] protected PlayerStateMachine player;
     public event Action OnEnter, OnExit;
 
-    protected void Initialize(in string stateName, in Player player)
+    protected void Initialize(in string stateName, in PlayerStateMachine player)
     {
         this.stateName = stateName;
         this.player = player;
