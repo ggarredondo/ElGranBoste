@@ -31,24 +31,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "CameraUp",
-                    "type": "Button",
-                    "id": "6d3ca6e0-d851-4cb1-ada5-ceb5119b2e7f",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "CameraDown",
-                    "type": "Button",
-                    "id": "064f6549-fbf9-4671-b976-3df30a79a69d",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -148,28 +130,6 @@
                     "processors": "ScaleVector2(x=10,y=10)",
                     "groups": "Gamepad",
                     "action": "Look",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "608b8a0e-deb9-4137-92a9-d54e8311fb45",
-                    "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "CameraUp",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "eae632f1-b313-48d6-9705-7d9d849d3a40",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "CameraDown",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -806,76 +766,6 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Scrollbar",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                }
-            ]
-        },
-        {
-            "name": "LoadingScreen",
-            "id": "163b01bc-1759-4c76-8491-2b936d83b771",
-            "actions": [
-                {
-                    "name": "Continue",
-                    "type": "Button",
-                    "id": "81ef5d60-0200-42ff-9d13-af67beaa6c37",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Stop",
-                    "type": "Button",
-                    "id": "8f006f83-0367-4932-80f0-42ce968fad13",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Tap",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "",
-                    "id": "0c24e94e-da61-4531-8a37-8bc11cf93c27",
-                    "path": "<Gamepad>/start",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Continue",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "8c3e6fb2-f5e8-463d-b01f-f7806dcb0097",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Continue",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "65d0c0c4-d149-4ef3-91ed-2d6f9a56b769",
-                    "path": "<Gamepad>/buttonSouth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Stop",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "da6792c7-952b-4b6b-a797-7b300b79e64c",
-                    "path": "<Keyboard>/a",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Stop",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
