@@ -1,0 +1,25 @@
+{
+  "name": "com.parry-mechanics.out-scene-essentials",
+  "version": "0.1.0",
+  "displayName": "Out Scene Essentials",
+  "description": "In this package, input systems, saving functionalities, scene controller,\nand sound manager are provided. All modular and operating outside\nthe scene for better global access",
+  "unity": "2021.3",
+  "unityRelease": "7f1",
+  "documentationUrl": "https://axcruz12.github.io/",
+  "changelogUrl": "https://example.com/changelog.html",
+  "licensesUrl": "https://example.com/licensing.html",
+  "dependencies": {
+    "com.unity.inputsystem": "1.7.0"
+  },
+  "keywords": [
+    "input",
+    "audio",
+    "save",
+    "scene"
+  ],
+  "author": {
+    "name": "Alejandro Cruz Lemos",
+    "email": "alexcruzlemos12082000@gmail.com",
+    "url": "https://axcruz12.github.io/"
+  }
+}
