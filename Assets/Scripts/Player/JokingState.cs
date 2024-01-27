@@ -7,6 +7,8 @@ public class JokingState : PlayerState
     [SerializeField] private float movementSpeed = 1f;
     private Sequence sequence;
     private Joke currentJoke;
+
+    public System.Action OnJokePerformed;
     public void Initialize(in PlayerStateMachine player) => base.Initialize("JOKING", player);
 
     public override void Enter()
@@ -34,7 +36,10 @@ public class JokingState : PlayerState
     public void PerformJoke()
     {
         if (player.IsEnemyInCameraView())
+        {
             player.PlayerToEnemyEvents.OnJokePerformed?.Invoke(currentJoke);
+            OnJokePerformed?.Invoke();
+        }
         player.TransitionToRunning();
     }
 
