@@ -20,6 +20,7 @@ public class PlayerStateMachine : MonoBehaviour
     [SerializeField] private float minDistanceToDie;
 
     public event System.Action OnDeadDistance;
+    public System.Action OnPickBook;
 
     private void Awake() 
     {

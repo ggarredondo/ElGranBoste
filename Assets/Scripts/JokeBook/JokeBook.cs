@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.WSA;
 using UnityEngine.InputSystem;
 using DG.Tweening;
+using static Unity.Burst.Intrinsics.X86.Avx;
 
 public class JokeBook : MonoBehaviour
 {
@@ -21,15 +22,25 @@ public class JokeBook : MonoBehaviour
 
     private List<BookPage> pages;
     private bool selected, setTimer;
-    private Vector3 initialPosition;
     private Sequence timer;
 
     private void Start()
     {
-        initialPosition = transform.position;
         player.InputController.OnMouseWheel += MouseWheel;
+        player.OnPickBook += UpdateBookPages;
         pages = new();
         Initialize();
+    }
+
+    private void UpdateBookPages()
+    {
+        for(int i = pages.Count; i < player.JokeList.Count; i++)
+        {
+            GameObject page = LoadPage("Joke_" + i, player.JokeList[i].Sentence);
+            page.SetActive(false);
+            pages.Add(page.GetComponent<BookPage>());
+            pages[i].SetStyle(player.JokeList[i].Sentence, (int)player.JokeList[i].TimeToPerform);
+        }
     }
 
     private void Initialize()
@@ -51,6 +62,7 @@ public class JokeBook : MonoBehaviour
     private void OnDestroy()
     {
         player.InputController.OnMouseWheel -= MouseWheel;
+        player.OnPickBook -= UpdateBookPages;
     }
 
     private void MouseWheel(float direction)
