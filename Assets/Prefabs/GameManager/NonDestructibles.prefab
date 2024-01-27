@@ -478,6 +478,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8882489a2ba91f34cbc273d089786eb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainMenu: 1
   eventHandler: []
   audioMixer: {fileID: 24100000, guid: f3813e01b6876b9499c471297717660c, type: 2}
   defaultOptions: {fileID: 11400000, guid: f742f16fab9589e43a471e6c85dbcfcf, type: 2}

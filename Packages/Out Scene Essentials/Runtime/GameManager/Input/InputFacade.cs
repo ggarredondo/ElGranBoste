@@ -19,7 +19,7 @@ namespace InputUtilities
 
         private System.Action detectionMethod;
 
-        public InputFacade(InputSystemUIInputModule uiModule)
+        public InputFacade(InputSystemUIInputModule uiModule, bool mainMenu)
         {
             uiInput = uiModule;
 
@@ -27,7 +27,8 @@ namespace InputUtilities
             inputDetection = new();
             controllerRumble = new();
 
-            EnterPauseMenu(0,1);
+            if(mainMenu)
+                EnterPauseMenu(0,1);
         }
 
         public async void OnPlayerJoined(PlayerInput currentPlayerInput)

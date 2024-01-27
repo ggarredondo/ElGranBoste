@@ -13,6 +13,9 @@ using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("Input")]
+    [SerializeField] private bool mainMenu;
+
     [Header("EventSettings")]
     [SerializeField] private List<EventHandler> eventHandler;
 
@@ -61,7 +64,7 @@ public class GameManager : MonoBehaviour
         saver.Load();
 
         //Input Initialize
-        inputUtilities = new(GetComponent<InputSystemUIInputModule>());
+        inputUtilities = new(GetComponent<InputSystemUIInputModule>(), mainMenu);
     }
 
     private void Start()
@@ -76,7 +79,8 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        inputUtilities.Update();
+        if(mainMenu)
+            inputUtilities.Update();
     }
 
     private void OnValidate()

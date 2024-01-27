@@ -5,6 +5,9 @@ using DG.Tweening;
 
 public class CinemachinePOVExtension : CinemachineExtension
 {
+    [Header("Player")]
+    [SerializeField] private string playerTag;
+
     [Header("Input")]
     [SerializeField] private InputActionReference look;
 
@@ -22,6 +25,7 @@ public class CinemachinePOVExtension : CinemachineExtension
     private Vector2 mouseInput;
     private Vector3 startingRotation;
     private Transform target;
+    private PlayerStateMachine player;
 
     private Sequence sequenceY, sequenceX;
 
@@ -36,6 +40,22 @@ public class CinemachinePOVExtension : CinemachineExtension
         CameraShake();
 
         base.Awake();
+    }
+
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag(playerTag).GetComponent<PlayerStateMachine>();
+    }
+
+    private void Update()
+    {
+        UpdateDuration();
+    }
+
+    private void UpdateDuration()
+    {
+        sequenceX.DOTimeScale(player.Velocity.magnitude / 5, 0f);
+        sequenceY.DOTimeScale(player.Velocity.magnitude / 5, 0f);
     }
 
     private void CameraShake()
