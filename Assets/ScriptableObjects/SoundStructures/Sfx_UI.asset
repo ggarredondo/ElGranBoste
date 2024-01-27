@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7564036886c38a042a3217cff9b6784e, type: 3}
+  m_Name: Sfx_UI
+  m_EditorClassIdentifier: 
+  audioMixerGroup: {fileID: 1182211558071756111, guid: f3813e01b6876b9499c471297717660c,
+    type: 2}
+  threeD: 0
+  dopplerLevel: 1
+  spread: 0
+  volumeRolloff: 0
+  minDistance: 1
+  maxDistance: 500
+  customRollofCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  soundGroups:
+  - sounds:
+    - name: SelectButton
+      clip: {fileID: 8300000, guid: ab012198a85961f46a90ba4ccd654917, type: 3}
+      volume: 1
+      pitch: 0.5
+      loop: 0
+    - name: ChangeMenu
+      clip: {fileID: 8300000, guid: 6f8fad28a8bb2d74b8a710d27bc230a8, type: 3}
+      volume: 1
+      pitch: 0.5
+      loop: 0
+    - name: Back
+      clip: {fileID: 8300000, guid: 99a03d336b0850143bb5ca7948c19036, type: 3}
+      volume: 1
+      pitch: 0.5
+      loop: 0
+    - name: PressButton
+      clip: {fileID: 8300000, guid: 49c9c00e7774b004a9192ee9fa73402e, type: 3}
+      volume: 1
+      pitch: 0.5
+      loop: 0
+    - name: Play
+      clip: {fileID: 8300000, guid: 8e1facf014f2a73479ed6eb1a67b3db8, type: 3}
+      volume: 1
+      pitch: 0.5
+      loop: 0
+    - name: Slider
+      clip: {fileID: 8300000, guid: 030127bc4d5257b4ba61b30368741f96, type: 3}
+      volume: 1
+      pitch: 0.5
+      loop: 0

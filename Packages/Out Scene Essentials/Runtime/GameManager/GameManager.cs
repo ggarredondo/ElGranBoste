@@ -74,6 +74,11 @@ public class GameManager : MonoBehaviour
         saver.Save();
     }
 
+    private void Update()
+    {
+        inputUtilities.Update();
+    }
+
     private void OnValidate()
     {
         Time.timeScale = timeScale;

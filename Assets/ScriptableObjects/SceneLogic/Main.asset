@@ -13,8 +13,14 @@ MonoBehaviour:
   m_Name: Main
   m_EditorClassIdentifier: 
   sceneName: Main
-  nextScene: []
-  previousScene: []
+  nextScene:
+  - sceneName: Menu
+    withLoadScreen: 0
+    loadSceneName: 
+  previousScene:
+  - sceneName: Menu
+    withLoadScreen: 0
+    loadSceneName: 
   playMusic: 0
   music: Ambient
   gameObjectsTag: []

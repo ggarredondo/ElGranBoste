@@ -273,7 +273,7 @@ MonoBehaviour:
     endRightPosition: {x: 650, y: 0}
     startSound: TransitionStart
     endSound: TransitionEnd
-  lerpDuration: 0.5
+  lerpDuration: 1
   extraDuration: 1
 --- !u!222 &1277050531558938726
 CanvasRenderer:
@@ -378,6 +378,7 @@ MonoBehaviour:
   ID: 
   soundStructures:
   - {fileID: 11400000, guid: fdf0b0f09de253a40a06e482f61e4d16, type: 2}
+  - {fileID: 11400000, guid: dbfcb12bae7577c4590839554cdea9ca, type: 2}
   destroySoundStructures: 0
 --- !u!1 &8232855656189735574
 GameObject:
@@ -483,6 +484,7 @@ MonoBehaviour:
   defaultGame: {fileID: 11400000, guid: 8bccf61d00826294d9d4403f5eca75d1, type: 2}
   scenes:
   - {fileID: 11400000, guid: b28b848f3b685574a8404ace6814c421, type: 2}
+  - {fileID: 11400000, guid: 3b92fef20aa354842880b0bae14e28fd, type: 2}
   transitionPlayer: {fileID: 8077567531975457333}
   timeScale: 1
 --- !u!114 &6467190233569342834

@@ -2,6 +2,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using LerpUtilities;
 using System.Threading;
+using DG.Tweening;
 
 public class TransitionPlayer : MonoBehaviour
 {
@@ -22,6 +23,8 @@ public class TransitionPlayer : MonoBehaviour
     private CancellationTokenSource cancellationTokenSource;
     private TransitionData data;
 
+    public Sequence sequence;
+
     public void Initialize()
     {
         data = new(defaultData);
@@ -32,6 +35,8 @@ public class TransitionPlayer : MonoBehaviour
 
         startTransitionWithInput += StartTransitionPlayerWithInput;
         endTransitionWithInput += EndTransitionPlayerWithInput;
+
+        sequence = DOTween.Sequence();
     }
 
     public void SetCamera(Camera camera)

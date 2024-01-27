@@ -26,6 +26,8 @@ namespace InputUtilities
             inputMapping = new();
             inputDetection = new();
             controllerRumble = new();
+
+            EnterPauseMenu(0,1);
         }
 
         public async void OnPlayerJoined(PlayerInput currentPlayerInput)
