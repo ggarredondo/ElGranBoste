@@ -369,8 +369,8 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 10
-      minScalar: 5
+      scalar: 15
+      minScalar: 10
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -5865,6 +5865,7 @@ MonoBehaviour:
   positionOffset: 1110
   alphaOffset: 1
   transitionTime: 0.5
+  firstMenu: 0
   firstSelected: {fileID: 8992208917010222394}
   options:
   - {fileID: 8992208917010222391}
@@ -8356,7 +8357,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &5492111921090298950
 GameObject:
   m_ObjectHideFlags: 0
@@ -9909,6 +9910,7 @@ MonoBehaviour:
   positionOffset: 1110
   alphaOffset: 1
   transitionTime: 0.5
+  firstMenu: 1
   firstSelected: {fileID: 2506615480977108432}
   resumeButton: {fileID: 2506615480977108434}
   exitButton: {fileID: 2506615480847932156}
@@ -11489,6 +11491,7 @@ MonoBehaviour:
   positionOffset: 1110
   alphaOffset: 1
   transitionTime: 0.5
+  firstMenu: 0
   firstSelected: {fileID: 8992208918177639138}
   volumeProfile: {fileID: 11400000, guid: a6560a915ef98420e9faacc1c7438823, type: 2}
   fullscreen:
@@ -12241,6 +12244,7 @@ MonoBehaviour:
   positionOffset: 1110
   alphaOffset: 1
   transitionTime: 0.5
+  firstMenu: 0
   firstSelected: {fileID: 8992208918390309473}
   master:
     dependency: {fileID: 5902341472146972212}
@@ -12621,6 +12625,7 @@ MonoBehaviour:
   positionOffset: 1110
   alphaOffset: 1
   transitionTime: 0.5
+  firstMenu: 0
   firstSelected: {fileID: 6106050091895880749}
 --- !u!224 &8992208918144019779
 RectTransform:

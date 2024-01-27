@@ -13,6 +13,7 @@ public abstract class AbstractMenu : MonoBehaviour
     [SerializeField] [Range(0f,1f)] protected float transitionTime;
 
     [Header("Requirements")]
+    [SerializeField] protected bool firstMenu;
     [SerializeField] protected GameObject firstSelected;
 
     protected List<ITransition> newTransitions = new();
@@ -74,7 +75,11 @@ public abstract class AbstractMenu : MonoBehaviour
 
     public void Initialize()
     {
-        EventSystem.current.SetSelectedGameObject(firstSelected);
+        if (!firstMenu)
+            EventSystem.current.SetSelectedGameObject(firstSelected);
+        else
+            firstMenu = false;
+
         GameManager.Input.SetSelectedGameObject(firstSelected);
     }
 

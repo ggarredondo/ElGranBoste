@@ -16,7 +16,6 @@ namespace MenuTreeUtilities
             nodeStack.Clear();
             nodeStack.Push(rootNode);
             GoToChild();
-            OnChange.Invoke();
         }
 
         public void GoToChild(int child = 0, int depth = 0)
