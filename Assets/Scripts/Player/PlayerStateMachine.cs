@@ -9,6 +9,7 @@ public class PlayerStateMachine : MonoBehaviour
     private CharacterController characterController;
     private InputController inputController;
     private Vector3 velocity;
+    [SerializeField] private PlayerAnimation playerAnimation;
     [SerializeField] private List<Joke> jokeList;
     private int selectedJoke = 0;
 
@@ -33,6 +34,8 @@ public class PlayerStateMachine : MonoBehaviour
         runningState.Initialize(this);
         jokingState.Initialize(this);
         ChangeState(runningState);
+
+        playerAnimation.Initialize(this, GetComponent<Animator>());
     }
     private void Start() {}
     private void Update() => currentState.Update();
@@ -52,7 +55,7 @@ public class PlayerStateMachine : MonoBehaviour
         Vector3 forward = Vector3.Cross(cam.transform.right, Vector3.up).normalized;
         Vector3 direction = cam.transform.right * inputController.MovementDirection.x 
             + forward * inputController.MovementDirection.y;
-        transform.LookAt(transform.position + forward);
+        transform.LookAt(transform.position + cam.transform.forward);
         velocity = direction * movementSpeed;
         characterController.Move(velocity * Time.deltaTime);
     }
@@ -62,6 +65,7 @@ public class PlayerStateMachine : MonoBehaviour
         Vector3 viewPos = cam.WorldToViewportPoint(enemyTransform.position);
         return viewPos.x > 0f && viewPos.x < 1f && viewPos.y > 0f && viewPos.y < 1f && viewPos.z > 0f;
     }
+    public void SetSelectedJoke(int index) => selectedJoke = index;
 
     public void TransitionToRunning() => ChangeState(runningState);
     public void TransitionToJoking() => ChangeState(jokingState);
