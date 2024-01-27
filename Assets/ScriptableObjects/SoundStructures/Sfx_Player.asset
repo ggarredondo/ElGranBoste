@@ -51,7 +51,7 @@ MonoBehaviour:
       volume: 0.5
       pitch: 1
       loop: 0
-    - name: FingerSnap
+    - name: PerformedJoking
       clip: {fileID: 8300000, guid: c89de6120493e5049a8038f6b05b063f, type: 3}
       volume: 1
       pitch: 1
