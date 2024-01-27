@@ -41,7 +41,7 @@ public class JokeBook : MonoBehaviour
             GameObject page = LoadPage("Joke_" + tmp, joke.Sentence);
             page.SetActive(false);
             pages.Add(page.GetComponent<BookPage>());
-            pages[tmp].SetStyle(joke.Sentence);
+            pages[tmp].SetStyle(joke.Sentence, (int) joke.TimeToPerform);
             tmp++;
         }
 
