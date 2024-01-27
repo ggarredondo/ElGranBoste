@@ -11,6 +11,7 @@ public class JokingState : PlayerState
 
     public override void Enter()
     {
+        player.PlayerToEnemyEvents.OnJokeStart?.Invoke();
         currentJoke = player.JokeList[player.SelectedJoke];
         sequence = DOTween.Sequence();
         sequence.AppendInterval(currentJoke.TimeToPerform).OnComplete(PerformJoke);
@@ -24,6 +25,7 @@ public class JokingState : PlayerState
     }
     public override void Exit()
     {
+        player.PlayerToEnemyEvents.OnJokeCancelled?.Invoke();
         sequence.Kill();
         player.InputController.OnReleaseJoke -= player.TransitionToRunning;
         base.Exit();
@@ -31,7 +33,7 @@ public class JokingState : PlayerState
 
     public void PerformJoke()
     {
-        if (player.IsEnemyInCameraView()) 
+        if (player.IsEnemyInCameraView())
             player.PlayerToEnemyEvents.OnJokePerformed?.Invoke(currentJoke);
         player.TransitionToRunning();
     }

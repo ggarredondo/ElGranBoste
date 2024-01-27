@@ -10,6 +10,7 @@ public class EnemyStateMachine : MonoBehaviour
     [SerializeField][ReadOnlyField] private string currentStateName;
     private EnemyState currentState;
     [SerializeField] private ChasingState chasingState;
+    [SerializeField] private ListeningState listeningState;
     [SerializeField] private LaughingState laughingState;
     [SerializeField] private PosteState posteState;
 
@@ -17,6 +18,7 @@ public class EnemyStateMachine : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         chasingState.Initialize(this);
+        listeningState.Initialize(this);
         laughingState.Initialize(this);
         posteState.Initialize(this);
     }
@@ -40,8 +42,10 @@ public class EnemyStateMachine : MonoBehaviour
     public void Enable(bool enabled) => this.enabled = enabled;
     public void FollowPlayer() => agent.SetDestination(target.position);
     public void StopFollowing() => agent.SetDestination(transform.position);
+    public float DistanceToPlayer => Vector3.Distance(transform.position, target.position);
 
     public void TransitionToChasing() => ChangeState(chasingState);
+    public void TransitionToListening() => ChangeState(listeningState);
     public void TransitionToLaughing(in Joke joke)
     {
         laughingState.SetJoke(joke);
@@ -50,5 +54,11 @@ public class EnemyStateMachine : MonoBehaviour
     public void TransitionToPoste() => ChangeState(posteState);
 
     // Gets
+    public ref readonly ChasingState ChasingState => ref chasingState;
+    public ref readonly ListeningState ListeningState => ref listeningState;
+    public ref readonly LaughingState LaughingState => ref laughingState;
+    public ref readonly PosteState PosteState => ref posteState;
+
+    public ref readonly NavMeshAgent Agent => ref agent;
     public ref readonly PlayerToEnemyEvents PlayerToEnemyEvents => ref playerToEnemyEvents;
 }

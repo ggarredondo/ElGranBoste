@@ -21,4 +21,6 @@ public class LaughingState : EnemyState
     {
         base.Exit();
     }
+
+    public ref readonly Joke Joke => ref receivedJoke;
 }

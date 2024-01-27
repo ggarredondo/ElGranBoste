@@ -3,11 +3,13 @@ using UnityEngine;
 [System.Serializable]
 public class ChasingState : EnemyState
 {
+    [SerializeField] private float movementSpeed = 1f, minDistanceToListen;
     public void Initialize(in EnemyStateMachine enemy) => base.Initialize("CHASING", enemy);
 
     public override void Enter()
     {
-        enemy.PlayerToEnemyEvents.OnJokePerformed += ReceiveJoke;
+        enemy.Agent.speed = movementSpeed;
+        enemy.PlayerToEnemyEvents.OnJokeStart += ListenToJoke;
         base.Enter();
     }
     public override void Update()
@@ -15,14 +17,14 @@ public class ChasingState : EnemyState
         enemy.FollowPlayer();
     }
     public override void Exit() 
-    { 
-        enemy.PlayerToEnemyEvents.OnJokePerformed -= ReceiveJoke;
+    {
+        enemy.PlayerToEnemyEvents.OnJokeStart -= ListenToJoke;
         base.Exit();
     }
 
-    public void ReceiveJoke(in Joke joke)
+    private void ListenToJoke()
     {
-        if (joke.Type == JokeType.Stun) enemy.TransitionToLaughing(joke);
-        else if (joke.Type == JokeType.Poste) enemy.TransitionToPoste();
+        if (enemy.DistanceToPlayer <= minDistanceToListen)
+            enemy.TransitionToListening();
     }
 }
