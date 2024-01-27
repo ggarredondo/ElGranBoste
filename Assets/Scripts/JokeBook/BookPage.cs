@@ -9,15 +9,17 @@ public class BookPage : MonoBehaviour
 {
     [SerializeField] private MeshRenderer mesh;
     [SerializeField] private TMP_Text textMeshPro;
+    [SerializeField] private TMP_Text textMeshProSize;
 
     [Header("Parameters")]
     [SerializeField] float pageRotationAngle;
     [SerializeField] float initialPageRotationAngle;
     [SerializeField] float pageRotationTime;
 
-    public void SetStyle(string sentence)
+    public void SetStyle(string sentence, int textSize)
     {
         textMeshPro.text = sentence;
+        textMeshProSize.text = textSize.ToString();
     }
 
     public void MoveForward()
