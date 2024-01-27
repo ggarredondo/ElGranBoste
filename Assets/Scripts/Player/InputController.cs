@@ -6,7 +6,7 @@ public class InputController : MonoBehaviour
     private Vector2 movementDirection;
     public event System.Action OnPressJoke, OnReleaseJoke;
 
-    public void Initialize()
+    private void Awake()
     {
         movementDirection = Vector2.zero;
     }

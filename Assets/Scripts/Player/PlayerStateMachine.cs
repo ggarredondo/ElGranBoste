@@ -9,7 +9,6 @@ public class PlayerStateMachine : MonoBehaviour
     private CharacterController characterController;
     private InputController inputController;
     private Vector3 velocity;
-    [SerializeField] private PlayerAnimation playerAnimation;
     [SerializeField] private List<Joke> jokeList;
     private int selectedJoke = 0;
 
@@ -28,14 +27,11 @@ public class PlayerStateMachine : MonoBehaviour
         playerToEnemyEvents = GetComponent<PlayerToEnemyEvents>();
         characterController = GetComponent<CharacterController>();
         inputController = GetComponent<InputController>();
-        inputController.Initialize();
         velocity = Vector3.zero;
 
         runningState.Initialize(this);
         jokingState.Initialize(this);
         ChangeState(runningState);
-
-        playerAnimation.Initialize(this, GetComponent<Animator>());
     }
     private void Start() {}
     private void Update() => currentState.Update();
