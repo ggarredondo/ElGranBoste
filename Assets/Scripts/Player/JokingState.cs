@@ -18,11 +18,13 @@ public class JokingState : PlayerState
         sequence = DOTween.Sequence();
         sequence.AppendInterval(currentJoke.TimeToPerform).OnComplete(PerformJoke);
         player.InputController.OnReleaseJoke += player.TransitionToRunning;
+        player.OnDeadDistance += player.TransitionToDead;
         base.Enter();
     }
     public override void Update()
     {
         player.Move(movementSpeed);
+        player.LookForward();
         player.Fall();
     }
     public override void Exit()
@@ -30,6 +32,7 @@ public class JokingState : PlayerState
         player.PlayerToEnemyEvents.OnJokeCancelled?.Invoke();
         sequence.Kill();
         player.InputController.OnReleaseJoke -= player.TransitionToRunning;
+        player.OnDeadDistance -= player.TransitionToDead;
         base.Exit();
     }
 

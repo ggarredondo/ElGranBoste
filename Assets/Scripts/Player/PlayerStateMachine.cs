@@ -16,6 +16,10 @@ public class PlayerStateMachine : MonoBehaviour
     private PlayerState currentState;
     [SerializeField] private RunningState runningState;
     [SerializeField] private JokingState jokingState;
+    [SerializeField] private DeadState deadState;
+    [SerializeField] private float minDistanceToDie;
+
+    public event System.Action OnDeadDistance;
 
     private void Awake() 
     {
@@ -30,13 +34,19 @@ public class PlayerStateMachine : MonoBehaviour
 
         runningState.Initialize(this);
         jokingState.Initialize(this);
+        deadState.Initialize(this);
         ChangeState(runningState);
     }
     private void Start()
     {
         cam = Camera.main;
     }
-    private void Update() => currentState.Update();
+    private void Update()
+    {
+        if (DistanceToEnemy <= minDistanceToDie)
+            OnDeadDistance?.Invoke();
+        currentState.Update();
+    }
 
     private void ChangeState(in PlayerState newState)
     {
@@ -53,10 +63,10 @@ public class PlayerStateMachine : MonoBehaviour
         Vector3 forward = Vector3.Cross(cam.transform.right, Vector3.up).normalized;
         Vector3 direction = cam.transform.right * inputController.MovementDirection.x 
             + forward * inputController.MovementDirection.y;
-        transform.LookAt(transform.position + cam.transform.forward);
         velocity = direction * movementSpeed;
         characterController.Move(velocity * Time.deltaTime);
     }
+    public void LookForward() => transform.LookAt(transform.position + cam.transform.forward);
     public void Fall() => characterController.Move(Physics.gravity * Time.deltaTime);
     public bool IsEnemyInCameraView()
     {
@@ -64,13 +74,16 @@ public class PlayerStateMachine : MonoBehaviour
         return viewPos.x >= 0f && viewPos.x <= 1f && viewPos.y >= 0f && viewPos.y <= 1f && viewPos.z > 0f;
     }
     public void SetSelectedJoke(int index) => selectedJoke = index;
+    public float DistanceToEnemy => Vector3.Distance(transform.position, enemyTransform.position);
 
     public void TransitionToRunning() => ChangeState(runningState);
     public void TransitionToJoking() => ChangeState(jokingState);
+    public void TransitionToDead() => ChangeState(deadState);
 
     // Gets
     public ref readonly RunningState RunningState => ref runningState;
     public ref readonly JokingState JokingState => ref jokingState;
+    public ref readonly DeadState DeadState => ref deadState;
 
     public ref readonly PlayerToEnemyEvents PlayerToEnemyEvents => ref playerToEnemyEvents;
     public ref readonly CharacterController CharacterController => ref characterController;
