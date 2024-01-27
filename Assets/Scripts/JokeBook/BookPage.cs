@@ -16,6 +16,9 @@ public class BookPage : MonoBehaviour
     [SerializeField] float initialPageRotationAngle;
     [SerializeField] float pageRotationTime;
 
+    [Header("Sounds")]
+    [SerializeField] private string movePageSoundName;
+
     public void SetStyle(string sentence, int textSize)
     {
         textMeshPro.text = sentence;
@@ -24,11 +27,13 @@ public class BookPage : MonoBehaviour
 
     public void MoveForward()
     {
+        GameManager.Audio.Play(movePageSoundName);
         transform.DOLocalRotate(new Vector3(0, 0, pageRotationAngle), pageRotationTime);
     }
 
     public async Task MoveBackWards()
     {
+        GameManager.Audio.Play(movePageSoundName);
         await transform.DOLocalRotate(new Vector3(0, 0, initialPageRotationAngle), pageRotationTime).AsyncWaitForCompletion();
     }
 }

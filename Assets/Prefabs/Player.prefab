@@ -447,6 +447,7 @@ MonoBehaviour:
   - eventHandler: {fileID: 11400000, guid: f48466838f13a8f47a97f5a53b3b6112, type: 2}
     soundNames:
     - PerformedJoking
+    - EnterDeath
 --- !u!1001 &4362913944702211738
 PrefabInstance:
   m_ObjectHideFlags: 0

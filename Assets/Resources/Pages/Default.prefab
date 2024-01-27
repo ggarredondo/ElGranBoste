@@ -395,6 +395,7 @@ MonoBehaviour:
   pageRotationAngle: 160
   initialPageRotationAngle: 15
   pageRotationTime: 1
+  movePageSoundName: BookPage
 --- !u!1 &8570629974276097625
 GameObject:
   m_ObjectHideFlags: 0
