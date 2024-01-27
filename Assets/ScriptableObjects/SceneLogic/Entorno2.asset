@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d66219019227eb34c927cb1bf1fd9889, type: 3}
   m_Name: Entorno2
   m_EditorClassIdentifier: 
-  sceneName: Entorno2
+  sceneName: Entorno 1
   nextScene: []
   previousScene: []
   playMusic: 0
