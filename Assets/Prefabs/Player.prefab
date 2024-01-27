@@ -526,6 +526,46 @@ PrefabInstance:
       objectReference: {fileID: 454457891393848172}
     - target: {fileID: 7441478619050108758, guid: 567bade760a980547ae8686cdbebd9aa,
         type: 3}
+      propertyPath: selectedPosition.x
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7441478619050108758, guid: 567bade760a980547ae8686cdbebd9aa,
+        type: 3}
+      propertyPath: selectedPosition.y
+      value: -0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7441478619050108758, guid: 567bade760a980547ae8686cdbebd9aa,
+        type: 3}
+      propertyPath: selectedPosition.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7441478619050108758, guid: 567bade760a980547ae8686cdbebd9aa,
+        type: 3}
+      propertyPath: unselectedPosition.x
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7441478619050108758, guid: 567bade760a980547ae8686cdbebd9aa,
+        type: 3}
+      propertyPath: unselectedPosition.y
+      value: -1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7441478619050108758, guid: 567bade760a980547ae8686cdbebd9aa,
+        type: 3}
+      propertyPath: unselectedPosition.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7441478619050108758, guid: 567bade760a980547ae8686cdbebd9aa,
+        type: 3}
+      propertyPath: selectedAnimationTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7441478619050108758, guid: 567bade760a980547ae8686cdbebd9aa,
+        type: 3}
+      propertyPath: unselectedAnimationTime
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7441478619050108758, guid: 567bade760a980547ae8686cdbebd9aa,
+        type: 3}
       propertyPath: selectedPositionOffset.y
       value: 0.25
       objectReference: {fileID: 0}

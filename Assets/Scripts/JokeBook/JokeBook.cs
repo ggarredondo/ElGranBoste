@@ -14,12 +14,15 @@ public class JokeBook : MonoBehaviour
     [SerializeField] private GameObject parent;
 
     [Header("Parameters")]
-    [SerializeField] private Vector3 selectedPositionOffset;
+    [SerializeField] private Vector3 selectedPosition;
+    [SerializeField] private Vector3 unselectedPosition;
     [SerializeField] private float selectedAnimationTime;
+    [SerializeField] private float unselectedAnimationTime;
 
     private List<BookPage> pages;
-    private bool selected;
+    private bool selected, setTimer;
     private Vector3 initialPosition;
+    private Sequence timer;
 
     private void Start()
     {
@@ -27,6 +30,22 @@ public class JokeBook : MonoBehaviour
         player.InputController.OnMouseWheel += MouseWheel;
         pages = new();
         Initialize();
+    }
+
+    private void Initialize()
+    {
+        int tmp = 0;
+
+        foreach (Joke joke in player.JokeList)
+        {
+            GameObject page = LoadPage("Joke_" + tmp, joke.Sentence);
+            page.SetActive(false);
+            pages.Add(page.GetComponent<BookPage>());
+            pages[tmp].SetStyle(joke.Sentence);
+            tmp++;
+        }
+
+        pages[0].gameObject.SetActive(true);
     }
 
     private void OnDestroy()
@@ -37,12 +56,30 @@ public class JokeBook : MonoBehaviour
     private void MouseWheel(float direction)
     {
         if (selected)
+        {
             MovePages(direction);
+            BookTimer();
+        }
         else
         {
-            transform.DOLocalMove(initialPosition + selectedPositionOffset, 1);
+            transform.DOLocalMove(selectedPosition, selectedAnimationTime);
             selected = true;
         }
+    }
+
+    private async void BookTimer()
+    {
+        if (setTimer)
+        {
+            timer.Kill();
+        }
+
+        setTimer = true;
+        timer = DOTween.Sequence();
+        timer.AppendInterval(unselectedAnimationTime);
+        timer.Append(transform.DOLocalMove(unselectedPosition, selectedAnimationTime));
+        await timer.AsyncWaitForCompletion();
+        selected = false;
     }
 
     private async void MovePages(float direction)
@@ -65,22 +102,6 @@ public class JokeBook : MonoBehaviour
             if (player.SelectedJoke + 1 < pages.Count)
                 pages[player.SelectedJoke + 1].gameObject.SetActive(false);
         }
-    }
-    
-    private void Initialize()
-    {
-        int tmp = 0;
-
-        foreach(Joke joke in player.JokeList)
-        {
-            GameObject page = LoadPage("Joke_" + tmp, joke.Sentence);
-            page.SetActive(false);
-            pages.Add(page.GetComponent<BookPage>());
-            pages[tmp].SetStyle(joke.Sentence);
-            tmp++;
-        }
-
-        pages[0].gameObject.SetActive(true);
     }
 
     private Object LoadPrefabStyleFromFile(string path)
