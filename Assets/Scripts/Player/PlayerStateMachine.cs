@@ -50,8 +50,8 @@ public class PlayerStateMachine : MonoBehaviour
         Vector3 direction = cam.transform.right * inputController.MovementDirection.x 
             + forward * inputController.MovementDirection.y;
         transform.LookAt(transform.position + forward);
-        velocity = direction * movementSpeed * Time.deltaTime;
-        characterController.Move(velocity);
+        velocity = direction * movementSpeed;
+        characterController.Move(velocity * Time.deltaTime);
     }
     public void Fall() => characterController.Move(Physics.gravity * Time.deltaTime);
     public bool IsEnemyInCameraView()
