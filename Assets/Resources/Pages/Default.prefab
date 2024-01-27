@@ -256,6 +256,7 @@ MonoBehaviour:
   mesh: {fileID: 1876507833131286539}
   textMeshPro: {fileID: 4942049264268560867}
   pageRotationAngle: 160
+  initialPageRotationAngle: 15
   pageRotationTime: 1
 --- !u!1 &8570629974276097625
 GameObject:
