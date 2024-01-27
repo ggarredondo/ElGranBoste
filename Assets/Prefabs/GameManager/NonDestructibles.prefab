@@ -478,7 +478,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainMenu: 1
-  eventHandler: []
+  eventHandler:
+  - {fileID: 11400000, guid: f48466838f13a8f47a97f5a53b3b6112, type: 2}
   audioMixer: {fileID: 24100000, guid: f3813e01b6876b9499c471297717660c, type: 2}
   defaultOptions: {fileID: 11400000, guid: f742f16fab9589e43a471e6c85dbcfcf, type: 2}
   defaultGame: {fileID: 11400000, guid: 8bccf61d00826294d9d4403f5eca75d1, type: 2}

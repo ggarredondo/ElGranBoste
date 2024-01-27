@@ -1691,13 +1691,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTag: Player
   look: {fileID: 9187632164185127466, guid: 2e18e44ef06392d4db8c0a1717b171aa, type: 3}
+  eventHandler: {fileID: 11400000, guid: f48466838f13a8f47a97f5a53b3b6112, type: 2}
+  deathEventName: EnterDeath
   horizontalSpeed: 10
   verticalSpeed: 10
   clampYAngleDown: -80
   clampYAngleUp: 80
   amplitudeY: 0.1
   amplitudeX: 0.1
-  shakeFrequency: 0.7
+  shakeFrequency: 0.1
+  deathPosition: {x: 1.5, y: -0.5, z: 0}
+  deathRotation: {x: 0, y: 0, z: 180}
+  deathMovementTime: 2
   stepSoundName: Step1
 --- !u!1 &1442934905
 GameObject:
@@ -2414,7 +2419,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainMenu: 0
-  eventHandler: []
+  eventHandler:
+  - {fileID: 11400000, guid: f48466838f13a8f47a97f5a53b3b6112, type: 2}
   audioMixer: {fileID: 24100000, guid: f3813e01b6876b9499c471297717660c, type: 2}
   defaultOptions: {fileID: 11400000, guid: f742f16fab9589e43a471e6c85dbcfcf, type: 2}
   defaultGame: {fileID: 11400000, guid: 8bccf61d00826294d9d4403f5eca75d1, type: 2}
@@ -2916,7 +2922,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &9154895273571315505
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,6 +12,11 @@ public class CinemachinePOVExtension : CinemachineExtension
     [Header("Input")]
     [SerializeField] private InputActionReference look;
 
+    [Header("Events")]
+    [SerializeField] private EventHandler eventHandler;
+    [Space(10)]
+    [SerializeField] private string deathEventName;
+
     [Header("Look Parameters")]
     [SerializeField] private float horizontalSpeed = 10f;
     [SerializeField] private float verticalSpeed = 10f;
@@ -23,6 +28,11 @@ public class CinemachinePOVExtension : CinemachineExtension
     [SerializeField] private float amplitudeX = 0.1f;
     [SerializeField] private float shakeFrequency = 0.5f;
 
+    [Header("Death Camera Movement")]
+    [SerializeField] private Vector3 deathPosition;
+    [SerializeField] private Vector3 deathRotation;
+    [SerializeField] private float deathMovementTime;
+
     [Header("Sounds")]
     [SerializeField] private string stepSoundName;
 
@@ -32,13 +42,12 @@ public class CinemachinePOVExtension : CinemachineExtension
     private PlayerStateMachine player;
 
     private Sequence sequenceY, sequenceX;
+    private Sequence deathSequence;
 
     protected override void Awake()
     {
         look.action.performed += ctx => mouseInput = ctx.ReadValue<Vector2>();
         target = VirtualCamera.Follow;
-
-        
 
         sequenceY = DOTween.Sequence();
         sequenceX = DOTween.Sequence();
@@ -48,8 +57,15 @@ public class CinemachinePOVExtension : CinemachineExtension
         base.Awake();
     }
 
+    protected override void OnDestroy()
+    {
+        base.OnDestroy();
+    }
+
     private void Start()
     {
+        eventHandler.events[deathEventName] += DeathCameraMovement;
+
         player = GameObject.FindGameObjectWithTag(playerTag).GetComponent<PlayerStateMachine>();
     }
 
@@ -66,13 +82,33 @@ public class CinemachinePOVExtension : CinemachineExtension
         sequenceY.DOTimeScale(velocity, 0f);
     }
 
+    private void DeathCameraMovement()
+    {
+        sequenceX.Kill();
+        sequenceY.Kill();
+
+        horizontalSpeed = 0;
+        verticalSpeed = 0;
+
+        deathSequence = DOTween.Sequence();
+        deathSequence.Append(target.DOLocalMove(deathPosition, deathMovementTime));
+        deathSequence.Join(target.DOLocalRotate(deathRotation, deathMovementTime)).OnComplete(ResetScene);
+
+        eventHandler.events[deathEventName] -= DeathCameraMovement;
+    }
+
+    private void ResetScene()
+    {
+        GameManager.Scene.PreviousScene();
+    }
+
     private void CameraShake()
     {
         sequenceY.Append(target.DOLocalMoveY(amplitudeY, shakeFrequency).SetEase(Ease.InOutSine));
         sequenceY.SetLoops(-1, LoopType.Yoyo);
 
         sequenceX.Append(target.DOLocalMoveX(amplitudeX, shakeFrequency * 2).From(-amplitudeX).SetEase(Ease.InOutSine));
-        sequenceX.SetLoops(-1, LoopType.Yoyo).OnStepComplete(PlaySound); ;
+        sequenceX.SetLoops(-1, LoopType.Yoyo).OnStepComplete(PlaySound);
     }
 
     private void PlaySound()

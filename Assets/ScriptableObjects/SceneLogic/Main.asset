@@ -18,7 +18,7 @@ MonoBehaviour:
     withLoadScreen: 0
     loadSceneName: 
   previousScene:
-  - sceneName: Menu
+  - sceneName: Main
     withLoadScreen: 0
     loadSceneName: 
   playMusic: 0
