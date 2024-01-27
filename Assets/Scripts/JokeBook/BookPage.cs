@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using DG.Tweening;
+using System.Threading.Tasks;
 
 public class BookPage : MonoBehaviour
 {
@@ -21,11 +22,11 @@ public class BookPage : MonoBehaviour
 
     public void MoveForward()
     {
-        transform.DORotate(new Vector3(0, 0, pageRotationAngle), pageRotationTime);
+        transform.DOLocalRotate(new Vector3(0, 0, pageRotationAngle), pageRotationTime);
     }
 
-    public void MoveBackWards()
+    public async Task MoveBackWards()
     {
-        transform.DORotate(new Vector3(0, 0, initialPageRotationAngle), pageRotationTime);
+        await transform.DOLocalRotate(new Vector3(0, 0, initialPageRotationAngle), pageRotationTime).AsyncWaitForCompletion();
     }
 }

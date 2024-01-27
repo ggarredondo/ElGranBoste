@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.WSA;
 using UnityEngine.InputSystem;
+using DG.Tweening;
 
 public class JokeBook : MonoBehaviour
 {
@@ -12,34 +13,57 @@ public class JokeBook : MonoBehaviour
     [SerializeField] private PlayerStateMachine player;
     [SerializeField] private GameObject parent;
 
+    [Header("Parameters")]
+    [SerializeField] private Vector3 selectedPositionOffset;
+    [SerializeField] private float selectedAnimationTime;
+
     private List<BookPage> pages;
+    private bool selected;
+    private Vector3 initialPosition;
 
     private void Start()
     {
-        player.InputController.OnMouseWheel += MovePages;
+        initialPosition = transform.position;
+        player.InputController.OnMouseWheel += MouseWheel;
         pages = new();
         Initialize();
     }
 
     private void OnDestroy()
     {
-        player.InputController.OnMouseWheel -= MovePages;
+        player.InputController.OnMouseWheel -= MouseWheel;
     }
 
-    private void MovePages(float direction)
+    private void MouseWheel(float direction)
     {
-        if(direction == -120 && player.SelectedJoke < pages.Count)
+        if (selected)
+            MovePages(direction);
+        else
         {
-            pages[player.SelectedJoke].MoveForward();
-
-            if(player.SelectedJoke + 1 < pages.Count)
-                player.SetSelectedJoke(player.SelectedJoke + 1);
+            transform.DOLocalMove(initialPosition + selectedPositionOffset, 1);
+            selected = true;
         }
-        
-        if(direction == 120 && player.SelectedJoke > 0)
+    }
+
+    private async void MovePages(float direction)
+    {
+        if (direction == -120 && player.SelectedJoke < pages.Count)
         {
-            pages[player.SelectedJoke].MoveBackWards();
+            if (player.SelectedJoke + 1 < pages.Count)
+                pages[player.SelectedJoke + 1].gameObject.SetActive(true);
+
+            pages[player.SelectedJoke].MoveForward();
+            player.SetSelectedJoke(player.SelectedJoke + 1);
+        }
+
+        if (direction == 120 && player.SelectedJoke > 0)
+        {
             player.SetSelectedJoke(player.SelectedJoke - 1);
+
+            await pages[player.SelectedJoke].MoveBackWards();
+
+            if (player.SelectedJoke + 1 < pages.Count)
+                pages[player.SelectedJoke + 1].gameObject.SetActive(false);
         }
     }
     
@@ -50,10 +74,13 @@ public class JokeBook : MonoBehaviour
         foreach(Joke joke in player.JokeList)
         {
             GameObject page = LoadPage("Joke_" + tmp, joke.Sentence);
+            page.SetActive(false);
             pages.Add(page.GetComponent<BookPage>());
             pages[tmp].SetStyle(joke.Sentence);
             tmp++;
         }
+
+        pages[0].gameObject.SetActive(true);
     }
 
     private Object LoadPrefabStyleFromFile(string path)
