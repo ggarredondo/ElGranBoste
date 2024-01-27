@@ -377,7 +377,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 
   soundStructures:
-  - {fileID: 11400000, guid: fdf0b0f09de253a40a06e482f61e4d16, type: 2}
   - {fileID: 11400000, guid: dbfcb12bae7577c4590839554cdea9ca, type: 2}
   destroySoundStructures: 0
 --- !u!1 &8232855656189735574
