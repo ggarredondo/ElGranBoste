@@ -22,7 +22,6 @@ public class PlayerStateMachine : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
-        cam = Camera.main;
         enemyTransform = GameObject.FindGameObjectWithTag("Enemy").transform;
         playerToEnemyEvents = GetComponent<PlayerToEnemyEvents>();
         characterController = GetComponent<CharacterController>();
@@ -33,7 +32,10 @@ public class PlayerStateMachine : MonoBehaviour
         jokingState.Initialize(this);
         ChangeState(runningState);
     }
-    private void Start() {}
+    private void Start()
+    {
+        cam = Camera.main;
+    }
     private void Update() => currentState.Update();
 
     private void ChangeState(in PlayerState newState)
@@ -59,7 +61,7 @@ public class PlayerStateMachine : MonoBehaviour
     public bool IsEnemyInCameraView()
     {
         Vector3 viewPos = cam.WorldToViewportPoint(enemyTransform.position);
-        return viewPos.x > 0f && viewPos.x < 1f && viewPos.y > 0f && viewPos.y < 1f && viewPos.z > 0f;
+        return viewPos.x >= 0f && viewPos.x <= 1f && viewPos.y >= 0f && viewPos.y <= 1f && viewPos.z > 0f;
     }
     public void SetSelectedJoke(int index) => selectedJoke = index;
 
