@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.WSA;
+using UnityEngine.InputSystem;
 
 public class JokeBook : MonoBehaviour
 {
@@ -11,16 +12,37 @@ public class JokeBook : MonoBehaviour
     [SerializeField] private PlayerStateMachine player;
     [SerializeField] private GameObject parent;
 
-    [Header("Input")]
-
-    private List<Transform> pages;
+    private List<BookPage> pages;
 
     private void Start()
     {
+        player.InputController.OnMouseWheel += MovePages;
         pages = new();
         Initialize();
     }
 
+    private void OnDestroy()
+    {
+        player.InputController.OnMouseWheel -= MovePages;
+    }
+
+    private void MovePages(float direction)
+    {
+        if(direction == -120 && player.SelectedJoke < pages.Count)
+        {
+            pages[player.SelectedJoke].MoveForward();
+
+            if(player.SelectedJoke + 1 < pages.Count)
+                player.SetSelectedJoke(player.SelectedJoke + 1);
+        }
+        
+        if(direction == 120 && player.SelectedJoke > 0)
+        {
+            pages[player.SelectedJoke].MoveBackWards();
+            player.SetSelectedJoke(player.SelectedJoke - 1);
+        }
+    }
+    
     private void Initialize()
     {
         int tmp = 0;
@@ -28,7 +50,9 @@ public class JokeBook : MonoBehaviour
         foreach(Joke joke in player.JokeList)
         {
             GameObject page = LoadPage("Joke_" + tmp, joke.Sentence);
-            pages.Add(page.transform);
+            pages.Add(page.GetComponent<BookPage>());
+            pages[tmp].SetStyle(joke.Sentence);
+            tmp++;
         }
     }
 

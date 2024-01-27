@@ -2,15 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using DG.Tweening;
 
 public class BookPage : MonoBehaviour
 {
     [SerializeField] private MeshRenderer mesh;
-    [SerializeField] private TextMeshPro text;
+    [SerializeField] private TMP_Text textMeshPro;
 
-    public void SetStyle(Material material, string sentence)
+    [Header("Parameters")]
+    [SerializeField] float pageRotationAngle;
+    [SerializeField] float initialPageRotationAngle;
+    [SerializeField] float pageRotationTime;
+
+    public void SetStyle(string sentence)
     {
-        mesh.material = material;
-        text.text = sentence;
+        textMeshPro.text = sentence;
+    }
+
+    public void MoveForward()
+    {
+        transform.DORotate(new Vector3(0, 0, pageRotationAngle), pageRotationTime);
+    }
+
+    public void MoveBackWards()
+    {
+        transform.DORotate(new Vector3(0, 0, initialPageRotationAngle), pageRotationTime);
     }
 }
