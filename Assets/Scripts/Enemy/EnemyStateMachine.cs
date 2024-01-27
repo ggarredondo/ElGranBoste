@@ -41,6 +41,7 @@ public class EnemyStateMachine : MonoBehaviour
     // API
     public void Enable(bool enabled) => this.enabled = enabled;
     public void FollowPlayer() => agent.SetDestination(target.position);
+    public void Fall() => agent.Move(Physics.gravity * Time.deltaTime);
     public void StopFollowing() => agent.SetDestination(transform.position);
     public float DistanceToPlayer => Vector3.Distance(transform.position, target.position);
 
