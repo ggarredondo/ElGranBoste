@@ -65,7 +65,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 734c8392970255f42bb33388345d37c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
+  animator: {fileID: 5585709326880656530}
 --- !u!195 &7638731912018929086
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -74,7 +74,7 @@ NavMeshAgent:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3530755658053566501}
   m_Enabled: 1
-  m_AgentTypeID: 0
+  m_AgentTypeID: -334000983
   m_Radius: 0.5
   m_Speed: 4
   m_Acceleration: 8
@@ -164,7 +164,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f7856643a352afe41ab3239f36108f7f,
         type: 3}
       propertyPath: m_Name
-      value: Boste1
+      value: Boste
       objectReference: {fileID: 0}
     - target: {fileID: 2324048853880358032, guid: f7856643a352afe41ab3239f36108f7f,
         type: 3}
