@@ -692,11 +692,11 @@
                 },
                 {
                     "name": "",
-                    "id": "90ce0b92-eb0e-4138-abef-4cd59c750cb5",
-                    "path": "<Keyboard>/b",
+                    "id": "90cd1eed-6634-40ec-b930-42861a05d16b",
+                    "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard&Mouse",
+                    "groups": "",
                     "action": "Back",
                     "isComposite": false,
                     "isPartOfComposite": false
