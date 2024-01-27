@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerStateMachine : MonoBehaviour
@@ -8,6 +9,8 @@ public class PlayerStateMachine : MonoBehaviour
     private CharacterController characterController;
     private InputController inputController;
     private Vector3 velocity;
+    [SerializeField] private List<Joke> jokeList;
+    private int selectedJoke = 0;
 
     [SerializeField][ReadOnlyField] private string currentStateName;
     private PlayerState currentState;
@@ -64,8 +67,13 @@ public class PlayerStateMachine : MonoBehaviour
     public void TransitionToJoking() => ChangeState(jokingState);
 
     // Gets
+    public ref readonly RunningState RunningState => ref runningState;
+    public ref readonly JokingState JokingState => ref jokingState;
+
     public ref readonly PlayerToEnemyEvents PlayerToEnemyEvents => ref playerToEnemyEvents;
     public ref readonly CharacterController CharacterController => ref characterController;
     public ref readonly InputController InputController => ref inputController;
     public ref readonly Vector3 Velocity => ref velocity;
+    public ref readonly List<Joke> JokeList => ref jokeList;
+    public int SelectedJoke => selectedJoke;
 }

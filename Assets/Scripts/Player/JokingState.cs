@@ -22,4 +22,6 @@ public class JokingState : PlayerState
         player.InputController.OnReleaseJoke -= player.TransitionToRunning;
         base.Exit();
     }
+
+    public float MovementSpeed => movementSpeed;
 }

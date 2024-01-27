@@ -80,6 +80,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a685adbcb012d04ba4e966cffc7cb7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jokeList:
+  - sentence: Van dos, y se cae el de en medio.
+    timeToPerform: 1
+    laughingTime: 5
+    type: 0
   currentStateName: 
   runningState:
     movementSpeed: 5
