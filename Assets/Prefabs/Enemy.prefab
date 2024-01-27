@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3111879180811210341}
   - component: {fileID: 7592031605376728951}
+  - component: {fileID: 5222686154474462032}
   - component: {fileID: 7638731912018929086}
   m_Layer: 3
   m_Name: Enemy
@@ -52,6 +53,18 @@ MonoBehaviour:
     minDistanceToListen: 13
   listeningState:
     movementSpeed: 3
+--- !u!114 &5222686154474462032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3530755658053566501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 734c8392970255f42bb33388345d37c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!195 &7638731912018929086
 NavMeshAgent:
   m_ObjectHideFlags: 0

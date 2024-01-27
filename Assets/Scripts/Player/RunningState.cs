@@ -8,7 +8,7 @@ public class RunningState : PlayerState
 
     public override void Enter()
     {
-        player.InputController.OnPressJoke += player.TransitionToJoking;
+        player.InputController.OnPressJoke += JokeStart;
         player.OnDeadDistance += player.TransitionToDead;
         base.Enter();
     }
@@ -20,10 +20,15 @@ public class RunningState : PlayerState
     }
     public override void Exit()
     {
-        player.InputController.OnPressJoke -= player.TransitionToJoking;
+        player.InputController.OnPressJoke -= JokeStart;
         player.OnDeadDistance -= player.TransitionToDead;
         base.Exit();
     }
 
+    public void JokeStart()
+    {
+        if (player.IsEnemyInCameraView())
+            player.TransitionToJoking();
+    }
     public float MovementSpeed => movementSpeed;
 }

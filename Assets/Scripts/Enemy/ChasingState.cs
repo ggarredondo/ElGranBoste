@@ -9,7 +9,7 @@ public class ChasingState : EnemyState
     public override void Enter()
     {
         enemy.Agent.speed = movementSpeed;
-        enemy.PlayerToEnemyEvents.OnJokeStart += ListenToJoke;
+        enemy.PlayerToEnemyEvents.OnJokeStart += enemy.TransitionToListening;
         base.Enter();
     }
     public override void Update()
@@ -18,13 +18,7 @@ public class ChasingState : EnemyState
     }
     public override void Exit() 
     {
-        enemy.PlayerToEnemyEvents.OnJokeStart -= ListenToJoke;
+        enemy.PlayerToEnemyEvents.OnJokeStart -= enemy.TransitionToListening;
         base.Exit();
-    }
-
-    private void ListenToJoke()
-    {
-        if (enemy.DistanceToPlayer <= minDistanceToListen)
-            enemy.TransitionToListening();
     }
 }
