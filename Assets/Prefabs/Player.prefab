@@ -84,8 +84,12 @@ MonoBehaviour:
   jokeList:
   - sentence: Van dos, y se cae el de en medio.
     timeToPerform: 1
-    laughingTime: 5
+    laughingTime: 2
     type: 0
+  - sentence: Una polla como un poste.
+    timeToPerform: 2
+    laughingTime: 0
+    type: 1
   currentStateName: 
   runningState:
     movementSpeed: 5

@@ -11,12 +11,14 @@ public class EnemyStateMachine : MonoBehaviour
     private EnemyState currentState;
     [SerializeField] private ChasingState chasingState;
     [SerializeField] private LaughingState laughingState;
+    [SerializeField] private PosteState posteState;
 
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
         chasingState.Initialize(this);
         laughingState.Initialize(this);
+        posteState.Initialize(this);
     }
     private void Start()
     {
@@ -40,7 +42,12 @@ public class EnemyStateMachine : MonoBehaviour
     public void StopFollowing() => agent.SetDestination(transform.position);
 
     public void TransitionToChasing() => ChangeState(chasingState);
-    public void TransitionToLaughing() => ChangeState(laughingState);
+    public void TransitionToLaughing(in Joke joke)
+    {
+        laughingState.SetJoke(joke);
+        ChangeState(laughingState);
+    }
+    public void TransitionToPoste() => ChangeState(posteState);
 
     // Gets
     public ref readonly PlayerToEnemyEvents PlayerToEnemyEvents => ref playerToEnemyEvents;

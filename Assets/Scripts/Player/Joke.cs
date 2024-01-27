@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public enum JokeType { Stun, Boste }
+public enum JokeType { Stun, Poste }
 
 [System.Serializable]
 public class Joke
