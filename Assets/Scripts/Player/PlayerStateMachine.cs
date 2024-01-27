@@ -2,9 +2,12 @@ using UnityEngine;
 
 public class PlayerStateMachine : MonoBehaviour
 {
-    private Transform camTransform;
+    private Camera cam;
+    private Transform enemyTransform;
+    private PlayerToEnemyEvents playerToEnemyEvents;
     private CharacterController characterController;
     private InputController inputController;
+    private Vector3 velocity;
 
     [SerializeField][ReadOnlyField] private string currentStateName;
     private PlayerState currentState;
@@ -16,10 +19,13 @@ public class PlayerStateMachine : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
-        camTransform = Camera.main.transform;
+        cam = Camera.main;
+        enemyTransform = GameObject.FindGameObjectWithTag("Enemy").transform;
+        playerToEnemyEvents = GetComponent<PlayerToEnemyEvents>();
         characterController = GetComponent<CharacterController>();
         inputController = GetComponent<InputController>();
         inputController.Initialize();
+        velocity = Vector3.zero;
 
         runningState.Initialize(this);
         jokingState.Initialize(this);
@@ -40,18 +46,26 @@ public class PlayerStateMachine : MonoBehaviour
     public void Enable(bool enabled) => this.enabled = enabled;
     public void Move(float movementSpeed)
     {
-        Vector3 forward = Vector3.Cross(camTransform.right, Vector3.up).normalized;
-        Vector3 direction = camTransform.right * inputController.MovementDirection.x 
+        Vector3 forward = Vector3.Cross(cam.transform.right, Vector3.up).normalized;
+        Vector3 direction = cam.transform.right * inputController.MovementDirection.x 
             + forward * inputController.MovementDirection.y;
         transform.LookAt(transform.position + forward);
-        characterController.Move(direction * movementSpeed * Time.deltaTime);
+        velocity = direction * movementSpeed * Time.deltaTime;
+        characterController.Move(velocity);
     }
     public void Fall() => characterController.Move(Physics.gravity * Time.deltaTime);
+    public bool IsEnemyInCameraView()
+    {
+        Vector3 viewPos = cam.WorldToViewportPoint(enemyTransform.position);
+        return viewPos.x > 0f && viewPos.x < 1f && viewPos.y > 0f && viewPos.y < 1f && viewPos.z > 0f;
+    }
 
     public void TransitionToRunning() => ChangeState(runningState);
     public void TransitionToJoking() => ChangeState(jokingState);
 
     // Gets
+    public ref readonly PlayerToEnemyEvents PlayerToEnemyEvents => ref playerToEnemyEvents;
     public ref readonly CharacterController CharacterController => ref characterController;
     public ref readonly InputController InputController => ref inputController;
+    public ref readonly Vector3 Velocity => ref velocity;
 }

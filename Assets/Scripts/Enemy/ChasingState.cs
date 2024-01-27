@@ -7,6 +7,7 @@ public class ChasingState : EnemyState
 
     public override void Enter()
     {
+        enemy.PlayerToEnemyEvents.OnJokePerformed += enemy.TransitionToLaughing;
         base.Enter();
     }
     public override void Update()
@@ -15,6 +16,7 @@ public class ChasingState : EnemyState
     }
     public override void Exit() 
     { 
+        enemy.PlayerToEnemyEvents.OnJokePerformed -= enemy.TransitionToLaughing;
         base.Exit();
     }
 }

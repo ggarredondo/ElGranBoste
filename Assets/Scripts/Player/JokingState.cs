@@ -18,6 +18,7 @@ public class JokingState : PlayerState
     }
     public override void Exit()
     {
+        if (player.IsEnemyInCameraView()) player.PlayerToEnemyEvents.OnJokePerformed?.Invoke();
         player.InputController.OnReleaseJoke -= player.TransitionToRunning;
         base.Exit();
     }

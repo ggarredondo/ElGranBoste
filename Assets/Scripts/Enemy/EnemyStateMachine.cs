@@ -5,6 +5,7 @@ public class EnemyStateMachine : MonoBehaviour
 {
     private NavMeshAgent agent;
     private Transform target;
+    private PlayerToEnemyEvents playerToEnemyEvents;
 
     [SerializeField][ReadOnlyField] private string currentStateName;
     private EnemyState currentState;
@@ -20,6 +21,7 @@ public class EnemyStateMachine : MonoBehaviour
     private void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").transform;
+        playerToEnemyEvents = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerToEnemyEvents>();
         ChangeState(chasingState);
     }
     private void Update() => currentState.Update();
@@ -36,4 +38,10 @@ public class EnemyStateMachine : MonoBehaviour
     public void Enable(bool enabled) => this.enabled = enabled;
     public void FollowPlayer() => agent.SetDestination(target.position);
     public void StopFollowing() => agent.SetDestination(transform.position);
+
+    public void TransitionToChasing() => ChangeState(chasingState);
+    public void TransitionToLaughing() => ChangeState(laughingState);
+
+    // Gets
+    public ref readonly PlayerToEnemyEvents PlayerToEnemyEvents => ref playerToEnemyEvents;
 }
