@@ -7,7 +7,6 @@ public class DeadState : PlayerState
 
     public override void Enter()
     {
-        Debug.Log("MUERTE");
         base.Enter();
     }
     public override void Update()
