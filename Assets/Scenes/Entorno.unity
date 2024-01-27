@@ -976,7 +976,9 @@ PrefabInstance:
       propertyPath: listeningState.movementSpeed
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7638731912018929086, guid: 2ba2dc5718a511f40a0b0b4d3219a8e4, type: 3}
+    - {fileID: 7592031605376728951, guid: 2ba2dc5718a511f40a0b0b4d3219a8e4, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
