@@ -50,9 +50,9 @@ MonoBehaviour:
   agent: {fileID: 8121648142368571042}
   currentStateName: 
   chasingState:
-    movementSpeed: 7
+    movementSpeed: 6
   listeningState:
-    movementSpeed: 5
+    movementSpeed: 4
 --- !u!114 &5222686154474462032
 MonoBehaviour:
   m_ObjectHideFlags: 0
