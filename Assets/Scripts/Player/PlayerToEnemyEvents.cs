@@ -1,7 +1,7 @@
 using UnityEngine;
-
+using RefDelegates;
 
 public class PlayerToEnemyEvents : MonoBehaviour
 {
-    public System.Action OnJokePerformed;
+    public ActionIn<Joke> OnJokePerformed;
 }
