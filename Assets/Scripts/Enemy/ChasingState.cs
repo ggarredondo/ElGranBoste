@@ -3,7 +3,7 @@ using UnityEngine;
 [System.Serializable]
 public class ChasingState : EnemyState
 {
-    [SerializeField] private float movementSpeed = 1f, minDistanceToListen;
+    [SerializeField] private float movementSpeed = 1f;
     public void Initialize(in EnemyStateMachine enemy) => base.Initialize("CHASING", enemy);
 
     public override void Enter()

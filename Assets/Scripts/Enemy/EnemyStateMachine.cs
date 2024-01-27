@@ -3,7 +3,7 @@ using UnityEngine.AI;
 
 public class EnemyStateMachine : MonoBehaviour
 {
-    private NavMeshAgent agent;
+    [SerializeField] private NavMeshAgent agent;
     private Transform target;
     private PlayerToEnemyEvents playerToEnemyEvents;
 
@@ -16,7 +16,6 @@ public class EnemyStateMachine : MonoBehaviour
 
     private void Awake()
     {
-        agent = GetComponent<NavMeshAgent>();
         chasingState.Initialize(this);
         listeningState.Initialize(this);
         laughingState.Initialize(this);
