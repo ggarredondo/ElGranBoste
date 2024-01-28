@@ -53,6 +53,6 @@ MonoBehaviour:
       loop: 0
     - name: LaughAmbient
       clip: {fileID: 8300000, guid: 6c253f9e5df53bb418417e87350abc90, type: 3}
-      volume: 0.5
+      volume: 1
       pitch: 1
       loop: 1

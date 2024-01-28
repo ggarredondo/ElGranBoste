@@ -49,7 +49,7 @@ GameObject:
   - component: {fileID: 6912408950351727288}
   - component: {fileID: 6715839243160109329}
   - component: {fileID: 570881808959466759}
-  - component: {fileID: 7747678314139625355}
+  - component: {fileID: 4327637437527849741}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -88,12 +88,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jokeList:
   - sentence: Van dos, y se cae el de en medio.
-    sfx: 
+    sfx: Chiste2
     timeToPerform: 1
     laughingTime: 5
     type: 0
   - sentence: Una polla como un poste.
-    sfx: 
+    sfx: ChisteBoste
     timeToPerform: 2
     laughingTime: 0
     type: 1
@@ -451,7 +451,7 @@ MonoBehaviour:
           m_StringArgument: EnterDeath
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &7747678314139625355
+--- !u!114 &4327637437527849741
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -460,14 +460,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2998654287288118784}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10e00668cdf636241999985bc31ff4a0, type: 3}
+  m_Script: {fileID: 11500000, guid: 73b70c424e887744191cb29ffbea67ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventSoundData:
-  - eventHandler: {fileID: 11400000, guid: f48466838f13a8f47a97f5a53b3b6112, type: 2}
-    soundNames:
-    - PerformedJoking
-    - EnterDeath
+  fingerSnapSoundName: PerformedJoking
+  deathSoundName: EnterDeath
 --- !u!1001 &4362913944702211738
 PrefabInstance:
   m_ObjectHideFlags: 0

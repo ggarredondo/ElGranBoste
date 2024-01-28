@@ -110,6 +110,7 @@ MonoBehaviour:
   laughSoundName: EnemyLaugh
   walkingSoundName: EnemyWalking
   listeningSoundName: EnemyListening
+  posteSoundName: BosteSound
 --- !u!114 &5652604231182670105
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -21,6 +21,6 @@ MonoBehaviour:
   - sceneName: Main
     withLoadScreen: 0
     loadSceneName: 
-  playMusic: 0
+  playMusic: 1
   music: Ambient
   gameObjectsTag: []

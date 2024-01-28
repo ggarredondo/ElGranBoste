@@ -61,3 +61,8 @@ MonoBehaviour:
       volume: 1
       pitch: 2
       loop: 1
+    - name: BosteSound
+      clip: {fileID: 8300000, guid: 1009366ad8ed2b642b92570be60fc048, type: 3}
+      volume: 1
+      pitch: 0.9
+      loop: 0
