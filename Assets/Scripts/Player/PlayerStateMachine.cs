@@ -80,9 +80,12 @@ public class PlayerStateMachine : MonoBehaviour
     }
     public void SetSelectedJoke(int index) => selectedJoke = index;
     public float DistanceToEnemy => Vector3.Distance(transform.position, enemyTransform.position);
-
     public void TransitionToRunning() => ChangeState(runningState);
-    public void TransitionToJoking() => ChangeState(jokingState);
+    public void TransitionToJoking()
+    {
+        if(jokeList.Count != 0)
+            ChangeState(jokingState);
+    }
     public void TransitionToParry() => ChangeState(parryState);
     public void TransitionToDead() => ChangeState(deadState);
 

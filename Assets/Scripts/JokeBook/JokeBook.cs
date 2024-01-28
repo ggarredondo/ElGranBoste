@@ -25,8 +25,27 @@ public class JokeBook : MonoBehaviour
     {
         player.InputController.OnMouseWheel += MouseWheel;
         player.OnPickBook += UpdateBookPages;
+        player.PlayerToEnemyEvents.OnJokePerformed += RemoveJoke;
         pages = new();
         Initialize();
+    }
+
+    private void RemoveJoke(in Joke joke)
+    {
+        if (player.SelectedJoke == pages.Count - 1 && player.SelectedJoke > 0)
+        {
+            pages[player.SelectedJoke - 1].MoveBackWards();
+            player.SetSelectedJoke(player.SelectedJoke - 1);
+        }
+
+        int index = player.JokeList.IndexOf(joke);
+
+        pages[index].DestroyPage();
+        pages.RemoveAt(index);
+        player.JokeList.RemoveAt(index);
+
+        if(pages.Count > 0)
+            pages[player.SelectedJoke].gameObject.SetActive(true);
     }
 
     private void UpdateBookPages()
@@ -38,6 +57,8 @@ public class JokeBook : MonoBehaviour
             pages.Add(page.GetComponent<BookPage>());
             pages[i].SetStyle(player.JokeList[i].Sentence, (int)player.JokeList[i].TimeToPerform);
         }
+
+        pages[0].gameObject.SetActive(true);
     }
 
     private void Initialize()
@@ -60,6 +81,7 @@ public class JokeBook : MonoBehaviour
     {
         player.InputController.OnMouseWheel -= MouseWheel;
         player.OnPickBook -= UpdateBookPages;
+        player.PlayerToEnemyEvents.OnJokePerformed -= RemoveJoke;
     }
 
     private void MouseWheel(float direction)
@@ -106,7 +128,7 @@ public class JokeBook : MonoBehaviour
         {
             player.SetSelectedJoke(player.SelectedJoke - 1);
 
-            await pages[player.SelectedJoke].MoveBackWards();
+            await pages[player.SelectedJoke].MoveBackWardsAsync();
 
             if (player.SelectedJoke + 1 < pages.Count)
                 pages[player.SelectedJoke + 1].gameObject.SetActive(false);

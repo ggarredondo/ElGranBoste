@@ -49,8 +49,8 @@ MonoBehaviour:
     - name: EnemyLaugh
       clip: {fileID: 8300000, guid: c91e33b48ee76b24d9f2228aad192136, type: 3}
       volume: 1
-      pitch: 0.6
-      loop: 0
+      pitch: 0.4
+      loop: 1
     - name: EnemyListening
       clip: {fileID: 8300000, guid: 5df3a4d105dc2c34c94dcfe5ec7a46bf, type: 3}
       volume: 1

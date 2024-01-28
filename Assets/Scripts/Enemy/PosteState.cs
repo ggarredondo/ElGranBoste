@@ -6,6 +6,7 @@ public class PosteState : EnemyState
 
     public override void Enter()
     {
+        enemy.StopFollowing();
         base.Enter();
     }
     public override void Update() {}
