@@ -1,5 +1,4 @@
 using DG.Tweening;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,16 +12,29 @@ public class PickableBook : MonoBehaviour
     [SerializeField] private Quaternion rotationOffset;
     [SerializeField] private float animationTime;
 
+    [Header("Sounds")]
+    [SerializeField] private string ambientSoundName;
+    [SerializeField] private string pickUpSoundName;
+
+    private Sequence sequence;
+
     private void Start()
     {
-        transform.DOMove(transform.position + positionOffset, animationTime).SetLoops(-1, LoopType.Yoyo);
+        GameManager.Audio.Play(ambientSoundName);
+        sequence = DOTween.Sequence();
+        Move();
+    }
+
+    private void Move()
+    {
+        sequence.Append(transform.DOMove(transform.position + positionOffset, animationTime));
+        sequence.SetLoops(-1, LoopType.Yoyo);
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.CompareTag("Player"))
         {
-            Debug.Log(other.gameObject.name);
             PlayerStateMachine player = other.gameObject.GetComponent<PlayerStateMachine>();
 
             foreach(Joke joke in jokes)
@@ -32,8 +44,11 @@ public class PickableBook : MonoBehaviour
 
             player.OnPickBook.Invoke();
 
-            transform.DOKill();
-            Destroy(gameObject);
+            sequence.Kill();
+
+            GameManager.Audio.Play(pickUpSoundName);
+
+            Destroy(gameObject, 0.5f);
         }
     }
 }

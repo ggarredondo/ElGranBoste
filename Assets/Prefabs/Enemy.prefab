@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 7592031605376728951}
   - component: {fileID: 5222686154474462032}
   - component: {fileID: 8121648142368571042}
+  - component: {fileID: 1262234983955178213}
+  - component: {fileID: 5652604231182670105}
   m_Layer: 3
   m_Name: Enemy
   m_TagString: Enemy
@@ -88,6 +90,39 @@ NavMeshAgent:
   m_BaseOffset: -0.04
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1262234983955178213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3530755658053566501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b7744f3783bb454998889878d52de10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkingSoundPitch: 2
+  listeningSoundPitch: 1
+  laughSoundName: EnemyLaugh
+  walkingSoundName: EnemyWalking
+  listeningSoundName: EnemyListening
+--- !u!114 &5652604231182670105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3530755658053566501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 815bf9943c7e40f43a629ad628e8b6cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: 
+  soundStructures:
+  - {fileID: 11400000, guid: cfe65f07fd5039f4b9aceb4ba9dc92c5, type: 2}
+  destroySoundStructures: 1
 --- !u!1001 &3960044653956980238
 PrefabInstance:
   m_ObjectHideFlags: 0

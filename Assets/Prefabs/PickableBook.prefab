@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 420634435910777077}
   - component: {fileID: 1372161490958880932}
   - component: {fileID: 8091375516713015943}
+  - component: {fileID: 6384446370716826843}
   m_Layer: 0
   m_Name: PickableBook
   m_TagString: Untagged
@@ -128,3 +129,21 @@ MonoBehaviour:
   positionOffset: {x: 0, y: -0.25, z: 0}
   rotationOffset: {x: 90, y: 0, z: 0, w: 0}
   animationTime: 0.5
+  ambientSoundName: 1_LaughAmbient
+  pickUpSoundName: 1_PickUp
+--- !u!114 &6384446370716826843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181667266732524496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 815bf9943c7e40f43a629ad628e8b6cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: 1
+  soundStructures:
+  - {fileID: 11400000, guid: f32b86dd6183792408ef1c23c594fdd7, type: 2}
+  destroySoundStructures: 1

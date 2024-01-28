@@ -48,7 +48,7 @@ MonoBehaviour:
   - sounds:
     - name: Step1
       clip: {fileID: 8300000, guid: 3fbe85d59903d314d9e1cac66503af3e, type: 3}
-      volume: 0.5
+      volume: 0.15
       pitch: 1
       loop: 0
     - name: PerformedJoking

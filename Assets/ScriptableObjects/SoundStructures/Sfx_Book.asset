@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7564036886c38a042a3217cff9b6784e, type: 3}
-  m_Name: Sfx_Enemy
+  m_Name: Sfx_Book
   m_EditorClassIdentifier: 
   audioMixerGroup: {fileID: 1182211558071756111, guid: f3813e01b6876b9499c471297717660c,
     type: 2}
@@ -26,8 +26,8 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 0
-      outSlope: 0
+      inSlope: 2
+      outSlope: 2
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
@@ -35,8 +35,8 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: 2
-      outSlope: 2
+      inSlope: 0
+      outSlope: 0
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
@@ -46,18 +46,13 @@ MonoBehaviour:
     m_RotationOrder: 4
   soundGroups:
   - sounds:
-    - name: EnemyLaugh
-      clip: {fileID: 8300000, guid: c91e33b48ee76b24d9f2228aad192136, type: 3}
+    - name: PickUp
+      clip: {fileID: 8300000, guid: c55898d076fa26a4f922eed8292ed481, type: 3}
       volume: 1
-      pitch: 0.6
+      pitch: 1
       loop: 0
-    - name: EnemyListening
-      clip: {fileID: 8300000, guid: 5df3a4d105dc2c34c94dcfe5ec7a46bf, type: 3}
-      volume: 1
-      pitch: 0.6
-      loop: 0
-    - name: EnemyWalking
-      clip: {fileID: 8300000, guid: c5e358cdfdf7dd643b90347683933eea, type: 3}
-      volume: 1
-      pitch: 2
+    - name: LaughAmbient
+      clip: {fileID: 8300000, guid: 6c253f9e5df53bb418417e87350abc90, type: 3}
+      volume: 0.5
+      pitch: 1
       loop: 1

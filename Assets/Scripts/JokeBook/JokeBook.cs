@@ -93,7 +93,7 @@ public class JokeBook : MonoBehaviour
 
     private async void MovePages(float direction)
     {
-        if (direction == -120 && player.SelectedJoke < pages.Count)
+        if (direction == -120 && player.SelectedJoke < pages.Count-1)
         {
             if (player.SelectedJoke + 1 < pages.Count)
                 pages[player.SelectedJoke + 1].gameObject.SetActive(true);
