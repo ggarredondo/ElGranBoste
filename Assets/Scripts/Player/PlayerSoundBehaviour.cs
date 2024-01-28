@@ -11,14 +11,20 @@ public class PlayerSoundBehaviour : MonoBehaviour
     [SerializeField] private string fingerSnapSoundName;
     [SerializeField] private string deathSoundName;
 
+    private string currentJokeSFX;
+
     private void Start()
     {
         playerStateMachine = GetComponent<PlayerStateMachine>();
 
-        playerStateMachine.JokingState.OnEnter += () => GameManager.Audio.Play(playerStateMachine.JokeList[playerStateMachine.SelectedJoke].SFX);
+        playerStateMachine.JokingState.OnEnter += () =>
+        {
+            currentJokeSFX = playerStateMachine.JokeList[playerStateMachine.SelectedJoke].SFX;
+            GameManager.Audio.Play(currentJokeSFX);
+        };
         playerStateMachine.JokingState.OnExit += () =>
         {
-            GameManager.Audio.Stop(playerStateMachine.JokeList[playerStateMachine.SelectedJoke].SFX);
+            GameManager.Audio.Stop(currentJokeSFX);
         };
         playerStateMachine.JokingState.OnJokePerformed += () => GameManager.Audio.Play(fingerSnapSoundName);
         playerStateMachine.DeadState.OnEnter += () => GameManager.Audio.Play(deathSoundName);
