@@ -121,15 +121,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jokes:
-  - sentence: Perro
+  - id: Perro
+    sentence: Como se dice perro comiendo donuts en ruso? Troshki mashka roshka
     sfx: Chiste12
     timeToPerform: 3
-    laughingTime: 10
+    laughingTime: 15
     type: 0
-  - sentence: Beso
+  - id: Beso
+    sentence: Como se dice un beso en ingles? Tomorrow con el mio
     sfx: Chiste13
     timeToPerform: 3
-    laughingTime: 10
+    laughingTime: 15
     type: 0
   positionOffset: {x: 0, y: -0.25, z: 0}
   rotationOffset: {x: 90, y: 0, z: 0, w: 0}

@@ -121,15 +121,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jokes:
-  - sentence: Cuchillo
+  - id: Cuchillo
+    sentence: Que dice un cuchillo al espejo? Cuchi, yo!
     sfx: Chiste10
     timeToPerform: 1
     laughingTime: 5
     type: 0
-  - sentence: Cerezas
+  - id: Cerezas
+    sentence: Que dice una cereza al espejo? Cere eza?
     sfx: Chiste11
     timeToPerform: 2
-    laughingTime: 8
+    laughingTime: 10
     type: 0
   positionOffset: {x: 0, y: -0.25, z: 0}
   rotationOffset: {x: 90, y: 0, z: 0, w: 0}

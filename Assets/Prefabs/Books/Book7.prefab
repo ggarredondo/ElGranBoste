@@ -121,12 +121,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jokes:
-  - sentence: Ascensor
+  - id: Ascensor
+    sentence: Como se dice ascensor en arabe? Alibaba, y abajo tambien
     sfx: Chiste14
     timeToPerform: 2
-    laughingTime: 8
+    laughingTime: 10
     type: 0
-  - sentence: Garabatos
+  - id: Garabatosh
+    sentence: Como se dice caricatura en griego? Garabathos
     sfx: Chiste15
     timeToPerform: 1
     laughingTime: 5

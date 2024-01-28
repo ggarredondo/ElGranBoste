@@ -121,15 +121,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jokes:
-  - sentence: Primitiva
+  - id: Primitiva
+    sentence: "Ni\xF1o, echa la primitiva... Abuela, a la calle"
     sfx: Chiste5
     timeToPerform: 1
     laughingTime: 5
     type: 0
-  - sentence: Gallina
+  - id: Gallina
+    sentence: Por que cruzo la gallina la calle? Porque queria ver el otro lado
     sfx: Chiste6
     timeToPerform: 3
-    laughingTime: 10
+    laughingTime: 15
     type: 0
   positionOffset: {x: 0, y: -0.25, z: 0}
   rotationOffset: {x: 90, y: 0, z: 0, w: 0}

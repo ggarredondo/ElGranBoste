@@ -223,12 +223,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jokeList:
-  - sentence: Taladrando
+  - id: Taladrando
+    sentence: Que hace un perro con un taladro? Taladrando
     sfx: Chiste1
     timeToPerform: 2
-    laughingTime: 8
+    laughingTime: 10
     type: 0
-  - sentence: Enmedio
+  - id: Enmedio
+    sentence: Van dos y se cae el de en medio
     sfx: Chiste2
     timeToPerform: 1
     laughingTime: 5

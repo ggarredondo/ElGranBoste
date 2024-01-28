@@ -121,15 +121,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jokes:
-  - sentence: Pato
+  - id: Pato
+    sentence: Que pasa si tiras un pato al agua? Nada
     sfx: Chiste3
     timeToPerform: 2
-    laughingTime: 8
+    laughingTime: 10
     type: 0
-  - sentence: Naranja
+  - id: Naranja
+    sentence: La fruta mas alegre? La naranjajajajajaja
     sfx: Chiste4
     timeToPerform: 3
-    laughingTime: 10
+    laughingTime: 15
     type: 0
   positionOffset: {x: 0, y: -0.25, z: 0}
   rotationOffset: {x: 90, y: 0, z: 0, w: 0}
