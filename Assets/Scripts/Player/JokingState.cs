@@ -12,17 +12,18 @@ public class JokingState : PlayerState
     public void Initialize(in PlayerStateMachine player) => base.Initialize("JOKING", player);
 
     public override void Enter()
-    {
-        player.PlayerToEnemyEvents.OnJokeStart?.Invoke();
+    { 
         currentJoke = player.JokeList[player.SelectedJoke];
         sequence = DOTween.Sequence();
         sequence.AppendInterval(currentJoke.TimeToPerform).OnComplete(PerformJoke);
         player.InputController.OnReleaseJoke += player.TransitionToRunning;
-        player.OnDeadDistance += player.TransitionToDead;
+        player.InputController.OnPressParry += player.TransitionToParry;
+        player.PlayerToEnemyEvents.OnKillPlayer += player.TransitionToDead;
         base.Enter();
     }
     public override void Update()
     {
+        player.PlayerToEnemyEvents.OnJokeStart?.Invoke();
         player.Move(movementSpeed);
         player.LookForward();
         player.Fall();
@@ -32,7 +33,8 @@ public class JokingState : PlayerState
         player.PlayerToEnemyEvents.OnJokeCancelled?.Invoke();
         sequence.Kill();
         player.InputController.OnReleaseJoke -= player.TransitionToRunning;
-        player.OnDeadDistance -= player.TransitionToDead;
+        player.InputController.OnPressParry -= player.TransitionToParry;
+        player.PlayerToEnemyEvents.OnKillPlayer -= player.TransitionToDead;
         base.Exit();
     }
 

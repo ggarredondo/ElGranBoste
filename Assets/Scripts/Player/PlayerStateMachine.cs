@@ -17,9 +17,9 @@ public class PlayerStateMachine : MonoBehaviour
     [SerializeField] private RunningState runningState;
     [SerializeField] private JokingState jokingState;
     [SerializeField] private DeadState deadState;
-    [SerializeField] private float minDistanceToDie;
+    [SerializeField] private ParryState parryState;
+    public bool disableTransitions;
 
-    public event System.Action OnDeadDistance;
     public System.Action OnPickBook;
 
     private void Awake() 
@@ -33,28 +33,31 @@ public class PlayerStateMachine : MonoBehaviour
         inputController = GetComponent<InputController>();
         velocity = Vector3.zero;
 
+        disableTransitions = false;
         runningState.Initialize(this);
         jokingState.Initialize(this);
         deadState.Initialize(this);
-        ChangeState(runningState);
+        parryState.Initialize(this);
     }
     private void Start()
     {
         cam = Camera.main;
+        ChangeState(runningState);
     }
     private void Update()
     {
-        if (DistanceToEnemy <= minDistanceToDie)
-            OnDeadDistance?.Invoke();
         currentState.Update();
     }
 
     private void ChangeState(in PlayerState newState)
     {
-        if (currentState != null) currentState.Exit();
-        currentState = newState;
-        currentStateName = newState.StateName;
-        currentState.Enter();
+        if (!disableTransitions)
+        {
+            if (currentState != null) currentState.Exit();
+            currentState = newState;
+            currentStateName = newState.StateName;
+            currentState.Enter();
+        }
     }
 
     // API
@@ -67,6 +70,7 @@ public class PlayerStateMachine : MonoBehaviour
         velocity = direction * movementSpeed;
         characterController.Move(velocity * Time.deltaTime);
     }
+    public void ResetMoveVector() => velocity = Vector3.zero;
     public void LookForward() => transform.LookAt(transform.position + cam.transform.forward);
     public void Fall() => characterController.Move(Physics.gravity * Time.deltaTime);
     public bool IsEnemyInCameraView()
@@ -79,11 +83,13 @@ public class PlayerStateMachine : MonoBehaviour
 
     public void TransitionToRunning() => ChangeState(runningState);
     public void TransitionToJoking() => ChangeState(jokingState);
+    public void TransitionToParry() => ChangeState(parryState);
     public void TransitionToDead() => ChangeState(deadState);
 
     // Gets
     public ref readonly RunningState RunningState => ref runningState;
     public ref readonly JokingState JokingState => ref jokingState;
+    public ref readonly ParryState ParryState => ref parryState;
     public ref readonly DeadState DeadState => ref deadState;
 
     public ref readonly PlayerToEnemyEvents PlayerToEnemyEvents => ref playerToEnemyEvents;

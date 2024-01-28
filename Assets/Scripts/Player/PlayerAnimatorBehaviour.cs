@@ -16,6 +16,9 @@ public class PlayerAnimatorBehaviour : MonoBehaviour
         playerStateMachine.JokingState.OnExit += () => animator.SetBool("STATE_JOKING", false);
         playerStateMachine.JokingState.OnJokePerformed += () => animator.SetTrigger("jokePerformed");
 
+        playerStateMachine.ParryState.OnEnter += () => animator.SetBool("STATE_PARRY", true);
+        playerStateMachine.ParryState.OnExit += () => animator.SetBool("STATE_PARRY", false);
+
         playerStateMachine.DeadState.OnEnter += () => animator.SetBool("STATE_DEAD", true);
     }
 

@@ -17,6 +17,9 @@ public class EnemyAnimationBehaviour : MonoBehaviour
 
         enemyStateMachine.LaughingState.OnEnter += () => animator.SetTrigger("laugh");
 
+        enemyStateMachine.ParriedState.OnEnter += () => animator.SetBool("STATE_PARRIED", true);
+        enemyStateMachine.ParriedState.OnExit += () => animator.SetBool("STATE_PARRIED", false);
+
         enemyStateMachine.PosteState.OnEnter += () => animator.SetBool("STATE_POSTE", true);
         enemyStateMachine.PosteState.OnExit += () => animator.SetBool("STATE_POSTE", false);
     }

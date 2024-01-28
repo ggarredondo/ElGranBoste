@@ -9,7 +9,8 @@ public class RunningState : PlayerState
     public override void Enter()
     {
         player.InputController.OnPressJoke += JokeStart;
-        player.OnDeadDistance += player.TransitionToDead;
+        player.InputController.OnPressParry += player.TransitionToParry;
+        player.PlayerToEnemyEvents.OnKillPlayer += player.TransitionToDead;
         base.Enter();
     }
     public override void Update()
@@ -21,7 +22,8 @@ public class RunningState : PlayerState
     public override void Exit()
     {
         player.InputController.OnPressJoke -= JokeStart;
-        player.OnDeadDistance -= player.TransitionToDead;
+        player.InputController.OnPressParry -= player.TransitionToParry;
+        player.PlayerToEnemyEvents.OnKillPlayer -= player.TransitionToDead;
         base.Exit();
     }
 

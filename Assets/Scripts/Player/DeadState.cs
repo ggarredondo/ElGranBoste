@@ -7,6 +7,7 @@ public class DeadState : PlayerState
 
     public override void Enter()
     {
+        player.disableTransitions = true;
         base.Enter();
     }
     public override void Update()

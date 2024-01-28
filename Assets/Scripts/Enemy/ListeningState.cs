@@ -11,16 +11,19 @@ public class ListeningState : EnemyState
         enemy.Agent.speed = movementSpeed;
         enemy.PlayerToEnemyEvents.OnJokePerformed += ReceiveJoke;
         enemy.PlayerToEnemyEvents.OnJokeCancelled += enemy.TransitionToChasing;
+        enemy.PlayerToEnemyEvents.OnParry += enemy.TransitionToParried;
         base.Enter();
     }
     public override void Update()
     {
         enemy.FollowPlayer();
+        enemy.KillPlayer();
     }
     public override void Exit()
     {
         enemy.PlayerToEnemyEvents.OnJokePerformed -= ReceiveJoke;
         enemy.PlayerToEnemyEvents.OnJokeCancelled -= enemy.TransitionToChasing;
+        enemy.PlayerToEnemyEvents.OnParry -= enemy.TransitionToParried;
         base.Exit();
     }
 

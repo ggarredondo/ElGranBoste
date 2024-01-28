@@ -90,7 +90,7 @@ MonoBehaviour:
   - sentence: Van dos, y se cae el de en medio.
     sfx: 
     timeToPerform: 1
-    laughingTime: 2
+    laughingTime: 5
     type: 0
   - sentence: Una polla como un poste.
     sfx: 
@@ -102,7 +102,11 @@ MonoBehaviour:
     movementSpeed: 5
   jokingState:
     movementSpeed: 2
-  minDistanceToDie: 2.1
+  parryState:
+    startUp: 0.2
+    active: 0.1
+    recovery: 0.4
+  disableTransitions: 0
 --- !u!114 &6461677047894879209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -308,6 +312,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 65d7eb2f-f31c-454e-8632-1341e1ba1112
     m_ActionName: Main Movement/MouseWheel[/Mouse/scroll/y]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3742553889371037057}
+        m_TargetAssemblyTypeName: InputController, Assembly-CSharp
+        m_MethodName: PressParry
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: c2434bc9-c328-40f6-a2d4-1926373d19e9
+    m_ActionName: Main Movement/Parry[/Mouse/rightButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Main Movement

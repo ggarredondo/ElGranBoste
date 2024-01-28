@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class InputController : MonoBehaviour
 {
     private Vector2 movementDirection;
-    public event System.Action OnPressJoke, OnReleaseJoke;
+    public event System.Action OnPressJoke, OnReleaseJoke, OnPressParry;
     public event System.Action<float> OnMouseWheel;
 
     private void Awake()
@@ -17,6 +17,7 @@ public class InputController : MonoBehaviour
         if (context.performed) OnPressJoke?.Invoke();
         else if (context.canceled) OnReleaseJoke?.Invoke();
     }
+    public void PressParry(InputAction.CallbackContext context) { if (context.performed) OnPressParry?.Invoke(); }
     public void PressMovement(InputAction.CallbackContext context) => movementDirection = context.ReadValue<Vector2>();
 
     public void MouseWheel(InputAction.CallbackContext context) 

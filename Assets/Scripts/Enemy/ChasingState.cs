@@ -10,15 +10,18 @@ public class ChasingState : EnemyState
     {
         enemy.Agent.speed = movementSpeed;
         enemy.PlayerToEnemyEvents.OnJokeStart += enemy.TransitionToListening;
+        enemy.PlayerToEnemyEvents.OnParry += enemy.TransitionToParried;
         base.Enter();
     }
     public override void Update()
     {
         enemy.FollowPlayer();
+        enemy.KillPlayer();
     }
     public override void Exit() 
     {
         enemy.PlayerToEnemyEvents.OnJokeStart -= enemy.TransitionToListening;
+        enemy.PlayerToEnemyEvents.OnParry -= enemy.TransitionToParried;
         base.Exit();
     }
 }
