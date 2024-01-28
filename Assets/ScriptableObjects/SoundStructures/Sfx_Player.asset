@@ -57,12 +57,17 @@ MonoBehaviour:
       pitch: 1
       loop: 0
     - name: EnterDeath
-      clip: {fileID: 8300000, guid: 9e7107b259d22df42b4e0fb080be03a9, type: 3}
+      clip: {fileID: 8300000, guid: f856d247a6656e74e8fbb65bdf6280ac, type: 3}
       volume: 0.5
-      pitch: 0.2
+      pitch: 1
       loop: 0
     - name: BookPage
       clip: {fileID: 8300000, guid: 9d70328ffc27de745923779338bddf2f, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+    - name: ParrySound
+      clip: {fileID: 8300000, guid: ba95eda2926d5db4f8998aefbc04846c, type: 3}
       volume: 1
       pitch: 1
       loop: 0

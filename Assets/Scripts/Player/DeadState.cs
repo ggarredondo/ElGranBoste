@@ -8,6 +8,7 @@ public class DeadState : PlayerState
     public override void Enter()
     {
         player.disableTransitions = true;
+        player.PlayerToEnemyEvents.OnParry = null;
         base.Enter();
     }
     public override void Update()

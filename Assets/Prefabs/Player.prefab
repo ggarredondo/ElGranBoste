@@ -757,8 +757,39 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8165443343725197663, guid: 567bade760a980547ae8686cdbebd9aa,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8024202130479663123}
   m_SourcePrefab: {fileID: 100100000, guid: 567bade760a980547ae8686cdbebd9aa, type: 3}
+--- !u!1 &1345517697361391149 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8165443343725197663, guid: 567bade760a980547ae8686cdbebd9aa,
+    type: 3}
+  m_PrefabInstance: {fileID: 7204992232278677362}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8024202130479663123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1345517697361391149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec4d5858ca7bcc74992e18ab9fa3fde8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStateMachine: {fileID: 454457891393848172}
+  parrySoundName: ParrySound
+  startUpPosition: {x: -0.5, y: -0.5, z: 1}
+  activePosition: {x: -1.2, y: 0, z: 1}
+  activeRotation: {x: -0.32374442, y: -0.69427204, z: -0.5825634, w: 0.27165383}
+  recoveryPosition: {x: -0.5, y: -1.5, z: 1}
+  recoveryRotation: {x: -0.57357645, y: 0, z: 0, w: 0.81915206}
+  activeEase: 1
+  recoveryEase: 1
 --- !u!4 &5062954916165614594 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2719748565645994864, guid: 567bade760a980547ae8686cdbebd9aa,
