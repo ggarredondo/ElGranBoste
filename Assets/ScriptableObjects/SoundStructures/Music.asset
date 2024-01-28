@@ -26,4 +26,15 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  soundGroups: []
+  soundGroups:
+  - sounds:
+    - name: Intro
+      clip: {fileID: 8300000, guid: ad5c10789a9b7c6418df8676a79cddcf, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 1
+    - name: Ambient
+      clip: {fileID: 8300000, guid: 67fba0e61d63b1d4b8a17188dc7bf915, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 1

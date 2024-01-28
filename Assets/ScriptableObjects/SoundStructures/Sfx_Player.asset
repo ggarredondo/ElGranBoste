@@ -66,3 +66,84 @@ MonoBehaviour:
       volume: 1
       pitch: 1
       loop: 0
+  - sounds:
+    - name: Chiste1
+      clip: {fileID: 8300000, guid: be1f7c20cb959d1418454498da47b39e, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+    - name: Chiste2
+      clip: {fileID: 8300000, guid: 7b6cdc4bdd338c14c9a27170930cbdbe, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+    - name: Chiste3
+      clip: {fileID: 8300000, guid: 10c0b8759682d3541a8cc10b7ce93b39, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+    - name: Chiste4
+      clip: {fileID: 8300000, guid: 74f8508039a6b9245b14eaf7117e3f32, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+    - name: Chiste5
+      clip: {fileID: 8300000, guid: acebd0e2213784c4e974f2e39a0a9140, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+    - name: Chiste6
+      clip: {fileID: 8300000, guid: f0c0c4bc52ecd8f4380df82001dda04d, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+    - name: Chiste7
+      clip: {fileID: 8300000, guid: 3fbe85d59903d314d9e1cac66503af3e, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+    - name: Chiste8
+      clip: {fileID: 8300000, guid: 568dbf0e0a35c7447b326cf244f83c9f, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+    - name: Chiste9
+      clip: {fileID: 8300000, guid: d11e5940a60bc1e43bceae63ae0cfb67, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+    - name: Chiste10
+      clip: {fileID: 8300000, guid: 06a225375e2c8224d8647fb0ab8cfcc1, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+    - name: Chiste11
+      clip: {fileID: 8300000, guid: a70268fec8d3f5449aabb7c9dbe9db15, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+    - name: Chiste12
+      clip: {fileID: 8300000, guid: fd9d2145e94ca9a40ac625f5d0a3ce8f, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+    - name: Chiste13
+      clip: {fileID: 8300000, guid: 428da44ebd48caa459aca88155afc865, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+    - name: Chiste14
+      clip: {fileID: 8300000, guid: d233f36c0aeeb194b90461a22e38986a, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+    - name: Chiste15
+      clip: {fileID: 8300000, guid: ddc1f0a0f9a12e74b9908d688fc56ce7, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+    - name: ChisteBoste
+      clip: {fileID: 8300000, guid: 3667d2dbe73e3ae4ca62af9440223fda, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0

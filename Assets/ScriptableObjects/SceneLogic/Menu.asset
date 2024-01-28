@@ -18,6 +18,6 @@ MonoBehaviour:
     withLoadScreen: 0
     loadSceneName: 
   previousScene: []
-  playMusic: 0
-  music: 
+  playMusic: 1
+  music: Intro
   gameObjectsTag: []

@@ -15,6 +15,7 @@ public class EnemySoundBehaviour : MonoBehaviour
     [SerializeField] private string laughSoundName;
     [SerializeField] private string walkingSoundName;
     [SerializeField] private string listeningSoundName;
+    [SerializeField] private string posteSoundName;
 
     private void Start()
     {
@@ -39,5 +40,7 @@ public class EnemySoundBehaviour : MonoBehaviour
             GameManager.Audio.ChangePitch(walkingSoundName, walkingSoundPitch);
             GameManager.Audio.Stop(walkingSoundName);
         };
+
+        enemyStateMachine.PosteState.OnEnter += () => GameManager.Audio.Play(posteSoundName);
     }
 }
