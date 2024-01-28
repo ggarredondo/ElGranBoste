@@ -23,8 +23,6 @@ public class ParriedState : EnemyState
         base.Exit();
     }
 
-    private void Test() => Debug.Log("cancelled");
-
     private void ReceiveJoke(in Joke joke)
     {
         if (joke.Type == JokeType.Stun) enemy.TransitionToLaughing(joke);
