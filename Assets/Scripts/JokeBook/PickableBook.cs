@@ -39,6 +39,7 @@ public class PickableBook : MonoBehaviour
 
             foreach(Joke joke in jokes)
             {
+                joke.Initialize();
                 player.JokeList.Add(joke);
             }
 

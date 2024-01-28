@@ -6,8 +6,14 @@ public enum JokeType { Stun, Poste }
 public class Joke
 {
     [SerializeField] private string id, sentence, sfx;
-    [SerializeField] private float timeToPerform, laughingTime;
+    private float timeToPerform;
+    [SerializeField] private float laughingTime;
     [SerializeField] private JokeType type;
+
+    public void Initialize()
+    {
+        timeToPerform = GameManager.Audio.Length(sfx);
+    }
 
     public string ID => id;
     public string Sentence => sentence;

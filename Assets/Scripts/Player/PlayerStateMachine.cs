@@ -43,6 +43,7 @@ public class PlayerStateMachine : MonoBehaviour
     {
         cam = Camera.main;
         ChangeState(runningState);
+        InitializeAllJokes();
     }
     private void Update()
     {
@@ -79,6 +80,11 @@ public class PlayerStateMachine : MonoBehaviour
         return viewPos.x >= 0f && viewPos.x <= 1f && viewPos.y >= 0f && viewPos.y <= 1f && viewPos.z > 0f;
     }
     public void SetSelectedJoke(int index) => selectedJoke = index;
+    public void InitializeAllJokes()
+    {
+        for (int i = 0; i < jokeList.Count; ++i)
+            jokeList[i].Initialize();
+    }
     public float DistanceToEnemy => Vector3.Distance(transform.position, enemyTransform.position);
     public void TransitionToRunning() => ChangeState(runningState);
     public void TransitionToJoking()
