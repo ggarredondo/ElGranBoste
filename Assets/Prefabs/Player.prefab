@@ -87,16 +87,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jokeList:
-  - sentence: Van dos, y se cae el de en medio.
+  - sentence: Taladrando
+    sfx: Chiste1
+    timeToPerform: 2
+    laughingTime: 8
+    type: 0
+  - sentence: Enmedio
     sfx: Chiste2
     timeToPerform: 1
     laughingTime: 5
     type: 0
-  - sentence: Una polla como un poste.
-    sfx: ChisteBoste
-    timeToPerform: 2
-    laughingTime: 0
-    type: 1
   currentStateName: 
   runningState:
     movementSpeed: 5

@@ -13,8 +13,14 @@ MonoBehaviour:
   m_Name: EntornoFinal
   m_EditorClassIdentifier: 
   sceneName: EntornoFinal
-  nextScene: []
-  previousScene: []
+  nextScene:
+  - sceneName: Menu
+    withLoadScreen: 0
+    loadSceneName: 
+  previousScene:
+  - sceneName: EntornoFinal
+    withLoadScreen: 0
+    loadSceneName: 
   playMusic: 0
   music: 
   gameObjectsTag: []
