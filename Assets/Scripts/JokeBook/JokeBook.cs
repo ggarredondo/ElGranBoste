@@ -52,10 +52,10 @@ public class JokeBook : MonoBehaviour
     {
         for(int i = pages.Count; i < player.JokeList.Count; i++)
         {
-            GameObject page = LoadPage("Joke_" + i, player.JokeList[i].Sentence);
+            GameObject page = LoadPage("Joke_" + i);
             page.SetActive(false);
             pages.Add(page.GetComponent<BookPage>());
-            pages[i].SetStyle(player.JokeList[i].Sentence, (int)player.JokeList[i].TimeToPerform);
+            pages[i].SetStyle(player.JokeList[i].ID, (int)player.JokeList[i].TimeToPerform);
         }
 
         pages[0].gameObject.SetActive(true);
@@ -67,10 +67,10 @@ public class JokeBook : MonoBehaviour
 
         foreach (Joke joke in player.JokeList)
         {
-            GameObject page = LoadPage("Joke_" + tmp, joke.Sentence);
+            GameObject page = LoadPage("Joke_" + tmp);
             page.SetActive(false);
             pages.Add(page.GetComponent<BookPage>());
-            pages[tmp].SetStyle(joke.Sentence, (int) joke.TimeToPerform);
+            pages[tmp].SetStyle(joke.ID, (int) joke.TimeToPerform);
             tmp++;
         }
 
@@ -145,7 +145,7 @@ public class JokeBook : MonoBehaviour
         return loadedObject;
     }
 
-    public GameObject LoadPage(string name, string joke)
+    public GameObject LoadPage(string name)
     {
         string path = FOLDER;
 

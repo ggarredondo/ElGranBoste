@@ -22,7 +22,7 @@ public class PlayerDialogue : MonoBehaviour
         playerStateMachine.JokingState.OnEnter += () => StartCoroutine(TypeLine(playerStateMachine.JokeList[playerStateMachine.SelectedJoke].Sentence,
                                                                                 playerStateMachine.JokeList[playerStateMachine.SelectedJoke].TimeToPerform));
 
-        playerStateMachine.JokingState.OnExit += () => exit = true;
+        playerStateMachine.JokingState.OnExit += () => { exit = true; dialogue.text = ""; };
     }
 
     private IEnumerator TypeLine(string currentText, float duration)

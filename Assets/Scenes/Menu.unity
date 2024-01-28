@@ -6150,7 +6150,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: visuales
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 311a349e32505704fa0da211ac1837cc, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 70f1527f46e49d041b53927b9460ade6, type: 2}
   m_sharedMaterial: {fileID: -5497573277372438131, guid: 311a349e32505704fa0da211ac1837cc,
     type: 2}
   m_fontSharedMaterials: []
@@ -6248,7 +6248,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Sonido
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 311a349e32505704fa0da211ac1837cc, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 70f1527f46e49d041b53927b9460ade6, type: 2}
   m_sharedMaterial: {fileID: -3274543022978014958, guid: b3fd71ac8821696479129805f38527f8,
     type: 2}
   m_fontSharedMaterials: []
@@ -8447,7 +8447,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Accesibilidad
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 311a349e32505704fa0da211ac1837cc, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 70f1527f46e49d041b53927b9460ade6, type: 2}
   m_sharedMaterial: {fileID: 3206393965534182331, guid: 8782e9d484b963d45abbaa639468e1e6,
     type: 2}
   m_fontSharedMaterials: []
@@ -8739,7 +8739,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f082e66cb4c9d8c45941535a9573453a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  font: {fileID: 11400000, guid: 311a349e32505704fa0da211ac1837cc, type: 2}
+  font: {fileID: 11400000, guid: 70f1527f46e49d041b53927b9460ade6, type: 2}
   inputFonts:
   - {fileID: 11400000, guid: 8614c86efd1bf1c478d8de08a8cdcd2b, type: 2}
   - {fileID: 11400000, guid: 84fe50cb6442d9649baa1592c9374df0, type: 2}
@@ -10537,7 +10537,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: El Gran Boste
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 311a349e32505704fa0da211ac1837cc, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 70f1527f46e49d041b53927b9460ade6, type: 2}
   m_sharedMaterial: {fileID: -3274543022978014958, guid: b3fd71ac8821696479129805f38527f8,
     type: 2}
   m_fontSharedMaterials: []
@@ -11100,7 +11100,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: opciones
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 311a349e32505704fa0da211ac1837cc, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 70f1527f46e49d041b53927b9460ade6, type: 2}
   m_sharedMaterial: {fileID: 3206393965534182331, guid: 8782e9d484b963d45abbaa639468e1e6,
     type: 2}
   m_fontSharedMaterials: []

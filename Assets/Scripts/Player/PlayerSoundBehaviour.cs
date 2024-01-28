@@ -16,7 +16,10 @@ public class PlayerSoundBehaviour : MonoBehaviour
         playerStateMachine = GetComponent<PlayerStateMachine>();
 
         playerStateMachine.JokingState.OnEnter += () => GameManager.Audio.Play(playerStateMachine.JokeList[playerStateMachine.SelectedJoke].SFX);
-        playerStateMachine.JokingState.OnExit += () => GameManager.Audio.Stop(playerStateMachine.JokeList[playerStateMachine.SelectedJoke].SFX);
+        playerStateMachine.JokingState.OnExit += () =>
+        {
+            GameManager.Audio.Stop(playerStateMachine.JokeList[playerStateMachine.SelectedJoke].SFX);
+        };
         playerStateMachine.JokingState.OnJokePerformed += () => GameManager.Audio.Play(fingerSnapSoundName);
         playerStateMachine.DeadState.OnEnter += () => GameManager.Audio.Play(deathSoundName);
     }
