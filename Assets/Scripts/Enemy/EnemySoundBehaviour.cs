@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,15 +8,18 @@ public class EnemySoundBehaviour : MonoBehaviour
 {
     private EnemyStateMachine enemyStateMachine;
 
-    [Header("Sounds")]
+    [Header("Parameters")]
     [SerializeField] private float walkingSoundPitch;
     [SerializeField] private float listeningSoundPitch;
+    [SerializeField] private float posteTime;
 
     [Header("Sounds")]
     [SerializeField] private string laughSoundName;
     [SerializeField] private string walkingSoundName;
     [SerializeField] private string listeningSoundName;
     [SerializeField] private string posteSoundName;
+
+    Sequence sequence;
 
     private void Start()
     {
@@ -41,6 +45,17 @@ public class EnemySoundBehaviour : MonoBehaviour
             GameManager.Audio.Stop(walkingSoundName);
         };
 
-        enemyStateMachine.PosteState.OnEnter += () => GameManager.Audio.Play(posteSoundName);
+        enemyStateMachine.PosteState.OnEnter += () =>
+        {
+            GameManager.Audio.Play(posteSoundName);
+
+            sequence = DOTween.Sequence();
+            sequence.AppendInterval(posteTime).OnComplete(ChangeScene);
+        };
+    }
+
+    private void ChangeScene()
+    {
+        GameManager.Scene.NextScene();
     }
 }
