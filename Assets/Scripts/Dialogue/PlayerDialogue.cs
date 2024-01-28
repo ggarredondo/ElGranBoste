@@ -19,30 +19,8 @@ public class PlayerDialogue : MonoBehaviour
 
     private void Start()
     {
-        playerStateMachine.JokingState.OnEnter += () => StartCoroutine(TypeLine(playerStateMachine.JokeList[playerStateMachine.SelectedJoke].Sentence,
-                                                                                playerStateMachine.JokeList[playerStateMachine.SelectedJoke].TimeToPerform));
+        playerStateMachine.JokingState.OnEnter += () => dialogue.text = playerStateMachine.JokeList[playerStateMachine.SelectedJoke].Sentence;
 
-        playerStateMachine.JokingState.OnExit += () => { exit = true; dialogue.text = ""; };
-    }
-
-    private IEnumerator TypeLine(string currentText, float duration)
-    {
-        var text = currentText;
-
-        exit = false;
-
-        for (int i = 0; i < text.Length; i++)
-        {
-            dialogue.text += text[i];
-            GameManager.Audio.Play(soundName);
-
-            if (exit)
-            {
-                dialogue.text = "";
-                yield break;
-            }
-
-            yield return new WaitForSecondsRealtime(duration / text.Length);
-        }
+        playerStateMachine.JokingState.OnExit += () => dialogue.text = "";
     }
 }
