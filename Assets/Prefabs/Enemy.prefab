@@ -107,6 +107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkingSoundPitch: 2
   listeningSoundPitch: 1
+  posteTime: 1
   laughSoundName: EnemyLaugh
   walkingSoundName: EnemyWalking
   listeningSoundName: EnemyListening

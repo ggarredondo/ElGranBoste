@@ -91,6 +91,7 @@ public class GameManager : MonoBehaviour
     public void OnPlayerJoined(PlayerInput playerInput)
     {
         inputUtilities.OnPlayerJoined(playerInput);
+
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)

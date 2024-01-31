@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneName: EntornoFinal
   nextScene:
-  - sceneName: Menu
+  - sceneName: Menu_NonDestructable
     withLoadScreen: 0
     loadSceneName: 
   previousScene:
