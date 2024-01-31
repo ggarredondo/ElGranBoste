@@ -9,6 +9,7 @@ public class PlayerStateMachine : MonoBehaviour
     private CharacterController characterController;
     private InputController inputController;
     private Vector3 velocity;
+    [SerializeField] private JokeBook jokeBook;
     [SerializeField] private List<Joke> jokeList;
     private int selectedJoke = 0;
 
@@ -44,6 +45,7 @@ public class PlayerStateMachine : MonoBehaviour
         cam = Camera.main;
         ChangeState(runningState);
         InitializeAllJokes();
+        jokeBook.Initialize();
     }
     private void Update()
     {

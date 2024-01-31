@@ -222,6 +222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a685adbcb012d04ba4e966cffc7cb7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jokeBook: {fileID: 340082392818397220}
   jokeList:
   - id: Taladrando
     sentence: "\xBFQu\xE9 hace un perro con un taladro? 't\xE1 ladrando."
@@ -243,7 +244,6 @@ MonoBehaviour:
     startUp: 0.2
     active: 0.1
     recovery: 0.4
-  disableTransitions: 0
 --- !u!114 &6461677047894879209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1095,6 +1095,18 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 8024202130479663123}
   m_SourcePrefab: {fileID: 100100000, guid: 567bade760a980547ae8686cdbebd9aa, type: 3}
+--- !u!114 &340082392818397220 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7441478619050108758, guid: 567bade760a980547ae8686cdbebd9aa,
+    type: 3}
+  m_PrefabInstance: {fileID: 7204992232278677362}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1345517697361391149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0c23b29d24479f46b1840b7eadfda28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1345517697361391149 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8165443343725197663, guid: 567bade760a980547ae8686cdbebd9aa,

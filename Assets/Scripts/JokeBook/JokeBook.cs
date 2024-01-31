@@ -22,13 +22,13 @@ public class JokeBook : MonoBehaviour
     private bool selected, setTimer;
     private Sequence timer;
 
-    private void Start()
+    public void Initialize()
     {
         player.InputController.OnMouseWheel += MouseWheel;
         player.OnPickBook += UpdateBookPages;
         player.PlayerToEnemyEvents.OnJokePerformed += RemoveJoke;
         pages = new();
-        Initialize();
+        InitializeJokes();
     }
 
     private void RemoveJoke(in Joke joke)
@@ -62,7 +62,7 @@ public class JokeBook : MonoBehaviour
         pages[0].gameObject.SetActive(true);
     }
 
-    private void Initialize()
+    private void InitializeJokes()
     {
         int tmp = 0;
 
