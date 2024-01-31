@@ -4,6 +4,7 @@ using UnityEngine;
 [System.Serializable]
 public class ParryState : PlayerState
 {
+    [SerializeField] private float movementSpeed = 1f;
     [SerializeField] private float startUp, active, recovery;
     private Sequence sequence;
     public void Initialize(in PlayerStateMachine player) => base.Initialize("PARRY", player);
@@ -27,6 +28,7 @@ public class ParryState : PlayerState
     public override void Update()
     {
         player.LookForward();
+        player.Move(movementSpeed);
         player.Fall();
     }
     public override void Exit()

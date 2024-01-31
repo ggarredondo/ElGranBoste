@@ -47,7 +47,7 @@ MonoBehaviour:
   soundGroups:
   - sounds:
     - name: EnemyLaugh
-      clip: {fileID: 8300000, guid: c91e33b48ee76b24d9f2228aad192136, type: 3}
+      clip: {fileID: 8300000, guid: 0866500c23fef7749a8ec2618d089e16, type: 3}
       volume: 1
       pitch: 0.4
       loop: 1
