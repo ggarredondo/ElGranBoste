@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using System.Threading.Tasks;
 
 public class JokeBook : MonoBehaviour
 {
@@ -113,7 +114,7 @@ public class JokeBook : MonoBehaviour
         selected = false;
     }
 
-    private async void MovePages(float direction)
+    private void MovePages(float direction)
     {
         if (direction == -120 && player.SelectedJoke < pages.Count-1)
         {
@@ -128,10 +129,8 @@ public class JokeBook : MonoBehaviour
         {
             player.SetSelectedJoke(player.SelectedJoke - 1);
 
-            await pages[player.SelectedJoke].MoveBackWardsAsync();
-
             if (player.SelectedJoke + 1 < pages.Count)
-                pages[player.SelectedJoke + 1].gameObject.SetActive(false);
+                pages[player.SelectedJoke + 1].DisablePage(pages[player.SelectedJoke].MoveBackWardsAsync());
         }
     }
 

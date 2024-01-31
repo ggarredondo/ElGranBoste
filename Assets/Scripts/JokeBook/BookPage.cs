@@ -35,13 +35,21 @@ public class BookPage : MonoBehaviour
     public async Task MoveBackWardsAsync()
     {
         GameManager.Audio.Play(movePageSoundName);
-        await transform.DOLocalRotate(new Vector3(0, 0, initialPageRotationAngle), pageRotationTime).AsyncWaitForCompletion();
+        transform.DOLocalRotate(new Vector3(0, 0, initialPageRotationAngle), pageRotationTime);
+
+        await Task.Delay(System.TimeSpan.FromSeconds(pageRotationTime - 0.1f));
     }
 
     public void MoveBackWards()
     {
         GameManager.Audio.Play(movePageSoundName);
         transform.DOLocalRotate(new Vector3(0, 0, initialPageRotationAngle), pageRotationTime);
+    }
+
+    public async void DisablePage(Task task)
+    {
+        await task;
+        gameObject.SetActive(false);
     }
 
     public async void DestroyPage()
