@@ -24,8 +24,8 @@ public class PlayerStateMachine : MonoBehaviour
 
     private void Awake() 
     {
-        //Cursor.lockState = CursorLockMode.Locked;
-        //Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
 
         enemyTransform = GameObject.FindGameObjectWithTag("Enemy").transform;
         playerToEnemyEvents = GetComponent<PlayerToEnemyEvents>();
