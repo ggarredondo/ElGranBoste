@@ -50,6 +50,12 @@ public class PlayerStateMachine : MonoBehaviour
         currentState.Update();
     }
 
+    private void OnDisable()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
     private void ChangeState(in PlayerState newState)
     {
         if (!disableTransitions)
