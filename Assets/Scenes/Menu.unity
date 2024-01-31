@@ -5130,7 +5130,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 8400000, guid: 88c8d03ac6d35d849ba4315e5099a903, type: 2}
+  m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
@@ -12323,7 +12323,7 @@ MonoBehaviour:
   transitionTime: 0.5
   firstMenu: 0
   firstSelected: {fileID: 8992208918177639138}
-  volumeProfile: {fileID: 11400000, guid: a6560a915ef98420e9faacc1c7438823, type: 2}
+  volumeProfile: {fileID: 11400000, guid: 7bbe35cdf5d69e14abbb03eccedaa5bd, type: 2}
   fullscreen:
     dependency: {fileID: 0}
     inverseDependency: 0
