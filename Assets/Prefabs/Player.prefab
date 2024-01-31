@@ -224,15 +224,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jokeList:
   - id: Taladrando
-    sentence: Que hace un perro con un taladro? Taladrando
+    sentence: "\xBFQu\xE9 hace un perro con un taladro? 't\xE1 ladrando."
     sfx: Chiste1
-    timeToPerform: 2
     laughingTime: 10
     type: 0
   - id: Enmedio
-    sentence: Van dos y se cae el de en medio
+    sentence: Van dos y se cae el de en medio.
     sfx: Chiste2
-    timeToPerform: 1
     laughingTime: 5
     type: 0
   currentStateName: 
@@ -241,6 +239,7 @@ MonoBehaviour:
   jokingState:
     movementSpeed: 2
   parryState:
+    movementSpeed: 1
     startUp: 0.2
     active: 0.1
     recovery: 0.4

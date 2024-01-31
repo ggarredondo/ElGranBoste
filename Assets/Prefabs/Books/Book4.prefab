@@ -122,15 +122,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jokes:
   - id: Pinchos
-    sentence: Un hombre entra a un bar de pinchos y... ay
+    sentence: Un hombre entra a un bar de pinchos y... ay.
     sfx: Chiste8
-    timeToPerform: 2
     laughingTime: 10
     type: 0
   - id: Espejo
-    sentence: Como se dice espejo en chino? Ai Toy Yo
+    sentence: "\xBFC\xF3mo se dice espejo en chino? Ai-Toy Yo."
     sfx: Chiste9
-    timeToPerform: 2
     laughingTime: 10
     type: 0
   positionOffset: {x: 0, y: -0.25, z: 0}

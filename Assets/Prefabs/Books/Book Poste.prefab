@@ -122,9 +122,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jokes:
   - id: Poste
-    sentence: Una polla como un poste
+    sentence: Una polla como un poste.
     sfx: ChisteBoste
-    timeToPerform: 1
     laughingTime: 0
     type: 1
   positionOffset: {x: 0, y: -0.25, z: 0}

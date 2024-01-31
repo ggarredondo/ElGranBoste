@@ -122,15 +122,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jokes:
   - id: Ascensor
-    sentence: Como se dice ascensor en arabe? Alibaba, y abajo tambien
+    sentence: "\xBFC\xF3mo se dice ascensor en \xE1rabe? Alibaba, y abajo tambi\xE9n."
     sfx: Chiste14
-    timeToPerform: 2
     laughingTime: 10
     type: 0
   - id: Garabatosh
-    sentence: Como se dice caricatura en griego? Garabathos
+    sentence: "\xBFC\xF3mo se dice caricatura en griego? Garabathos."
     sfx: Chiste15
-    timeToPerform: 1
     laughingTime: 5
     type: 0
   positionOffset: {x: 0, y: -0.25, z: 0}
