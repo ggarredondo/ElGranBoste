@@ -10,6 +10,7 @@ public class ParryAnimation : MonoBehaviour
     private Sequence parrySequence;
 
     [Header("Sounds")]
+    [SerializeField] private string wooshSoundName;
     [SerializeField] private string parrySoundName;
 
     [Header("Parameters")]
@@ -33,10 +34,16 @@ public class ParryAnimation : MonoBehaviour
         GameManager.Audio.Play(parrySoundName);
     }
 
+    private void PlayWooshSound()
+    {
+        GameManager.Audio.Play(wooshSoundName);
+    }
+
     private void Parry()
     {
         parrySequence = DOTween.Sequence();
         parrySequence.Append(transform.DOLocalMove(startUpPosition, playerStateMachine.ParryState.StartUp));
+        parrySequence.AppendCallback(PlayWooshSound);
         parrySequence.Append(transform.DOLocalMove(activePosition, playerStateMachine.ParryState.Active).SetEase(activeEase));
         parrySequence.Join(transform.DOLocalRotateQuaternion(activeRotation, playerStateMachine.ParryState.Active).SetEase(activeEase));
         parrySequence.Append(transform.DOLocalMove(recoveryPosition, playerStateMachine.ParryState.Recovery).SetEase(recoveryEase));

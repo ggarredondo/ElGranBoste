@@ -56,6 +56,7 @@ public class EnemySoundBehaviour : MonoBehaviour
 
     private void ChangeScene()
     {
+        DOTween.KillAll();
         GameManager.Scene.NextScene();
     }
 }

@@ -71,6 +71,11 @@ MonoBehaviour:
       volume: 1
       pitch: 1
       loop: 0
+    - name: Woosh
+      clip: {fileID: 8300000, guid: 94c57d8d226a52447b9e445a31afc9e9, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
   - sounds:
     - name: Chiste1
       clip: {fileID: 8300000, guid: be1f7c20cb959d1418454498da47b39e, type: 3}

@@ -1114,6 +1114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerStateMachine: {fileID: 454457891393848172}
+  wooshSoundName: Woosh
   parrySoundName: ParrySound
   startUpPosition: {x: -0.5, y: -0.5, z: 1}
   activePosition: {x: -1.2, y: 0, z: 1}

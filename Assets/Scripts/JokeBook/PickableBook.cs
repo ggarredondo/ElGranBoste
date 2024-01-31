@@ -9,26 +9,30 @@ public class PickableBook : MonoBehaviour
 
     [Header("Parameters")]
     [SerializeField] private Vector3 positionOffset;
-    [SerializeField] private Quaternion rotationOffset;
+    [SerializeField] private Vector3 rotation;
     [SerializeField] private float animationTime;
+    [SerializeField] private float animationRotationTime;
 
     [Header("Sounds")]
     [SerializeField] private string ambientSoundName;
     [SerializeField] private string pickUpSoundName;
 
-    private Sequence sequence;
+    private MeshRenderer meshRenderer;
+    private Collider bookCollider;
 
     private void Start()
     {
+        meshRenderer = GetComponent<MeshRenderer>();
+        bookCollider = GetComponent<Collider>();
+
         GameManager.Audio.Play(ambientSoundName);
-        sequence = DOTween.Sequence();
         Move();
     }
 
     private void Move()
     {
-        sequence.Append(transform.DOMove(transform.position + positionOffset, animationTime));
-        sequence.SetLoops(-1, LoopType.Yoyo);
+        transform.DOMove(transform.position + positionOffset, animationTime).SetLoops(-1, LoopType.Yoyo).SetEase(Ease.InOutQuad);
+        transform.DOLocalRotate(rotation, animationRotationTime, RotateMode.FastBeyond360).SetEase(Ease.Linear).SetLoops(-1, LoopType.Restart);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -45,11 +49,19 @@ public class PickableBook : MonoBehaviour
 
             player.OnPickBook.Invoke();
 
-            sequence.Kill();
-
-            GameManager.Audio.Play(pickUpSoundName);
-
-            Destroy(gameObject, 0.5f);
+            DisableBook();
         }
+    }
+
+    private void DisableBook()
+    {
+        transform.DOKill();
+
+        GameManager.Audio.Play(pickUpSoundName);
+
+        meshRenderer.enabled = false;
+        bookCollider.enabled = false;
+
+        Destroy(gameObject, GameManager.Audio.Length(pickUpSoundName));
     }
 }
