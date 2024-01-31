@@ -13,7 +13,7 @@ public class LaughingState : EnemyState
     {
         enemy.PlayerToEnemyEvents.OnJokePerformed += ReceiveJoke;
         sequence = DOTween.Sequence();
-        sequence.AppendInterval(receivedJoke.LaughingTime).OnComplete(enemy.TransitionToChasing);
+        sequence.AppendInterval(receivedJoke.LaughingTime + enemy.LaughingExtraTime).OnComplete(enemy.TransitionToChasing);
         enemy.StopFollowing();
         base.Enter();
     }

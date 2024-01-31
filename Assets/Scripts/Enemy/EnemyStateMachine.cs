@@ -6,7 +6,7 @@ public class EnemyStateMachine : MonoBehaviour
     [SerializeField] private NavMeshAgent agent;
     private Transform target;
     private PlayerToEnemyEvents playerToEnemyEvents;
-    [SerializeField] private float minDistanceToKill;
+    [SerializeField] private float minDistanceToKill, laughingExtraTime;
 
     [SerializeField][ReadOnlyField] private string currentStateName;
     private EnemyState currentState;
@@ -70,4 +70,5 @@ public class EnemyStateMachine : MonoBehaviour
 
     public ref readonly NavMeshAgent Agent => ref agent;
     public ref readonly PlayerToEnemyEvents PlayerToEnemyEvents => ref playerToEnemyEvents;
+    public float LaughingExtraTime => laughingExtraTime;
 }

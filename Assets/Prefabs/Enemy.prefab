@@ -51,6 +51,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 8121648142368571042}
   minDistanceToKill: 2.1
+  laughingExtraTime: 10
   currentStateName: 
   chasingState:
     movementSpeed: 6
