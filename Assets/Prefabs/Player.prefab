@@ -222,6 +222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a685adbcb012d04ba4e966cffc7cb7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  raycastHeight: 1
   jokeBook: {fileID: 340082392818397220}
   jokeList:
   - id: Taladrando

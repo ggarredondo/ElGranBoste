@@ -29,7 +29,7 @@ public class RunningState : PlayerState
 
     public void JokeStart()
     {
-        if (player.IsEnemyInCameraView())
+        if (player.IsEnemyInRange())
             player.TransitionToJoking();
     }
     public float MovementSpeed => movementSpeed;

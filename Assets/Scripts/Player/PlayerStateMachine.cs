@@ -9,6 +9,7 @@ public class PlayerStateMachine : MonoBehaviour
     private CharacterController characterController;
     private InputController inputController;
     private Vector3 velocity;
+    [SerializeField] private float raycastHeight;
     [SerializeField] private JokeBook jokeBook;
     [SerializeField] private List<Joke> jokeList;
     private int selectedJoke = 0;
@@ -82,10 +83,12 @@ public class PlayerStateMachine : MonoBehaviour
     public void ResetMoveVector() => velocity = Vector3.zero;
     public void LookForward() => transform.LookAt(transform.position + cam.transform.forward);
     public void Fall() => characterController.Move(Physics.gravity * Time.deltaTime);
-    public bool IsEnemyInCameraView()
+    public bool IsEnemyInRange()
     {
+        RaycastHit hit;
+        Physics.Raycast(transform.position + Vector3.up * raycastHeight, enemyTransform.position - transform.position, out hit);
         Vector3 viewPos = cam.WorldToViewportPoint(enemyTransform.position);
-        return viewPos.x >= 0f && viewPos.x <= 1f && viewPos.y >= 0f && viewPos.y <= 1f && viewPos.z > 0f;
+        return viewPos.x >= 0f && viewPos.x <= 1f && viewPos.y >= 0f && viewPos.y <= 1f && viewPos.z > 0f && hit.transform.tag == "Enemy";
     }
     public void SetSelectedJoke(int index) => selectedJoke = index;
     public void InitializeAllJokes()

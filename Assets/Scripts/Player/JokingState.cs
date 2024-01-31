@@ -27,7 +27,7 @@ public class JokingState : PlayerState
         player.Move(movementSpeed);
         player.LookForward();
         player.Fall();
-        if (!player.IsEnemyInCameraView())
+        if (!player.IsEnemyInRange())
             player.TransitionToRunning();
     }
     public override void Exit()
