@@ -18,7 +18,7 @@ public class PlayerStateMachine : MonoBehaviour
     [SerializeField] private JokingState jokingState;
     [SerializeField] private DeadState deadState;
     [SerializeField] private ParryState parryState;
-    public bool disableTransitions;
+    [System.NonSerialized] public bool disableTransitions;
 
     public System.Action OnPickBook;
 

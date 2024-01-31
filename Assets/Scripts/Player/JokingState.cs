@@ -27,6 +27,8 @@ public class JokingState : PlayerState
         player.Move(movementSpeed);
         player.LookForward();
         player.Fall();
+        if (!player.IsEnemyInCameraView())
+            player.TransitionToRunning();
     }
     public override void Exit()
     {
@@ -40,11 +42,8 @@ public class JokingState : PlayerState
 
     public void PerformJoke()
     {
-        if (player.IsEnemyInCameraView())
-        {
-            player.PlayerToEnemyEvents.OnJokePerformed?.Invoke(currentJoke);
-            OnJokePerformed?.Invoke();
-        }
+        player.PlayerToEnemyEvents.OnJokePerformed?.Invoke(currentJoke);
+        OnJokePerformed?.Invoke();
         player.TransitionToRunning();
     }
 

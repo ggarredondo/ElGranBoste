@@ -54,7 +54,7 @@ MonoBehaviour:
   laughingExtraTime: 10
   currentStateName: 
   chasingState:
-    movementSpeed: 0
+    movementSpeed: 6
   listeningState:
     movementSpeed: 4
   parriedState:
