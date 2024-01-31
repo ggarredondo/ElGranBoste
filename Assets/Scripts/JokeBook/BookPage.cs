@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 public class BookPage : MonoBehaviour
 {
     [SerializeField] private MeshRenderer mesh;
-    [SerializeField] private TMP_Text textMeshPro;
-    [SerializeField] private TMP_Text textMeshProSize;
+    [SerializeField] private TMP_Text jokeText;
+    [SerializeField] private TMP_Text timeText;
 
     [Header("Parameters")]
     [SerializeField] float pageRotationAngle;
@@ -19,10 +19,11 @@ public class BookPage : MonoBehaviour
     [Header("Sounds")]
     [SerializeField] private string movePageSoundName;
 
-    public void SetStyle(string sentence, int textSize)
+    public void SetStyle(string joke, JokeType jokeType, int time)
     {
-        textMeshPro.text = sentence;
-        textMeshProSize.text = textSize.ToString();
+        jokeText.text = joke;
+        jokeText.color = jokeType == JokeType.Poste ? Color.red : Color.black;
+        timeText.text = time.ToString() + " seg.";
     }
 
     public void MoveForward()
