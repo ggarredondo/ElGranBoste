@@ -8,7 +8,6 @@ using InputUtilities;
 using SaveUtilities;
 using SceneUtilities;
 using AudioUtilities;
-using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
