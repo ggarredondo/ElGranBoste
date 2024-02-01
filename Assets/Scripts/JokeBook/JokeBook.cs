@@ -89,21 +89,25 @@ public class JokeBook : MonoBehaviour
 
     private void MovePages(float direction)
     {
-        if (direction == -120 && player.SelectedJoke < pages.Count-1)
+        if (direction < 0  && player.SelectedJoke < pages.Count-1)
         {
             if (player.SelectedJoke + 1 < pages.Count)
-                pages[player.SelectedJoke + 1].gameObject.SetActive(true);
+            {
+                pages[player.SelectedJoke].CancelDisable(pages[player.SelectedJoke + 1]);
+            }
 
             pages[player.SelectedJoke].MoveForward();
             player.SetSelectedJoke(player.SelectedJoke + 1);
         }
 
-        if (direction == 120 && player.SelectedJoke > 0)
+        if (direction > 0 && player.SelectedJoke > 0)
         {
             player.SetSelectedJoke(player.SelectedJoke - 1);
 
             if (player.SelectedJoke + 1 < pages.Count)
-                pages[player.SelectedJoke + 1].DisablePage(pages[player.SelectedJoke].MoveBackWardsAsync());
+            {
+                pages[player.SelectedJoke].MoveBackWardsAsync(pages[player.SelectedJoke + 1]);
+            }
         }
     }
 

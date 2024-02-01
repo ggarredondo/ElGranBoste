@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using DG.Tweening;
 using System.Threading.Tasks;
+using System.Threading;
 
 public class BookPage : MonoBehaviour
 {
@@ -19,6 +20,8 @@ public class BookPage : MonoBehaviour
     [Header("Sounds")]
     [SerializeField] private string movePageSoundName;
 
+    private Sequence sequence;
+
     public void SetStyle(string joke, JokeType jokeType, int time)
     {
         jokeText.text = joke;
@@ -32,12 +35,14 @@ public class BookPage : MonoBehaviour
         transform.DOLocalRotate(new Vector3(0, 0, pageRotationAngle), pageRotationTime);
     }
 
-    public async Task MoveBackWardsAsync()
+    public void MoveBackWardsAsync(BookPage nextPage)
     {
         GameManager.Audio.Play(movePageSoundName);
         transform.DOLocalRotate(new Vector3(0, 0, initialPageRotationAngle), pageRotationTime);
 
-        await Task.Delay(System.TimeSpan.FromSeconds(pageRotationTime - 0.1f));
+        sequence = DOTween.Sequence();
+        sequence.AppendInterval(pageRotationTime - 0.1f);
+        sequence.OnComplete(() => nextPage.DisablePage());
     }
 
     public void MoveBackWards()
@@ -46,9 +51,14 @@ public class BookPage : MonoBehaviour
         transform.DOLocalRotate(new Vector3(0, 0, initialPageRotationAngle), pageRotationTime);
     }
 
-    public async void DisablePage(Task task)
+    public void CancelDisable(BookPage nextPage)
     {
-        await task;
+        sequence.Kill();
+        nextPage.gameObject.SetActive(true);
+    }
+
+    public void DisablePage()
+    {
         gameObject.SetActive(false);
     }
 
