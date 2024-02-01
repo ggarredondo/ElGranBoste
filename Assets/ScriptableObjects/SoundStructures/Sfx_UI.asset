@@ -30,27 +30,27 @@ MonoBehaviour:
   - sounds:
     - name: SelectButton
       clip: {fileID: 8300000, guid: ab012198a85961f46a90ba4ccd654917, type: 3}
-      volume: 1
+      volume: 0.3
       pitch: 0.5
       loop: 0
     - name: ChangeMenu
       clip: {fileID: 8300000, guid: 6f8fad28a8bb2d74b8a710d27bc230a8, type: 3}
-      volume: 1
+      volume: 0.2
       pitch: 0.5
       loop: 0
     - name: Back
       clip: {fileID: 8300000, guid: 99a03d336b0850143bb5ca7948c19036, type: 3}
-      volume: 1
+      volume: 0.5
       pitch: 0.5
       loop: 0
     - name: PressButton
       clip: {fileID: 8300000, guid: 49c9c00e7774b004a9192ee9fa73402e, type: 3}
-      volume: 1
+      volume: 0.3
       pitch: 0.5
       loop: 0
     - name: Play
       clip: {fileID: 8300000, guid: 8e1facf014f2a73479ed6eb1a67b3db8, type: 3}
-      volume: 1
+      volume: 0.3
       pitch: 0.5
       loop: 0
     - name: Slider

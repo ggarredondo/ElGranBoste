@@ -30,7 +30,7 @@ MonoBehaviour:
   - sounds:
     - name: Intro
       clip: {fileID: 8300000, guid: ad5c10789a9b7c6418df8676a79cddcf, type: 3}
-      volume: 1
+      volume: 0.5
       pitch: 1
       loop: 1
     - name: Ambient

@@ -63,7 +63,7 @@ MonoBehaviour:
       loop: 0
     - name: BookPage
       clip: {fileID: 8300000, guid: 9d70328ffc27de745923779338bddf2f, type: 3}
-      volume: 1
+      volume: 0.5
       pitch: 1
       loop: 0
     - name: ParrySound
