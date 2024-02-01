@@ -5113,7 +5113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   volumeProfile: {fileID: 11400000, guid: 7bbe35cdf5d69e14abbb03eccedaa5bd, type: 2}
-  delay: 0.2
+  delay: 0.1
   stopTime: 0.2
   chromaticAberrationList: 14000000280000003c00000050000000ecffffffd8ffffffc4ffffffb0ffffff
 --- !u!114 &454457891393848172

@@ -12,7 +12,8 @@ public class TimeStopEffect : MonoBehaviour
     [SerializeField] private VolumeProfile volumeProfile;
 
     [Header("Parameters")]
-    [SerializeField] private float delay, stopTime;
+    [SerializeField] private float delay;
+    [SerializeField] private float stopTime;
     [SerializeField] private List<int> chromaticAberrationList;
 
     private Sequence sequence;
