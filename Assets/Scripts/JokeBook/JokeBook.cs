@@ -14,13 +14,9 @@ public class JokeBook : MonoBehaviour
 
     [Header("Parameters")]
     [SerializeField] private Vector3 selectedPosition;
-    [SerializeField] private Vector3 unselectedPosition;
     [SerializeField] private float selectedAnimationTime;
-    [SerializeField] private float unselectedAnimationTime;
 
     private List<BookPage> pages;
-    private bool selected, setTimer;
-    private Sequence timer;
 
     public void Initialize()
     {
@@ -29,6 +25,7 @@ public class JokeBook : MonoBehaviour
         player.PlayerToEnemyEvents.OnJokePerformed += RemoveJoke;
         pages = new();
         InitializeJokes();
+        transform.DOLocalMove(selectedPosition, selectedAnimationTime);
     }
 
     private void RemoveJoke(in Joke joke)
@@ -87,31 +84,7 @@ public class JokeBook : MonoBehaviour
 
     private void MouseWheel(float direction)
     {
-        if (selected)
-        {
-            MovePages(direction);
-            BookTimer();
-        }
-        else
-        {
-            transform.DOLocalMove(selectedPosition, selectedAnimationTime);
-            selected = true;
-        }
-    }
-
-    private async void BookTimer()
-    {
-        if (setTimer)
-        {
-            timer.Kill();
-        }
-
-        setTimer = true;
-        timer = DOTween.Sequence();
-        timer.AppendInterval(unselectedAnimationTime);
-        timer.Append(transform.DOLocalMove(unselectedPosition, selectedAnimationTime));
-        await timer.AsyncWaitForCompletion();
-        selected = false;
+        MovePages(direction);
     }
 
     private void MovePages(float direction)

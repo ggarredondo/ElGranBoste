@@ -10866,7 +10866,7 @@ MonoBehaviour:
   startUpPosition: {x: -0.5, y: -0.5, z: 1}
   activePosition: {x: -1.2, y: 0, z: 1}
   activeRotation: {x: -0.32374442, y: -0.69427204, z: -0.5825634, w: 0.27165383}
-  recoveryPosition: {x: -0.5, y: -1.5, z: 1}
+  recoveryPosition: {x: -0.5, y: -0.5, z: 1}
   recoveryRotation: {x: -0.57357645, y: 0, z: 0, w: 0.81915206}
   activeEase: 1
   recoveryEase: 1

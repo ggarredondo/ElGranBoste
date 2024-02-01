@@ -4939,9 +4939,7 @@ MonoBehaviour:
   player: {fileID: 0}
   parent: {fileID: 8608598205010320073}
   selectedPosition: {x: -0.5, y: -0.5, z: 1}
-  unselectedPosition: {x: -0.5, y: -1.5, z: 1}
-  selectedAnimationTime: 1
-  unselectedAnimationTime: 4
+  selectedAnimationTime: 2
 --- !u!1 &8608598205010320073
 GameObject:
   m_ObjectHideFlags: 0
