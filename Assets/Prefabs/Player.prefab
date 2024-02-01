@@ -5112,8 +5112,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4beed498c1c7d81469192dc4ed598abe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 0
-  stopTime: 0.1
+  volumeProfile: {fileID: 11400000, guid: 7bbe35cdf5d69e14abbb03eccedaa5bd, type: 2}
+  delay: 0.2
+  stopTime: 0.2
+  chromaticAberrationList: 14000000280000003c00000050000000ecffffffd8ffffffc4ffffffb0ffffff
 --- !u!114 &454457891393848172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5403,7 +5405,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de28b9ab0dcd98b48b72fadafec799b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnEnterRunningState:
+  OnEnterParryState:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: f48466838f13a8f47a97f5a53b3b6112, type: 2}
@@ -5415,67 +5417,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: EnterRunning
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnExitRunningState:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000, guid: f48466838f13a8f47a97f5a53b3b6112, type: 2}
-        m_TargetAssemblyTypeName: EventHandler, parry-mechanics.out-scene-essentials
-        m_MethodName: OnInvoke
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: ExitRunning
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnEnterJokingState:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000, guid: f48466838f13a8f47a97f5a53b3b6112, type: 2}
-        m_TargetAssemblyTypeName: EventHandler, parry-mechanics.out-scene-essentials
-        m_MethodName: OnInvoke
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: EnterJoking
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnExitJokingState:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000, guid: f48466838f13a8f47a97f5a53b3b6112, type: 2}
-        m_TargetAssemblyTypeName: EventHandler, parry-mechanics.out-scene-essentials
-        m_MethodName: OnInvoke
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: ExitJoking
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnJokePerformedJokingState:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000, guid: f48466838f13a8f47a97f5a53b3b6112, type: 2}
-        m_TargetAssemblyTypeName: EventHandler, parry-mechanics.out-scene-essentials
-        m_MethodName: OnInvoke
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: PerformedJoking
+          m_StringArgument: EnterParry
           m_BoolArgument: 0
         m_CallState: 2
   OnEnterDeathState:

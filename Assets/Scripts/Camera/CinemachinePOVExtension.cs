@@ -16,6 +16,7 @@ public class CinemachinePOVExtension : CinemachineExtension
     [SerializeField] private EventHandler eventHandler;
     [Space(10)]
     [SerializeField] private string deathEventName;
+    [SerializeField] private string parryEventName;
 
     [Header("Look Parameters")]
     [SerializeField] private float horizontalSpeed = 10f;
@@ -33,26 +34,32 @@ public class CinemachinePOVExtension : CinemachineExtension
     [SerializeField] private Vector3 deathRotation;
     [SerializeField] private float deathMovementTime;
 
+    [Header("Parry Camera Shake")]
+    [SerializeField] private float parryShakeTime;
+    [SerializeField] private Vector3 parryShakeStrength;
+    [SerializeField] private int parryShakeVibrato = 10;
+    [SerializeField] private float parryShakeRandom = 90;
+
     [Header("Sounds")]
     [SerializeField] private string stepSoundName;
 
     private Vector2 mouseInput;
     private Vector3 startingRotation;
+    private Vector3 initialPosition;
     private Transform target;
     private PlayerStateMachine player;
 
     private Sequence sequenceY, sequenceX;
     private Sequence deathSequence;
+    private Sequence parrySequence;
 
     protected override void Awake()
     {
         look.action.performed += ctx => mouseInput = ctx.ReadValue<Vector2>();
         target = VirtualCamera.Follow;
+        initialPosition = target.localPosition;
 
-        sequenceY = DOTween.Sequence();
-        sequenceX = DOTween.Sequence();
-
-        CameraShake();
+        PlayerCameraShake();
 
         base.Awake();
     }
@@ -65,6 +72,7 @@ public class CinemachinePOVExtension : CinemachineExtension
     private void Start()
     {
         eventHandler.events[deathEventName] += DeathCameraMovement;
+        eventHandler.events[parryEventName] += ParryCameraShake;
 
         player = GameObject.FindGameObjectWithTag(playerTag).GetComponent<PlayerStateMachine>();
     }
@@ -80,6 +88,21 @@ public class CinemachinePOVExtension : CinemachineExtension
 
         sequenceX.DOTimeScale(velocity, 0f);
         sequenceY.DOTimeScale(velocity, 0f);
+    }
+
+    private void ParryCameraShake()
+    {
+        sequenceX.Pause();
+        sequenceY.Pause();
+
+        parrySequence = DOTween.Sequence();
+        parrySequence.SetUpdate(true);
+        parrySequence.Append(target.DOShakePosition(parryShakeTime, parryShakeStrength, parryShakeVibrato, parryShakeRandom, randomnessMode: ShakeRandomnessMode.Harmonic));
+        parrySequence.Append(target.DOLocalMove(initialPosition, 0.1f)).OnComplete(() =>
+        {
+            sequenceX.Play();
+            sequenceY.Play();
+        });
     }
 
     private void DeathCameraMovement()
@@ -102,8 +125,11 @@ public class CinemachinePOVExtension : CinemachineExtension
         GameManager.Scene.PreviousScene();
     }
 
-    private void CameraShake()
+    private void PlayerCameraShake()
     {
+        sequenceY = DOTween.Sequence();
+        sequenceX = DOTween.Sequence();
+
         sequenceY.Append(target.DOLocalMoveY(amplitudeY, shakeFrequency).SetEase(Ease.InOutSine));
         sequenceY.SetLoops(-1, LoopType.Yoyo);
 
