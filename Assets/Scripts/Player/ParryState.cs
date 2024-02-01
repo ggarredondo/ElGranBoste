@@ -34,6 +34,7 @@ public class ParryState : PlayerState
     public override void Exit()
     {
         sequence.Kill();
+        player.PlayerToEnemyEvents.OnKillPlayer -= Parry;
         player.PlayerToEnemyEvents.OnKillPlayer -= player.TransitionToDead;
         base.Exit();
     }
