@@ -15,8 +15,8 @@ MonoBehaviour:
   sceneName: Menu_NonDestructable
   nextScene:
   - sceneName: EntornoFinal
-    withLoadScreen: 0
-    loadSceneName: 
+    withLoadScreen: 1
+    loadSceneName: Loading
   previousScene: []
   playMusic: 1
   music: Intro

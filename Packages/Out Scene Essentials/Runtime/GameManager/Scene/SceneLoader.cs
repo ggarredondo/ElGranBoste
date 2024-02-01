@@ -28,7 +28,7 @@ namespace SceneUtilities
 
             if (SceneManager.GetActiveScene().name == loadingScene)
             {
-                ActivateLoading.Invoke();
+                ActivateLoading?.Invoke();
                 LoadSceneAsync();
             }
         }
@@ -60,7 +60,7 @@ namespace SceneUtilities
             asyncOperation = SceneManager.LoadSceneAsync(nextSceneIndex);
             asyncOperation.allowSceneActivation = false;
 
-            while (UpdateLoading.Invoke(asyncOperation.progress) == false)
+            while (UpdateLoading?.Invoke(asyncOperation.progress) == false)
                 await Task.Delay(100);
 
             AllowScene();

@@ -438,6 +438,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3b92fef20aa354842880b0bae14e28fd, type: 2}
   - {fileID: 11400000, guid: a97db4b1c273c8646bc239dd404801a1, type: 2}
   - {fileID: 11400000, guid: 43be54b26f6d9de40a337deeae44beb4, type: 2}
+  - {fileID: 11400000, guid: c5b638a3f43a62840b5566a2ea74c2ed, type: 2}
   transitionPlayer: {fileID: 8077567531975457333}
   timeScale: 1
 --- !u!114 &6467190233569342834
