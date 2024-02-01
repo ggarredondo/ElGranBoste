@@ -283,7 +283,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.2
+      scalar: 0.15
       minScalar: 0.1
       maxCurve:
         serializedVersion: 2
@@ -336,8 +336,8 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 1
-      minScalar: 0.5
+      scalar: 0.7
+      minScalar: 0.3
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -454,8 +454,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.03
-      minScalar: 0.02
+      scalar: 0.02
+      minScalar: 0.01
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -5003,7 +5003,7 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5492,6 +5492,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fingerSnapParticles: {fileID: 8425116299376265102}
   fingerSnapDelay: 0.4
+  parryParticles: {fileID: 347286935235192688}
   fingerSnapSoundName: PerformedJoking
   deathSoundName: EnterDeath
 --- !u!1 &5812177740302901112
@@ -10878,6 +10879,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0c23b29d24479f46b1840b7eadfda28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!198 &347286935235192688 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7434468690243399682, guid: 567bade760a980547ae8686cdbebd9aa,
+    type: 3}
+  m_PrefabInstance: {fileID: 7204992232278677362}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1345517697361391149 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8165443343725197663, guid: 567bade760a980547ae8686cdbebd9aa,

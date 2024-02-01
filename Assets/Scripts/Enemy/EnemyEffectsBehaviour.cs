@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class EnemySoundBehaviour : MonoBehaviour
+public class EnemyEffectsBehaviour : MonoBehaviour
 {
     private EnemyStateMachine enemyStateMachine;
 
