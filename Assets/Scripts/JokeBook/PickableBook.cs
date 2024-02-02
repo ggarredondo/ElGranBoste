@@ -31,7 +31,7 @@ public class PickableBook : MonoBehaviour
 
     private void Move()
     {
-        transform.DOMove(transform.position + positionOffset, animationTime).SetLoops(-1, LoopType.Yoyo).SetEase(Ease.InOutQuad);
+        transform.DOLocalMove(transform.localPosition + positionOffset, animationTime).SetLoops(-1, LoopType.Yoyo).SetEase(Ease.InOutQuad);
         transform.DOLocalRotate(rotation, animationRotationTime, RotateMode.FastBeyond360).SetEase(Ease.Linear).SetLoops(-1, LoopType.Restart);
     }
 

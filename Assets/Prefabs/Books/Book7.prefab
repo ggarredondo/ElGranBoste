@@ -29,14 +29,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 181667266732524496}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0.5, w: 0.8660254}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 50, y: 50, z: 50}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5344435120784410223}
+  - {fileID: 165944548331944256}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 60}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4524759225579986560
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -114,7 +114,7 @@ MonoBehaviour:
   rotation: {x: 0, y: 360, z: 60}
   animationTime: 0.5
   animationRotationTime: 2
-  ambientSoundName: 
+  ambientSoundName: BookAmbient
   pickUpSoundName: 7_PickUp
 --- !u!114 &6384446370716826843
 MonoBehaviour:
@@ -153,7 +153,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.02, y: 0.015, z: 0.01}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &5719743172746297722
+--- !u!1 &1681988968445185150
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -161,9 +161,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5344435120784410223}
-  - component: {fileID: 7508061744361143181}
-  - component: {fileID: 1989445053870885342}
+  - component: {fileID: 8167886262756469116}
+  - component: {fileID: 8329958977106028927}
+  - component: {fileID: 2254948636303465162}
   m_Layer: 0
   m_Name: Particles
   m_TagString: Untagged
@@ -171,28 +171,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5344435120784410223
+--- !u!4 &8167886262756469116
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5719743172746297722}
+  m_GameObject: {fileID: 1681988968445185150}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 350138793215183148}
+  m_Father: {fileID: 165944548331944256}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!198 &7508061744361143181
+--- !u!198 &8329958977106028927
 ParticleSystem:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5719743172746297722}
+  m_GameObject: {fileID: 1681988968445185150}
   serializedVersion: 8
   lengthInSec: 5
   simulationSpeed: 1
@@ -4909,14 +4909,14 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!199 &1989445053870885342
+--- !u!199 &2254948636303465162
 ParticleSystemRenderer:
   serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5719743172746297722}
+  m_GameObject: {fileID: 1681988968445185150}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -4984,3 +4984,156 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!1 &1772114766020820298
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 165944548331944256}
+  - component: {fileID: 6452196406948378468}
+  - component: {fileID: 575175528967172190}
+  - component: {fileID: 1216891644434538351}
+  - component: {fileID: 609790582081023773}
+  - component: {fileID: 3647066682663409864}
+  m_Layer: 0
+  m_Name: Book
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &165944548331944256
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1772114766020820298}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0.5, w: 0.8660254}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 50, y: 50, z: 50}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8167886262756469116}
+  m_Father: {fileID: 350138793215183148}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 60}
+--- !u!33 &6452196406948378468
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1772114766020820298}
+  m_Mesh: {fileID: -5495902117074765545, guid: d6d06c5129059da45805f3ceafde1ed0, type: 3}
+--- !u!23 &575175528967172190
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1772114766020820298}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 8e9ee94b3f8011e47ab46268cb9df894, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1216891644434538351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1772114766020820298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65ec23cd815517f4b87abb337055ad28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jokes:
+  - id: Ascensor
+    sentence: "\xBFC\xF3mo se dice ascensor en \xE1rabe? Alibaba, y abajo tambi\xE9n."
+    sfx: Chiste14
+    laughingTime: 10
+    type: 0
+  - id: Garabatosh
+    sentence: "\xBFC\xF3mo se dice caricatura en griego? Garabathos."
+    sfx: Chiste15
+    laughingTime: 5
+    type: 0
+  positionOffset: {x: 0, y: -0.25, z: 0}
+  rotation: {x: 0, y: 360, z: 60}
+  animationTime: 0.5
+  animationRotationTime: 2
+  ambientSoundName: BookAmbient
+  pickUpSoundName: 7_PickUp
+--- !u!114 &609790582081023773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1772114766020820298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 815bf9943c7e40f43a629ad628e8b6cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: 7
+  soundStructures:
+  - {fileID: 11400000, guid: f32b86dd6183792408ef1c23c594fdd7, type: 2}
+  destroySoundStructures: 1
+--- !u!65 &3647066682663409864
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1772114766020820298}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.02, y: 0.015, z: 0.01}
+  m_Center: {x: 0, y: 0, z: 0}
