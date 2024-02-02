@@ -10,6 +10,7 @@ public class RandomizePositions : MonoBehaviour
     [SerializeField] private Transform player, bookPoste;
     [SerializeField] private NavMeshAgent enemy;
     [SerializeField] private List<Transform> books;
+    [SerializeField] private float numberOfSpawnedBooks;
     private List<Transform> spawnPoints;
     private System.Random rng;
 
@@ -52,12 +53,16 @@ public class RandomizePositions : MonoBehaviour
         spawnPoints.Remove(spawnPoints[posteIndex]);
 
         // Place books randomly
-        int bookIndex;
-        for (int i = 0; i < books.Count; ++i)
+        Debug.Assert(numberOfSpawnedBooks < books.Count, "Number of spawned books " +
+            "must be lower than the number of total books");
+        int bookIndex, posIndex;
+        for (int i = 0; i < numberOfSpawnedBooks; ++i)
         {
-            bookIndex = rng.Next(0, spawnPoints.Count);
-            books[i].position = spawnPoints[bookIndex].position + Vector3.up;
-            spawnPoints.Remove(spawnPoints[bookIndex]);
+            bookIndex = rng.Next(0, books.Count);
+            posIndex = rng.Next(0, spawnPoints.Count);
+            books[bookIndex].position = spawnPoints[posIndex].position + Vector3.up;
+            books.Remove(books[bookIndex]);
+            spawnPoints.Remove(spawnPoints[posIndex]);
         }
     }
 }
