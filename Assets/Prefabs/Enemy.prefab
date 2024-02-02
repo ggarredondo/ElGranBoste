@@ -58,7 +58,7 @@ MonoBehaviour:
   listeningState:
     movementSpeed: 4
   parriedState:
-    parriedTime: 2
+    parriedTime: 3
 --- !u!114 &5222686154474462032
 MonoBehaviour:
   m_ObjectHideFlags: 0
