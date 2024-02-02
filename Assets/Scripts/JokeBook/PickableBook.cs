@@ -55,6 +55,8 @@ public class PickableBook : MonoBehaviour
 
     private void DisableBook()
     {
+        GameManager.Audio.Stop(ambientSoundName);
+
         transform.DOKill();
 
         GameManager.Audio.Play(pickUpSoundName);

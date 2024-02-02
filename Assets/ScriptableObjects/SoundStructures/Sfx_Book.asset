@@ -19,7 +19,7 @@ MonoBehaviour:
   spread: 0
   volumeRolloff: 0
   minDistance: 1
-  maxDistance: 500
+  maxDistance: 15
   customRollofCurve:
     serializedVersion: 2
     m_Curve:
