@@ -13,6 +13,8 @@ public class PlayerEffectsBehaviour : MonoBehaviour
     [SerializeField] private float fingerSnapDelay;
     [Space(5)]
     [SerializeField] private ParticleSystem parryParticles;
+    [Space(5)]
+    [SerializeField] private ParticleSystem deathParticles;
 
     [Header("Sounds")]
     [SerializeField] private string fingerSnapSoundName;
@@ -42,7 +44,11 @@ public class PlayerEffectsBehaviour : MonoBehaviour
             snapSequence.AppendInterval(fingerSnapDelay);
             snapSequence.AppendCallback(() => fingerSnapParticles.Play());
         };
-        playerStateMachine.DeadState.OnEnter += () => GameManager.Audio.Play(deathSoundName);
+        playerStateMachine.DeadState.OnEnter += () =>
+        {
+            deathParticles.Play();
+            GameManager.Audio.Play(deathSoundName);
+        };
 
         playerStateMachine.PlayerToEnemyEvents.OnParry += () => parryParticles.Play();
     }
