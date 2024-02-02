@@ -7,18 +7,14 @@ using System.Net.NetworkInformation;
 
 public class PlayerDialogue : MonoBehaviour
 {
-    [SerializeField] private PlayerStateMachine playerStateMachine;
-
     [SerializeField] private TMP_Text dialogue;
-    [SerializeField] private float betweeCharsTime;
 
-    [Header("Sounds")]
-    [SerializeField] private string soundName;
-
-    private bool exit;
+    private PlayerStateMachine playerStateMachine;
 
     private void Start()
     {
+        playerStateMachine = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStateMachine>();
+
         playerStateMachine.JokingState.OnEnter += () => dialogue.text = playerStateMachine.JokeList[playerStateMachine.SelectedJoke].Sentence;
 
         playerStateMachine.JokingState.OnExit += () => dialogue.text = "";
