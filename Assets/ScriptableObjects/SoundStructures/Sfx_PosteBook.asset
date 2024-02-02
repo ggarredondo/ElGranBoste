@@ -46,12 +46,12 @@ MonoBehaviour:
     m_RotationOrder: 4
   soundGroups:
   - sounds:
-    - name: Poste_PickUp
+    - name: PickUp
       clip: {fileID: 8300000, guid: c55898d076fa26a4f922eed8292ed481, type: 3}
       volume: 1
       pitch: 0.5
       loop: 0
-    - name: PosteBookAmbient
+    - name: BookAmbient
       clip: {fileID: 8300000, guid: 4c4bc1cd2f209754589a6991af30b593, type: 3}
       volume: 0.5
       pitch: 0.5

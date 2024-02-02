@@ -137,12 +137,6 @@ MonoBehaviour:
     sfx: Chiste5
     laughingTime: 5
     type: 0
-  - id: Gallina
-    sentence: "\xBFPor qu\xE9 cruz\xF3 la gallina la calle? Porque quer\xEDa ver
-      el otro lado."
-    sfx: Chiste6
-    laughingTime: 15
-    type: 0
   positionOffset: {x: 0, y: -0.25, z: 0}
   rotation: {x: 0, y: 360, z: 60}
   animationTime: 0.5

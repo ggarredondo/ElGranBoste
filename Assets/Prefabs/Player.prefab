@@ -4994,13 +4994,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   raycastHeight: 1
+  maxJokeRange: 19
   jokeBook: {fileID: 340082392818397220}
   jokeList:
-  - id: Taladrando
-    sentence: "\xBFQu\xE9 hace un perro con un taladro? 't\xE1 ladrando."
-    sfx: Chiste1
-    laughingTime: 10
-    type: 0
   - id: Enmedio
     sentence: Van dos y se cae el de en medio.
     sfx: Chiste2

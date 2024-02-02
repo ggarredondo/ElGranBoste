@@ -9,8 +9,8 @@ public class RandomizePositions : MonoBehaviour
 {
     [SerializeField] private CharacterController player;
     [SerializeField] private NavMeshAgent enemy;
-    [SerializeField] private Transform bookPoste;
-    [SerializeField] private List<Transform> books;
+    [SerializeField] private Transform bookPoste, booksObject;
+    private List<Transform> books;
     [SerializeField] private float numberOfSpawnedBooks;
     private List<Transform> spawnPoints;
     private System.Random rng;
@@ -54,6 +54,11 @@ public class RandomizePositions : MonoBehaviour
         int posteIndex = FurthestIndexFromPlayer();
         bookPoste.position = spawnPoints[posteIndex].position + Vector3.up;
         spawnPoints.Remove(spawnPoints[posteIndex]);
+
+        // Initialize list of books
+        books = new List<Transform>();
+        for (int i = 0; i < booksObject.childCount; ++i)
+            books.Add(booksObject.GetChild(i).transform);
 
         // Place books randomly
         Debug.Assert(numberOfSpawnedBooks < books.Count, "Number of spawned books " +
