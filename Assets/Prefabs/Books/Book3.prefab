@@ -147,7 +147,7 @@ MonoBehaviour:
   rotation: {x: 0, y: 360, z: 60}
   animationTime: 0.5
   animationRotationTime: 2
-  ambientSoundName: BookAmbient
+  ambientSoundName: 3_BookAmbient
   pickUpSoundName: 3_PickUp
 --- !u!114 &4560616705537557975
 MonoBehaviour:
