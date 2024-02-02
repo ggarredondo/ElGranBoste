@@ -3,14 +3,31 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Assertions;
 
 public class RandomizePositions : MonoBehaviour
 {
     [SerializeField] private Transform player, bookPoste;
     [SerializeField] private NavMeshAgent enemy;
     [SerializeField] private List<Transform> books;
+    [SerializeField] private int numberOfSpawnedBooks;
     private List<Transform> spawnPoints;
     private System.Random rng;
+
+    private int FurthestIndexFromPlayer()
+    {
+        int index = -1;
+        float furthestDistance = float.MinValue;
+        for (int i = 0; i < spawnPoints.Count; ++i)
+        {
+            if (Vector3.Distance(player.position, spawnPoints[i].position) > furthestDistance)
+            {
+                index = i;
+                furthestDistance = Vector3.Distance(player.position, spawnPoints[i].position);
+            }
+        }
+        return index;
+    }
 
     private void Start()
     {
@@ -21,23 +38,31 @@ public class RandomizePositions : MonoBehaviour
 
         // Place player
         rng = new System.Random();
-        int playerIndex = rng.Next(0, spawnPoints.Count - 1);
+        int playerIndex = rng.Next(0, spawnPoints.Count);
         player.position = spawnPoints[playerIndex].position + Vector3.up;
         spawnPoints.Remove(spawnPoints[playerIndex]);
 
         // Place enemy in the furthest point away from player
-        int enemyIndex = -1;
-        float furthestDistance = float.MinValue;
-        for (int i = 0; i <  spawnPoints.Count; ++i)
-        {
-            if (Vector3.Distance(player.position, spawnPoints[i].position) > furthestDistance)
-            {
-                enemyIndex = i;
-                furthestDistance = Vector3.Distance(player.position, spawnPoints[i].position);
-            }
-        }
-        Debug.Log(spawnPoints[enemyIndex].position);
-        enemy.nextPosition = spawnPoints[enemyIndex].position;
+        int enemyIndex = FurthestIndexFromPlayer();
+        enemy.Warp(spawnPoints[enemyIndex].position);
         spawnPoints.Remove(spawnPoints[enemyIndex]);
+
+        // Place poste in the furthest remaining point away from player
+        int posteIndex = FurthestIndexFromPlayer();
+        bookPoste.position = spawnPoints[posteIndex].position + Vector3.up;
+        spawnPoints.Remove(spawnPoints[posteIndex]);
+
+        //// Place books randomly
+        //Debug.Assert(numberOfSpawnedBooks < books.Count, "Number of spawned books can't be " +
+        //    "greater than the number of total books");
+        //int bookIndex, posIndex;
+        //for (int i = 0; i < numberOfSpawnedBooks; ++i)
+        //{
+        //    bookIndex = rng.Next(0, books.Count);
+        //    posIndex = rng.Next(0, spawnPoints.Count);
+        //    books[bookIndex].position = spawnPoints[posIndex].position;
+        //    books.Remove(books[bookIndex]);
+        //    spawnPoints.Remove(spawnPoints[posIndex]);
+        //}
     }
 }
