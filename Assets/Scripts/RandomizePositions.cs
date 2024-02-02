@@ -2,10 +2,12 @@ using System;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class RandomizePositions : MonoBehaviour
 {
-    [SerializeField] private Transform player, enemy, bookPoste;
+    [SerializeField] private Transform player, bookPoste;
+    [SerializeField] private NavMeshAgent enemy;
     [SerializeField] private List<Transform> books;
     private List<Transform> spawnPoints;
     private System.Random rng;
@@ -34,7 +36,8 @@ public class RandomizePositions : MonoBehaviour
                 furthestDistance = Vector3.Distance(player.position, spawnPoints[i].position);
             }
         }
-        enemy.position = spawnPoints[enemyIndex].position;
+        Debug.Log(spawnPoints[enemyIndex].position);
+        enemy.nextPosition = spawnPoints[enemyIndex].position;
         spawnPoints.Remove(spawnPoints[enemyIndex]);
     }
 }
