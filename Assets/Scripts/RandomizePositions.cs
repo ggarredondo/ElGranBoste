@@ -39,7 +39,7 @@ public class RandomizePositions : MonoBehaviour
         // Place player
         rng = new System.Random();
         int playerIndex = rng.Next(0, spawnPoints.Count);
-        player.position = spawnPoints[playerIndex].position + Vector3.up;
+        player.position = spawnPoints[playerIndex].position + Vector3.up * 1.5f;
         spawnPoints.Remove(spawnPoints[playerIndex]);
 
         // Place enemy in the furthest point away from player
