@@ -66,3 +66,8 @@ MonoBehaviour:
       volume: 1
       pitch: 0.9
       loop: 0
+    - name: Explosion
+      clip: {fileID: 8300000, guid: 4797726cad2d2c141bec89aabf18aae1, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0

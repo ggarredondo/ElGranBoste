@@ -8,6 +8,11 @@ public class EnemyEffectsBehaviour : MonoBehaviour
 {
     private EnemyStateMachine enemyStateMachine;
 
+    [Header("Requirements")]
+    [SerializeField] private Animator deathAnimator;
+    [SerializeField] private SpriteRenderer explosionSprite;
+    [SerializeField] private string triggerName;
+
     [Header("Parameters")]
     [SerializeField] private float walkingSoundPitch;
     [SerializeField] private float listeningSoundPitch;
@@ -17,7 +22,7 @@ public class EnemyEffectsBehaviour : MonoBehaviour
     [SerializeField] private string laughSoundName;
     [SerializeField] private string walkingSoundName;
     [SerializeField] private string listeningSoundName;
-    [SerializeField] private string posteSoundName;
+    [SerializeField] private string explosionSoundName;
 
     Sequence sequence;
 
@@ -47,7 +52,10 @@ public class EnemyEffectsBehaviour : MonoBehaviour
 
         enemyStateMachine.PosteState.OnEnter += () =>
         {
-            GameManager.Audio.Play(posteSoundName);
+            explosionSprite.enabled = true;
+            deathAnimator.SetTrigger(triggerName);
+
+            GameManager.Audio.Play(explosionSoundName);
 
             sequence = DOTween.Sequence();
             sequence.AppendInterval(posteTime).OnComplete(ChangeScene);
