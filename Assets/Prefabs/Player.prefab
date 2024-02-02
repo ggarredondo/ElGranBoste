@@ -4994,7 +4994,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   raycastHeight: 1
-  maxJokeRange: 19
+  maxJokeRange: 16
   jokeBook: {fileID: 340082392818397220}
   jokeList:
   - id: Enmedio
