@@ -7,8 +7,9 @@ using UnityEngine.Assertions;
 
 public class RandomizePositions : MonoBehaviour
 {
-    [SerializeField] private Transform player, bookPoste;
+    [SerializeField] private CharacterController player;
     [SerializeField] private NavMeshAgent enemy;
+    [SerializeField] private Transform bookPoste;
     [SerializeField] private List<Transform> books;
     [SerializeField] private float numberOfSpawnedBooks;
     private List<Transform> spawnPoints;
@@ -20,10 +21,10 @@ public class RandomizePositions : MonoBehaviour
         float furthestDistance = float.MinValue;
         for (int i = 0; i < spawnPoints.Count; ++i)
         {
-            if (Vector3.Distance(player.position, spawnPoints[i].position) > furthestDistance)
+            if (Vector3.Distance(player.transform.position, spawnPoints[i].position) > furthestDistance)
             {
                 index = i;
-                furthestDistance = Vector3.Distance(player.position, spawnPoints[i].position);
+                furthestDistance = Vector3.Distance(player.transform.position, spawnPoints[i].position);
             }
         }
         return index;
@@ -39,7 +40,9 @@ public class RandomizePositions : MonoBehaviour
         // Place player
         rng = new System.Random();
         int playerIndex = rng.Next(0, spawnPoints.Count);
-        player.position = spawnPoints[playerIndex].position + Vector3.up * 1.5f;
+        player.enabled = false;
+        player.transform.position = spawnPoints[playerIndex].position + Vector3.up * 1.5f;
+        player.enabled = true;
         spawnPoints.Remove(spawnPoints[playerIndex]);
 
         // Place enemy in the furthest point away from player
