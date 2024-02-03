@@ -5,6 +5,7 @@ public class OptionsMenu : AbstractMenu
 {
     [Header("UI Elements")]
     [SerializeField] private List<UnityEngine.UI.Button> options;
+    [SerializeField] private MySlider mouseSensitivity;
 
     [Header("Transition")]
     [SerializeField] private TransitionPlayer transitionPlayer;
@@ -14,6 +15,8 @@ public class OptionsMenu : AbstractMenu
     {
         foreach(UnityEngine.UI.Button button in options)
             button.onClick.AddListener(Transition);
+
+        mouseSensitivity.Value = GameManager.Save.Options.mouseSensitivity;
     }
 
     protected override void OnEnable()
@@ -26,5 +29,10 @@ public class OptionsMenu : AbstractMenu
     private void Transition()
     {
         transitionPlayer.endTransitionWithInput.Invoke();
+    }
+
+    public void Sensitivity(float value)
+    {
+        Slider(ref GameManager.Save.Options.mouseSensitivity, value);
     }
 }
