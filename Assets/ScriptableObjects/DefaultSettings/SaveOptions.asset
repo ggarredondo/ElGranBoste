@@ -24,6 +24,7 @@ MonoBehaviour:
     quality: 2
     brightness: 0
     saturation: 0
+    mouseSensitivity: 10
     rumble: 1
     rebinds:
     - 
