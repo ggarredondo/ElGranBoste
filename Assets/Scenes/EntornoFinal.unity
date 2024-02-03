@@ -5516,6 +5516,34 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 98017584}
   m_Mesh: {fileID: 520124759236446885, guid: 89b79ce3d62efa9488285a25185af026, type: 3}
+--- !u!1 &101571851 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4461435494319421328, guid: bd5f6026db2ac1845a512ea45b17668a,
+    type: 3}
+  m_PrefabInstance: {fileID: 8605663250410826039}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &101571855
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 101571851}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 106541212177282163, guid: f6b2cfc372cbb024baed999e8f831693, type: 3}
 --- !u!1001 &106601269
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -111407,7 +111435,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -320.77875, y: 0}
+  m_AnchoredPosition: {x: -460, y: 0}
   m_SizeDelta: {x: 1011.1, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4147676781037250891
@@ -111625,7 +111653,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 716.67633, y: 0}
+  m_AnchoredPosition: {x: 960, y: 0}
   m_SizeDelta: {x: 1931.4, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8342016159597103644
@@ -111709,7 +111737,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4461435494319421328, guid: bd5f6026db2ac1845a512ea45b17668a,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 101571855}
   m_SourcePrefab: {fileID: 100100000, guid: bd5f6026db2ac1845a512ea45b17668a, type: 3}
 --- !u!1 &8721304565668636193
 GameObject:

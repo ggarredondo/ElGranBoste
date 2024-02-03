@@ -53,6 +53,6 @@ MonoBehaviour:
       loop: 0
     - name: BookAmbient
       clip: {fileID: 8300000, guid: 4c4bc1cd2f209754589a6991af30b593, type: 3}
-      volume: 0.5
+      volume: 0.1
       pitch: 1
       loop: 1
