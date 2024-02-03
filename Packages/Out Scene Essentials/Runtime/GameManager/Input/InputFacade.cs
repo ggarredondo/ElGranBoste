@@ -13,13 +13,11 @@ namespace InputUtilities
         private static InputSystemUIInputModule uiInput;
 
         private bool updateInput;
-        private string pauseControlScheme;
-        private UnityEngine.InputSystem.InputDevice pauseInputdevice;
         private int currentPlayer;
 
         private System.Action detectionMethod;
 
-        public InputFacade(InputSystemUIInputModule uiModule, bool mainMenu)
+        public InputFacade(InputSystemUIInputModule uiModule)
         {
             uiInput = uiModule;
 
@@ -27,8 +25,7 @@ namespace InputUtilities
             inputDetection = new();
             controllerRumble = new();
 
-            if(mainMenu)
-                EnterPauseMenu(0,1);
+            playerInput = PlayerInput.all[0];
         }
 
         public async void OnPlayerJoined(PlayerInput currentPlayerInput)
@@ -40,46 +37,13 @@ namespace InputUtilities
             currentPlayerInput.ActivateInput();
         }
 
-        public void EnterPauseMenu(int index, int maxPlayerInput)
+        public void EnterPauseMenu()
         {
-            for(int i = 0; i < maxPlayerInput; i++)
-            {
-                if (i == index)
-                {
-                    playerInput = PlayerInput.all[index];
-                    currentPlayer = index;
-                }
-                else
-                    PlayerInput.all[i].DeactivateInput();
-            }
-
             SwitchActionMap("UI");
-
-            pauseControlScheme = CurrentControlScheme();
-            pauseInputdevice = CurrentInputDevice();
-
-            uiInput.actionsAsset = playerInput.actions;
-
-            updateInput = true;
-
-            if (pauseControlScheme == "Gamepad")
-                detectionMethod = inputDetection.GamepadDetection;
-            else
-                detectionMethod = inputDetection.KeyboardMouseDetection;
         }
 
-        public void ExitPauseMenu(int maxPlayerInput)
+        public void ExitPauseMenu()
         {
-            updateInput = false;
-
-            for (int i = 0; i < maxPlayerInput; i++)
-                PlayerInput.all[i].ActivateInput();
-
-            if (pauseControlScheme == "Gamepad")
-                playerInput.SwitchCurrentControlScheme(pauseControlScheme, pauseInputdevice);
-            else
-                playerInput.SwitchCurrentControlScheme(pauseControlScheme, Keyboard.current, Mouse.current);
-
             SwitchActionMap("Main Movement");
         }
 
@@ -97,7 +61,10 @@ namespace InputUtilities
 
         public void Update()
         {
-            detectionMethod();
+            if (CurrentControlScheme() == "Gamepad")
+                inputDetection.GamepadDetection();
+            else
+                inputDetection.KeyboardMouseDetection();
         }
 
         public void Rumble(int deviceID, float duration, float leftAmplitude, float rightAmplitude)

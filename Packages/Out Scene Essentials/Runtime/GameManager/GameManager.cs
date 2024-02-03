@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
         saver.Load();
 
         //Input Initialize
-        inputUtilities = new(GetComponent<InputSystemUIInputModule>(), mainMenu);
+        inputUtilities = new(GetComponent<InputSystemUIInputModule>());
     }
 
     private void Start()
