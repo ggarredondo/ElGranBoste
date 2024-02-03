@@ -1,16 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class PauseController : MonoBehaviour
 {
     [Header("Requirements")]
     [SerializeField] private MenuController menuController;
     [SerializeField] private TransitionPlayer transitionPlayer;
-
-    [Header("Events")]
-    [SerializeField] private EventHandler eventHandler;
-    [Space(10)]
-    [SerializeField] private List<string> eventNames; 
+    [SerializeField] private InputReader inputReader;
 
     [Header("Parameters")]
     [SerializeField] [Range(0f, 1f)] private float slowMotion;
@@ -29,17 +26,13 @@ public class PauseController : MonoBehaviour
     protected void Start()
     {
         menuController.ExitPauseMenuEvent += EnterPauseMenu;
-
-        foreach(string name in eventNames)
-            eventHandler.events[name] += EnterPauseMenu;
+        inputReader.StartPauseMenuEvent += EnterPauseMenu;
     }
 
     protected void OnDestroy()
     {
         menuController.ExitPauseMenuEvent -= EnterPauseMenu;
-
-        foreach (string name in eventNames)
-            eventHandler.events[name] -= EnterPauseMenu;
+        inputReader.StartPauseMenuEvent -= EnterPauseMenu;
 
         GameManager.Audio.SetFloat("MusicCutoffFreq", 22000);
     }
@@ -52,6 +45,7 @@ public class PauseController : MonoBehaviour
 
     public async void EnterPauseMode()
     {
+        DOTween.PauseAll();
         pauseMenuActivated = true;
         Time.timeScale = slowMotion;
 
@@ -79,5 +73,10 @@ public class PauseController : MonoBehaviour
         await transitionPlayer.endTransitionWithInput.Invoke();
 
         ExitPause?.Invoke();
+
+        foreach(Tween tween in DOTween.PausedTweens())
+        {
+            tween.Play();
+        }
     }
 }

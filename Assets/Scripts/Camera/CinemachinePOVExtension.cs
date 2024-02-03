@@ -75,6 +75,9 @@ public class CinemachinePOVExtension : CinemachineExtension
         eventHandler.events[parryEventName] += ParryCameraShake;
 
         player = GameObject.FindGameObjectWithTag(playerTag).GetComponent<PlayerStateMachine>();
+
+        horizontalSpeed = GameManager.Save.Options.mouseSensitivity;
+        verticalSpeed = GameManager.Save.Options.mouseSensitivity;
     }
 
     private void Update()

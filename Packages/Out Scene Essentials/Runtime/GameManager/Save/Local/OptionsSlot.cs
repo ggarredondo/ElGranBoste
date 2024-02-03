@@ -18,6 +18,7 @@ namespace SaveUtilities
         public float brightness;
         public float saturation;
 
+        public float mouseSensitivity;
         public bool rumble;
         public List<string> rebinds;
 
