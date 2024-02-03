@@ -7298,14 +7298,6 @@ MonoBehaviour:
     buttonSoundName: PressButton
     changeSoundName: 
     timeBetweenSounds: 0.1
-  transitionPlayer: {fileID: 4314630740492887252}
-  customTransitionData:
-    startLeftPosition: {x: -600, y: 0}
-    startRightPosition: {x: 0, y: 0}
-    endLeftPosition: {x: 1110, y: 0}
-    endRightPosition: {x: 0, y: 0}
-    startSound: TransitionStart
-    endSound: TransitionEnd
 --- !u!224 &1314026204758542048
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8167,7 +8159,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Options
+  m_text: Opciones
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -8352,7 +8344,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Exit
+  m_text: Salir
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -8573,7 +8565,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Play
+  m_text: Jugar
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -13389,7 +13381,10 @@ MonoBehaviour:
   transitionTime: 0.5
   firstMenu: 0
   firstSelected: {fileID: 8992208918177639138}
-  volumeProfile: {fileID: 11400000, guid: 8f85072af1b080641b45e4872656c4eb, type: 2}
+  volumeProfiles:
+  - {fileID: 11400000, guid: 7bbe35cdf5d69e14abbb03eccedaa5bd, type: 2}
+  - {fileID: 11400000, guid: 9b4a39961b0da7a4a887ea216771d576, type: 2}
+  - {fileID: 11400000, guid: 8f85072af1b080641b45e4872656c4eb, type: 2}
   fullscreen:
     dependency: {fileID: 0}
     inverseDependency: 0

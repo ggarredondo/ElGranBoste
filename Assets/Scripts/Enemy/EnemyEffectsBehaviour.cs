@@ -65,9 +65,14 @@ public class EnemyEffectsBehaviour : MonoBehaviour
         };
     }
 
+    private void OnDestroy()
+    {
+        sequence.Kill();
+    }
+
     private void ChangeScene()
     {
-        DOTween.KillAll();
+        DOTween.CompleteAll();
         GameManager.Scene.NextScene();
     }
 }

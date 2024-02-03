@@ -47,4 +47,9 @@ public class ParryAnimation : MonoBehaviour
         parrySequence.Append(transform.DOLocalMove(recoveryPosition, playerStateMachine.ParryState.Recovery).SetEase(recoveryEase));
         parrySequence.Join(transform.DOLocalRotateQuaternion(recoveryRotation, playerStateMachine.ParryState.Recovery).SetEase(recoveryEase));
     }
+
+    private void OnDestroy()
+    {
+        parrySequence.Kill();
+    }
 }

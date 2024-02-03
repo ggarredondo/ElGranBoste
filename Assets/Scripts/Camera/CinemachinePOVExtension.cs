@@ -59,30 +59,38 @@ public class CinemachinePOVExtension : CinemachineExtension
         target = VirtualCamera.Follow;
         initialPosition = target.localPosition;
 
-        PlayerCameraShake();
-
         base.Awake();
     }
 
     protected override void OnDestroy()
     {
         base.OnDestroy();
+
+        sequenceX.Kill();
+        sequenceY.Kill();
+        deathSequence.Kill();
+        parrySequence.Kill();
     }
 
     private void Start()
     {
+        PlayerCameraShake();
+
         eventHandler.events[deathEventName] += DeathCameraMovement;
         eventHandler.events[parryEventName] += ParryCameraShake;
 
         player = GameObject.FindGameObjectWithTag(playerTag).GetComponent<PlayerStateMachine>();
-
-        horizontalSpeed = GameManager.Save.Options.mouseSensitivity;
-        verticalSpeed = GameManager.Save.Options.mouseSensitivity;
     }
 
     private void Update()
     {
-        UpdateDuration();
+        if (!PauseController.pauseMenuActivated)
+            UpdateDuration();
+        else
+        {
+            horizontalSpeed = GameManager.Save.Options.mouseSensitivity;
+            verticalSpeed = GameManager.Save.Options.mouseSensitivity;
+        }
     }
 
     private void UpdateDuration()

@@ -51,5 +51,8 @@ public class PlayerEffectsBehaviour : MonoBehaviour
         };
 
         playerStateMachine.PlayerToEnemyEvents.OnParry += () => parryParticles.Play();
+
+        playerStateMachine.RunningState.OnEnter += () => PauseController.canPauseMenu = true;
+        playerStateMachine.RunningState.OnExit += () => PauseController.canPauseMenu = false;
     }
 }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using DG.Tweening;
 
 public class MainPauseMenu : AbstractMenu
 {
@@ -7,7 +8,6 @@ public class MainPauseMenu : AbstractMenu
     [Header("UI Elements")]
     [SerializeField] private UnityEngine.UI.Button resumeButton;
     [SerializeField] private UnityEngine.UI.Button backButton;
-    [SerializeField] private UnityEngine.UI.Button resetButton;
 
     [Header("Transition")]
     [SerializeField] private TransitionPlayer transitionPlayer;
@@ -16,7 +16,6 @@ public class MainPauseMenu : AbstractMenu
     {
         resumeButton.onClick.AddListener(ResumeGame);
         backButton.onClick.AddListener(Exit);
-        resetButton.onClick.AddListener(ResetPlayers);
     }
     protected override void OnEnable()
     {
@@ -29,14 +28,11 @@ public class MainPauseMenu : AbstractMenu
         pauseController.ExitPauseMode();
     }
 
-    private void ResetPlayers()
-    {
-        Time.timeScale = 1;
-        GameManager.Scene.PreviousScene(transition : false);
-    }
-
     private void Exit()
     {
-        Application.Quit();
+        Time.timeScale = 1;
+        PauseController.pauseMenuActivated = false;
+        DOTween.CompleteAll();
+        GameManager.Scene.NextScene(transition : false);
     }
 }

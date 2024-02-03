@@ -1,10 +1,11 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
 public class VisualsMenu : AbstractMenu
 {
-    [SerializeField] private VolumeProfile volumeProfile;
+    [SerializeField] private List<VolumeProfile> volumeProfiles;
 
     [Header("UI Elements")]
     [SerializeField] private MyToggle fullscreen;
@@ -13,11 +14,16 @@ public class VisualsMenu : AbstractMenu
     [SerializeField] private MySlider brightness;
     [SerializeField] private MySlider saturation;
 
-    private ColorAdjustments colorAdjustments;
+    private List<ColorAdjustments> colorAdjustments;
 
     protected override void Configure()
     {
-        if (volumeProfile.TryGet(out ColorAdjustments tmp)) colorAdjustments = tmp;
+        colorAdjustments = new();
+
+        for(int i = 0; i < volumeProfiles.Count; i++)
+        {
+            if (volumeProfiles[i].TryGet(out ColorAdjustments tmp)) colorAdjustments.Add(tmp);
+        }
 
         fullscreen.Value = GameManager.Save.Options.fullscreen;
         vsync.Value = GameManager.Save.Options.vSync;
@@ -46,12 +52,16 @@ public class VisualsMenu : AbstractMenu
     public void ChangeBrightness(float value)
     {
         GameManager.Save.Options.brightness = value;
-        colorAdjustments.postExposure.value = value;
+
+        foreach(ColorAdjustments color in colorAdjustments)
+            color.postExposure.value = value;
     }
 
     public void ChangeSaturation(float value)
     {
         GameManager.Save.Options.saturation = value;
-        colorAdjustments.saturation.value = value;
+
+        foreach (ColorAdjustments color in colorAdjustments)
+            color.saturation.value = value;
     }
 }

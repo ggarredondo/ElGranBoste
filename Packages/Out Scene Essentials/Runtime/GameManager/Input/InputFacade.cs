@@ -15,8 +15,6 @@ namespace InputUtilities
         private bool updateInput;
         private int currentPlayer;
 
-        private System.Action detectionMethod;
-
         public InputFacade(InputSystemUIInputModule uiModule)
         {
             uiInput = uiModule;
@@ -25,8 +23,10 @@ namespace InputUtilities
             inputDetection = new();
             controllerRumble = new();
 
-            playerInput = PlayerInput.all[0];
+            UpdatePlayerInput();
         }
+
+        
 
         public async void OnPlayerJoined(PlayerInput currentPlayerInput)
         {
@@ -35,6 +35,11 @@ namespace InputUtilities
             await System.Threading.Tasks.Task.Delay(System.TimeSpan.FromSeconds(1));
 
             currentPlayerInput.ActivateInput();
+        }
+
+        public void UpdatePlayerInput()
+        {
+            playerInput = PlayerInput.all[0];
         }
 
         public void EnterPauseMenu()

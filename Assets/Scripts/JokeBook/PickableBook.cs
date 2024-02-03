@@ -20,6 +20,9 @@ public class PickableBook : MonoBehaviour
     private MeshRenderer meshRenderer;
     private Collider bookCollider;
 
+    private Sequence moveSequence;
+    private Sequence rotateSequence;
+
     private void Start()
     {
         meshRenderer = GetComponent<MeshRenderer>();
@@ -31,8 +34,19 @@ public class PickableBook : MonoBehaviour
 
     private void Move()
     {
-        transform.DOLocalMove(transform.localPosition + positionOffset, animationTime).SetLoops(-1, LoopType.Yoyo).SetEase(Ease.InOutQuad);
-        transform.DOLocalRotate(rotation, animationRotationTime, RotateMode.FastBeyond360).SetEase(Ease.Linear).SetLoops(-1, LoopType.Restart);
+        moveSequence = DOTween.Sequence();
+        moveSequence.Append(transform.DOLocalMove(transform.localPosition + positionOffset, animationTime).SetEase(Ease.InOutQuad));
+        moveSequence.SetLoops(-1, LoopType.Yoyo);
+
+        rotateSequence = DOTween.Sequence();
+        rotateSequence.Append(transform.DOLocalRotate(rotation, animationRotationTime, RotateMode.FastBeyond360).SetEase(Ease.Linear));
+        rotateSequence.SetLoops(-1, LoopType.Restart);
+    }
+
+    private void OnDestroy()
+    {
+        moveSequence.Kill();
+        rotateSequence.Kill();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -56,9 +70,6 @@ public class PickableBook : MonoBehaviour
     private void DisableBook()
     {
         GameManager.Audio.Stop(ambientSoundName);
-
-        transform.DOKill();
-
         GameManager.Audio.Play(pickUpSoundName);
 
         meshRenderer.enabled = false;

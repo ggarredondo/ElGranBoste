@@ -90,7 +90,6 @@ public class GameManager : MonoBehaviour
     public void OnPlayerJoined(PlayerInput playerInput)
     {
         inputUtilities.OnPlayerJoined(playerInput);
-
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -106,6 +105,8 @@ public class GameManager : MonoBehaviour
                 foreach (string tag in currentSceneLogic.gameObjectsTag)
                     GameObject.FindGameObjectWithTag(tag).GetComponent<IObjectInitialize>().Initialize();
             }
+
+            inputUtilities.UpdatePlayerInput();
 
             AudioController.InitializeSound?.Invoke();
 
