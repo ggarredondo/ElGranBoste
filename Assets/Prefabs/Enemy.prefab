@@ -161,7 +161,7 @@ MonoBehaviour:
   laughingExtraTime: 10
   currentStateName: 
   chasingState:
-    movementSpeed: 6
+    movementSpeed: 8
   listeningState:
     movementSpeed: 4
   parriedState:
@@ -216,7 +216,7 @@ MonoBehaviour:
   deathAnimator: {fileID: 3576076960312281031}
   explosionSprite: {fileID: 7308359661505415201}
   triggerName: Death
-  walkingSoundPitch: 2
+  walkingSoundPitch: 2.6
   listeningSoundPitch: 1
   posteTime: 1
   laughSoundName: EnemyLaugh

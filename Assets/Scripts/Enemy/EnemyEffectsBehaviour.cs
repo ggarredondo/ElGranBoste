@@ -30,23 +30,26 @@ public class EnemyEffectsBehaviour : MonoBehaviour
     {
         enemyStateMachine = GetComponent<EnemyStateMachine>();
 
-        enemyStateMachine.ChasingState.OnEnter += () => GameManager.Audio.Play(walkingSoundName);
+        enemyStateMachine.ChasingState.OnEnter += () =>
+        {
+            GameManager.Audio.ChangePitch(walkingSoundName, walkingSoundPitch);
+            GameManager.Audio.Play(walkingSoundName);
+        };
         enemyStateMachine.ChasingState.OnExit += () => GameManager.Audio.Stop(walkingSoundName);
 
         enemyStateMachine.LaughingState.OnEnter += () => GameManager.Audio.Play(laughSoundName);
         enemyStateMachine.LaughingState.OnExit += () => GameManager.Audio.Stop(laughSoundName);
 
         enemyStateMachine.ListeningState.OnEnter += () => 
-        { 
-            GameManager.Audio.Play(listeningSoundName);
+        {
             GameManager.Audio.ChangePitch(walkingSoundName, listeningSoundPitch);
+            GameManager.Audio.Play(listeningSoundName);
             GameManager.Audio.Play(walkingSoundName);
         };
 
         enemyStateMachine.ListeningState.OnExit += () =>
         {
             GameManager.Audio.Stop(listeningSoundName);
-            GameManager.Audio.ChangePitch(walkingSoundName, walkingSoundPitch);
             GameManager.Audio.Stop(walkingSoundName);
         };
 
