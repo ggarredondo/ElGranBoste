@@ -18,17 +18,21 @@ public class PauseController : MonoBehaviour
 
     [Header("Parameters")]
     [SerializeField] [Range(0f, 1f)] private float slowMotion;
+    [SerializeField] private float coolDown;
 
     public static bool pauseMenuActivated = false;
-    public static bool canPauseMenu = true;
+    public static bool canPauseMenu = true, isTimer;
 
     public static System.Action EnterPause;
     public static System.Action ExitPause;
+
+    private Sequence pauseCoolDown;
 
     private void Awake()
     {
         transitionPlayer.Initialize();
         menuController.pauseMenu = true;
+        canPauseMenu = true;
     }
 
     protected void Start()
@@ -49,8 +53,13 @@ public class PauseController : MonoBehaviour
 
     private void EnterPauseMenu()
     {
-        if (!pauseMenuActivated && canPauseMenu) EnterPauseMode();
-        else if(canPauseMenu) ExitPauseMode();
+        if (!pauseMenuActivated && canPauseMenu && !isTimer)
+        {
+            EnterPauseMode();
+            return;
+        }
+
+        if(pauseMenuActivated) ExitPauseMode();
     }
 
     private void Update()
@@ -107,8 +116,18 @@ public class PauseController : MonoBehaviour
             tween.Play();
         }
 
+        isTimer = true;
+        Timer();
+
         await transitionPlayer.endTransitionWithInput.Invoke();
 
         ExitPause?.Invoke();
+    }
+
+    public void Timer()
+    {
+        pauseCoolDown = DOTween.Sequence();
+        pauseCoolDown.AppendInterval(coolDown);
+        pauseCoolDown.OnComplete(() => isTimer = false);
     }
 }
