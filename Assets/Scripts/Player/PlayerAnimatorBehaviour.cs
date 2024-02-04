@@ -5,7 +5,7 @@ public class PlayerAnimatorBehaviour : MonoBehaviour
     [SerializeField] private Animator animator;
     private PlayerStateMachine playerStateMachine;
 
-    private void Start()
+    private void Awake()
     {
         playerStateMachine = GetComponent<PlayerStateMachine>();
 
