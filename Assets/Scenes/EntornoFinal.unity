@@ -93483,7 +93483,7 @@ MonoBehaviour:
   unpausedVolumeProfile: {fileID: 11400000, guid: 7bbe35cdf5d69e14abbb03eccedaa5bd,
     type: 2}
   slowMotion: 0
-  coolDown: 0.5
+  coolDown: 1
 --- !u!1001 &1648525907
 PrefabInstance:
   m_ObjectHideFlags: 0
