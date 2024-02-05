@@ -59,6 +59,9 @@ public class CinemachinePOVExtension : CinemachineExtension
         target = VirtualCamera.Follow;
         initialPosition = target.localPosition;
 
+        horizontalSpeed = GameManager.Save.Options.mouseSensitivity;
+        verticalSpeed = GameManager.Save.Options.mouseSensitivity;
+
         base.Awake();
     }
 

@@ -67,8 +67,8 @@ MonoBehaviour:
       pitch: 1
       loop: 0
     - name: ParrySound
-      clip: {fileID: 8300000, guid: ba95eda2926d5db4f8998aefbc04846c, type: 3}
-      volume: 1
+      clip: {fileID: 8300000, guid: 1e0763b649b163c45a71d3c09168d2e1, type: 3}
+      volume: 0.8
       pitch: 1
       loop: 0
     - name: Woosh
