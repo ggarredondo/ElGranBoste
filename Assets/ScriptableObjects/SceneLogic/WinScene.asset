@@ -9,11 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b1efa1485328b64f9c5db7ab7773559, type: 3}
-  m_Name: SaveGame
+  m_Script: {fileID: 11500000, guid: d66219019227eb34c927cb1bf1fd9889, type: 3}
+  m_Name: WinScene
   m_EditorClassIdentifier: 
-  numGameSlots: 3
-  defaultGame:
-    name: GameSave
-    bestScore: 1e+16
-    lastScore: 0
+  sceneName: WinScene
+  nextScene: []
+  previousScene: []
+  playMusic: 0
+  music: WinnerAmbient
+  gameObjectsTag: []

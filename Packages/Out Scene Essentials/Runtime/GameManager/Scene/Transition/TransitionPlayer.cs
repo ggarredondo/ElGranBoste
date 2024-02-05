@@ -13,7 +13,6 @@ public class TransitionPlayer : MonoBehaviour
 
     [Header("Parameters")]
     [SerializeField] private float lerpDuration;
-    [SerializeField] private float extraDuration;
 
     public System.Func<Task> startTransition;
     public System.Func<Task> endTransition;

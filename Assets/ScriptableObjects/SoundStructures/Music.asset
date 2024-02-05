@@ -38,3 +38,8 @@ MonoBehaviour:
       volume: 1
       pitch: 1
       loop: 1
+    - name: WinnerAmbient
+      clip: {fileID: 8300000, guid: 8cea99fc7383a2149a91dcbc7fa6e640, type: 3}
+      volume: 0.1
+      pitch: 1
+      loop: 0

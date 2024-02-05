@@ -73,6 +73,6 @@ public class EnemyEffectsBehaviour : MonoBehaviour
     private void ChangeScene()
     {
         DOTween.CompleteAll();
-        GameManager.Scene.NextScene();
+        GameManager.Scene.NextScene(sceneIndex: 1);
     }
 }

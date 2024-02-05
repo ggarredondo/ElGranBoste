@@ -23,7 +23,7 @@ public class LoadingController : MonoBehaviour
     private Sequence continueSequence;
     private RectTransform rectTransform;
 
-    private void Start()
+    protected virtual void Start()
     {
         SceneLoader.UpdateLoading += UpdateLoading;
         actionReference.action.performed += TriggerAction;
@@ -34,7 +34,7 @@ public class LoadingController : MonoBehaviour
         InitializeAnimation();
     }
 
-    private void OnDestroy()
+    protected virtual void OnDestroy()
     {
         SceneLoader.UpdateLoading -= UpdateLoading;
         actionReference.action.performed -= TriggerAction;
@@ -47,7 +47,7 @@ public class LoadingController : MonoBehaviour
         isLoaded = true;
     }
 
-    private void InitializeAnimation()
+    protected virtual void InitializeAnimation()
     {
         continueSequence = DOTween.Sequence();
         continueSequence.Append(rectTransform.DOScale(endScaleAnimation, animationDuration));

@@ -9636,7 +9636,6 @@ MonoBehaviour:
     startSound: TransitionStart
     endSound: TransitionEnd
   lerpDuration: 0.5
-  extraDuration: 0
 --- !u!222 &4330028643325120317
 CanvasRenderer:
   m_ObjectHideFlags: 0

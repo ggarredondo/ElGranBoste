@@ -17,6 +17,9 @@ MonoBehaviour:
   - sceneName: Menu_NonDestructable
     withLoadScreen: 0
     loadSceneName: 
+  - sceneName: Menu_NonDestructable
+    withLoadScreen: 1
+    loadSceneName: WinScene
   previousScene:
   - sceneName: EntornoFinal
     withLoadScreen: 0

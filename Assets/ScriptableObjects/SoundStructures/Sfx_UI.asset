@@ -58,3 +58,14 @@ MonoBehaviour:
       volume: 1
       pitch: 0.5
       loop: 0
+  - sounds:
+    - name: ExploteWinner
+      clip: {fileID: 8300000, guid: 62cfd211087fea64fbc9f546759f8cf2, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+    - name: TimeWinner
+      clip: {fileID: 8300000, guid: 97f4f6f8e0b07da41813765ba91a103f, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
