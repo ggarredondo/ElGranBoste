@@ -64,6 +64,9 @@ public class LoadingWinScene : LoadingController
         int seconds = Mathf.FloorToInt(elapsedTime % 60);
         int milliseconds = Mathf.FloorToInt((elapsedTime * 1000) % 1000);
 
-        tmpText.text = minutes.ToString() + ":" + seconds.ToString() + ":" + milliseconds.ToString();
+        if(seconds < 10)
+            tmpText.text = minutes.ToString() + ":0" + seconds.ToString() + ":" + milliseconds.ToString();
+        else
+            tmpText.text = minutes.ToString() + ":" + seconds.ToString() + ":" + milliseconds.ToString();
     }
 }
