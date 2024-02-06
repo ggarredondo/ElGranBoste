@@ -427,6 +427,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1243985179}
   - component: {fileID: 1243985178}
+  - component: {fileID: 1243985180}
   m_Layer: 0
   m_Name: PostEffectController
   m_TagString: Untagged
@@ -466,6 +467,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1243985180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1243985177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 364c9418edcb6c448b5f334b085e49ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeProfiles:
+  - {fileID: 11400000, guid: 7bbe35cdf5d69e14abbb03eccedaa5bd, type: 2}
+  - {fileID: 11400000, guid: 9b4a39961b0da7a4a887ea216771d576, type: 2}
+  - {fileID: 11400000, guid: 8f85072af1b080641b45e4872656c4eb, type: 2}
 --- !u!1 &1445686497
 GameObject:
   m_ObjectHideFlags: 0
