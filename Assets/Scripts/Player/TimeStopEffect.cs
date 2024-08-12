@@ -15,6 +15,7 @@ public class TimeStopEffect : MonoBehaviour
     [SerializeField] private float delay;
     [SerializeField] private float stopTime;
     [SerializeField] private List<int> chromaticAberrationList;
+    private float defaultHue;
 
     private Sequence sequence;
     private ChromaticAberration chromaticAberration;
@@ -38,6 +39,7 @@ public class TimeStopEffect : MonoBehaviour
         {
             Time.timeScale = 0f;
             chromaticAberration.intensity.Override(1);
+            defaultHue = colorAdjustments.hueShift.value;
             colorAdjustments.hueShift.Override(chromaticAberrationList[Random.Range(0, chromaticAberrationList.Count)]);
         });
         sequence.AppendInterval(stopTime);
@@ -45,7 +47,7 @@ public class TimeStopEffect : MonoBehaviour
         {
             Time.timeScale = 1f;
             chromaticAberration.intensity.Override(0);
-            colorAdjustments.hueShift.Override(0);
+            colorAdjustments.hueShift.Override(defaultHue);
         });
     }
 }

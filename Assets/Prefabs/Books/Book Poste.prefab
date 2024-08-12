@@ -4984,8 +4984,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jokes:
-  - id: Poste
-    sentence: Una polla como un poste.
+  - id: Escape
+    sentence: Escape from the Aliens in Outer Space
     sfx: ChisteBoste
     laughingTime: 0
     type: 1

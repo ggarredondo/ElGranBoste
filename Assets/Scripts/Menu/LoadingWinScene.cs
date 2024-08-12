@@ -24,7 +24,7 @@ public class LoadingWinScene : LoadingController
     {
         base.Start();
 
-        SetTime(ref lastScoreText, GameManager.Save.Game.lastScore);
+        //SetTime(ref lastScoreText, GameManager.Save.Game.lastScore);
 
         GameManager.Audio.Play("WinnerAmbient");
     }

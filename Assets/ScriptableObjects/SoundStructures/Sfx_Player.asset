@@ -153,7 +153,7 @@ MonoBehaviour:
       pitch: 1
       loop: 0
     - name: ChisteBoste
-      clip: {fileID: 8300000, guid: 3667d2dbe73e3ae4ca62af9440223fda, type: 3}
+      clip: {fileID: 8300000, guid: d17c14a7c80f60c4b8aebc0c87105363, type: 3}
       volume: 1
       pitch: 1
       loop: 0
